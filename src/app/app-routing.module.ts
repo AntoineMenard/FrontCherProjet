@@ -11,6 +11,7 @@ import { ProposerProjetEntrepriseComponent } from './proposer-projet-entreprise/
 import { RechercheEntrepriseComponent } from './recherche-entreprise/recherche-entreprise.component';
 import { RechercheProjetComponent } from './recherche-projet/recherche-projet.component';
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -24,6 +25,9 @@ const routes: Routes = [
   {path: 'recherche-entreprise', component: RechercheEntrepriseComponent},
   {path: 'recherche-projet', component: RechercheProjetComponent},
   {path: 'proposer-projet-utilisateur', component: ProposerProjetUtilisateurComponent},
+  {path: 'home-page', component: HomepageComponent},
+
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];
 
 @NgModule({
