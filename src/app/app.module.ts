@@ -14,6 +14,7 @@ import { RechercheEntrepriseComponent } from './recherche-entreprise/recherche-e
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     RechercheEntrepriseComponent,
     MessagerieComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ProposerProjetUtilisateurComponent
   ],
   imports: [
     BrowserModule,

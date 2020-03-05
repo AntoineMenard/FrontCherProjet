@@ -10,6 +10,7 @@ import { ProjetsComponent } from './projets/projets.component';
 import { ProposerProjetEntrepriseComponent } from './proposer-projet-entreprise/proposer-projet-entreprise.component';
 import { RechercheEntrepriseComponent } from './recherche-entreprise/recherche-entreprise.component';
 import { RechercheProjetComponent } from './recherche-projet/recherche-projet.component';
+import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'proposer-projet-entreprise', component: ProposerProjetEntrepriseComponent},
   {path: 'recherche-entreprise', component: RechercheEntrepriseComponent},
   {path: 'recherche-projet', component: RechercheProjetComponent},
+  {path: 'proposer-projet-utilisateur', component: ProposerProjetUtilisateurComponent},
 ];
 
 @NgModule({
