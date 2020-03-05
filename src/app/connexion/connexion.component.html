@@ -27,16 +27,16 @@
                         <br>
 
                         <div>
-                            <form>
+                            <form (ngSubmit)="connexionParticulier()">
      
                                 <div class="form-group">
-                                    <input type="text " class="form-control" placeholder="adresse mail"
-                                        name="mailentreprise" required>
+                                    <input type="text " class="form-control" placeholder="adresse mail" [(ngModel)] = "Particulier.mail"
+                                        name="mail" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="mot de passe" type="password"
-                                        name="mdpentreprise" required>
+                                    <input type="text" class="form-control" placeholder="mot de passe" [(ngModel)] = "Particulier.mdp" type="password"
+                                        name="mdp" required>
                                 </div>
                                 <nav>
                                     <button class="btn btn-primary btn-block" type="submit"> Se connecter </button>
@@ -50,15 +50,15 @@
                         <br>
 
                         <div>
-                            <form>
+                            <form (ngSubmit)="connexionEntreprise()">
      
                                 <div class="form-group">
-                                    <input type="text " class="form-control" placeholder="adresse mail"
+                                    <input type="text " class="form-control" placeholder="adresse mail" [(ngModel)] = "Entreprise.mail"
                                         name="mailentreprise" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="mot de passe" type="password"
+                                    <input type="text" class="form-control" placeholder="mot de passe" type="password" [(ngModel)] = "Entreprise.mdp"
                                         name="mdpentreprise" required>
                                 </div>
                                 <nav>
