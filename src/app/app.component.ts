@@ -12,4 +12,8 @@ export class AppComponent {
 
   // visibleNav = true;
   title = 'CherProjet';
+  deconnexion() {
+  sessionStorage.removeItem('idUtilisateur');
 }
+}
+
