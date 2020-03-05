@@ -8,7 +8,6 @@ import { Utilisateur } from '../model/Utilisateur';
 })
 export class ConnexionComponent implements OnInit {
 
-  
   Utilisateur: Utilisateur = new Utilisateur();
 
   constructor() { }
