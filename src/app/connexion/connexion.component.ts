@@ -18,12 +18,21 @@ export class ConnexionComponent implements OnInit {
   Entreprise: Entreprise = new Entreprise();
   particulier = false;
   entreprise = false;
+  visible = false;
 
   constructor(
     private router: Router,
     private http: HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  msgVisible() {
+    if (this.visible === false) {
+      this.visible = true;
+    } else {
+      this.visible = false;
+    }
   }
 
   connexionParticulier() {
@@ -34,7 +43,7 @@ export class ConnexionComponent implements OnInit {
         this.router.navigate(['/recherche-projet']);
 
 
-      } else { console.log('METTRE UNE ERREUR');}
+      } else { this.msgVisible();}
     }, err => { console.log(err);
 
     });
@@ -47,7 +56,7 @@ export class ConnexionComponent implements OnInit {
         if (this.e.mail != null) {
           sessionStorage.setItem('idUtilisateur', this.e.id_utilisateur);
           this.router.navigate(['/projets']);
-       } else { console.log('METTRE UNE ERREUR');}
+       } else { this.msgVisible();}
       }, err => { console.log(err);
       });
       }
