@@ -18,6 +18,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { InscriptionconnexionComponent } from './inscriptionconnexion/inscriptionconnexion.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 @NgModule({
   declarations: [
@@ -33,15 +35,18 @@ import { HomepageComponent } from './homepage/homepage.component';
     ConnexionComponent,
     InscriptionComponent,
     ProposerProjetUtilisateurComponent,
-    HomepageComponent
+    HomepageComponent,
+    InscriptionconnexionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
+  entryComponents: [InscriptionconnexionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
