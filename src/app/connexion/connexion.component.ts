@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Utilisateur } from '../model/Utilisateur';
+import { Particulier } from '../model/Particulier';
+import { Entreprise } from '../model/Entreprise';
 
 @Component({
   selector: 'app-connexion',
@@ -8,7 +9,8 @@ import { Utilisateur } from '../model/Utilisateur';
 })
 export class ConnexionComponent implements OnInit {
 
-  Utilisateur: Utilisateur = new Utilisateur();
+  Particulier: Particulier = new Particulier();
+  Entreprise: Entreprise = new Entreprise();
 
   constructor() { }
 
@@ -16,7 +18,8 @@ export class ConnexionComponent implements OnInit {
   }
 
   Connexion() {
-      localStorage.setItem(this.Utilisateur.mail, this.Utilisateur.mdp);
+      localStorage.setItem(this.Particulier.mail, this.Particulier.mdp);
+      localStorage.setItem(this.Entreprise.mail, this.Entreprise.mdp);
       return true;
     }
   }
