@@ -15,7 +15,6 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
