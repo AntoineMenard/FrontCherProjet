@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Particulier } from '../model/Particulier';
 import { Entreprise } from '../model/Entreprise';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-connexion',
@@ -10,26 +11,50 @@ import { Entreprise } from '../model/Entreprise';
 })
 export class ConnexionComponent implements OnInit {
 
+
+  p;
+  e;
   Particulier: Particulier = new Particulier();
   Entreprise: Entreprise = new Entreprise();
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private http: HttpClient) { }
   particulier = false;
   entreprise = false;
 
   ngOnInit(): void {
   }
 
-  Connexion() {
-      localStorage.setItem(this.Particulier.mail, this.Particulier.mdp);
-      localStorage.setItem(this.Entreprise.mail, this.Entreprise.mdp);
-      return true;
+  connexionParticulier() {
+    this.http.post('http://localhost:8088/particuliers', this.Particulier).subscribe(data => {
+      this.p = data;
+      if (this.p.mail != null) {
+        sessionStorage.setItem('idUtilisateur', this.p.id_utilisateur);
+        this.router.navigate(['/recherche-projet']);
+
+
+      } else { console.log('METTRE UNE ERREUR');}
+    }, err => { console.log(err);
+
+    });
+
     }
+
+    connexionEntreprise() {
+      this.http.post('http://localhost:8088/entreprises', this.Entreprise).subscribe(data => {
+        this.e = data;
+        if (this.e.mail != null) {
+          sessionStorage.setItem('idUtilisateur', this.e.id_utilisateur);
+          this.router.navigate(['/projets']);
+       } else { console.log('METTRE UNE ERREUR');}
+      }, err => { console.log(err);
+      });
+      }
 
     visibleParticulier() {
       if (this.particulier) {
         this.particulier = false;
-  
       } else {
         this.particulier = true;
         this.entreprise = true;
