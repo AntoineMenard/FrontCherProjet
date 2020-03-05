@@ -3,6 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.active {
+
+    background-color: rgba(155, 228, 235, 0.87) !important;
+}
 .formhead{
     background-color: skyblue !important;
     color: white;
