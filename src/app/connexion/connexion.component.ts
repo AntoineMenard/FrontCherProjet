@@ -16,12 +16,12 @@ export class ConnexionComponent implements OnInit {
   e;
   Particulier: Particulier = new Particulier();
   Entreprise: Entreprise = new Entreprise();
+  particulier = false;
+  entreprise = false;
 
   constructor(
     private router: Router,
     private http: HttpClient) { }
-  particulier = false;
-  entreprise = false;
 
   ngOnInit(): void {
   }
