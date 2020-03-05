@@ -1,30 +1,82 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-header formhead">
-                    <p class="font-weight-bold"> Formulaire de connexion</p>
-                </div><br>
-                <div class="card_body">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="card ">
+                <div class="card-header formhead ">
+                    <h1 class="text-center"> Connectez-vous <br>
+                        <span class="font-weight-bold">Parce que c'est VOTRE projet!</span></h1>
+                </div>
+                <div class="card_body ">
+                    <br>
                     <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 text-center">
+                                <button class="btn btn-primary btn-raised btn-block "
+                                    (click)='visibleParticulier()'>Particulier</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-raised btn-block" style="color:cadetblue"
+                                    (click)='visibleEntreprise()'>Entreprise</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container" *ngIf='particulier'>
                         <br>
+
                         <div>
-                            <form action="Connexion()">
+                            <form>
+     
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="identifiant"  name="identifiant">
+                                    <input type="text " class="form-control" placeholder="adresse mail"
+                                        name="mailentreprise" required>
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="mot de passe"  type="password" name="mdp">
-                                </div><br><br>
-                                <button class="btn btn-primary   btn-block" type="submit" > Connexion</button>
+                                    <input type="text" class="form-control" placeholder="mot de passe" type="password"
+                                        name="mdpentreprise" required>
+                                </div>
+                                <nav>
+                                    <button class="btn btn-primary btn-block" type="submit"> Se connecter </button>
+                                </nav>
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container" *ngIf='entreprise'>
+                        <br>
+
+                        <div>
+                            <form>
+     
+                                <div class="form-group">
+                                    <input type="text " class="form-control" placeholder="adresse mail"
+                                        name="mailentreprise" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="mot de passe" type="password"
+                                        name="mdpentreprise" required>
+                                </div>
+                                <nav>
+                                   <button class="btn btn-block" style="color:cadetblue" type="submit"> Se connecter </button>
+                                </nav>
+
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-3"></div>
+
+
+
+
     </div>
+
 </div>
