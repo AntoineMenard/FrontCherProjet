@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
-
 const routes: Routes = [
-  {path : 'inscription', component : InscriptionComponent},
+  {path: 'login', component: ConnexionComponent},
+  {path: 'inscription', component: InscriptionComponent}
 ];
 
 @NgModule({
@@ -12,3 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
