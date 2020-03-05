@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-inscription',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   particulier = false;
   entreprise = false;
 
@@ -32,6 +34,10 @@ export class InscriptionComponent implements OnInit {
       this.particulier = true;
       this.visibleParticulier();
     }
+  }
+
+  GoToConnexion() {
+    this.router.navigate(['/login']);
   }
 
 }

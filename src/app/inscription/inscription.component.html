@@ -1,14 +1,14 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="col-sm-3"></div>
+        <div class="col-sm-2"></div>
         <div class="col-sm6">
-            <div class="card">
-                <div class="card-header formhead">
-                    <h1 class="text-center"> Bienvenue dans la communauté
+            <div class="card ">
+                <div class="card-header formhead ">
+                    <h1 class="text-center"> Créez un compte et rejoingez la communauté
                         <span class="font-weight-bold">CherProjet</span> !</h1>
                 </div>
-                <div class="card_body">
+                <div class="card_body ">
                     <br>
                     <div class="container">
                         <div class="row">
@@ -75,7 +75,7 @@
                         <div>
                             <form>
                                 <div class="form-group">
-                                    <input type="text " class="form-control" placeholder="Nom de l'entreprise"
+                                    <input type="text " class="form-control" placeholder="nom de l'entreprise"
                                         name="nomentreprise" required>
                                 </div>
                                 <div class="form-group">
@@ -84,32 +84,32 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="domaine d'expertise"
-                                        name="domaineentreprise">
+                                        name="domaineentreprise" required>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <input type="text " class="form-control" placeholder="adresse"
-                                                name="adresseentreprise">
+                                                name="adresseentreprise" required>
                                         </div>
 
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <input type="number" class="form-control" placeholder="code postal"
-                                                name="CPentreprise">
+                                                name="CPentreprise" required>
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="téléphone"
-                                        name="domaineentreprise">
+                                        name="telentreprise" required>
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="mot de passe" type="password"
-                                        name="mdpentreprise">
+                                        name="mdpentreprise" required>
                                 </div>
                                 <nav>
                                     <button class="btn btn-primary " type="submit"> Valider
@@ -124,7 +124,7 @@
                         <hr>
 
 
-                        <button class="btn btn-warning mr-sm-2 align-right btn-block"> Annuler </button>
+                        <button class="btn btn-warning mr-sm-2 align-right btn-block" (click)=GoToConnexion() > Annuler </button>
 
 
                     </div>
@@ -133,6 +133,8 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-3"></div>
+
 
 
 

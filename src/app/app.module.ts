@@ -15,6 +15,7 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateu
     MessagerieComponent,
     ConnexionComponent,
     InscriptionComponent,
-    ProposerProjetUtilisateurComponent
+    ProposerProjetUtilisateurComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
