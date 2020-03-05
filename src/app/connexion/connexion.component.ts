@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { Utilisateur } from '../model/Utilisateur';
 import { Router } from '@angular/router';
-=======
 import { Particulier } from '../model/Particulier';
 import { Entreprise } from '../model/Entreprise';
->>>>>>> f977f152725eeaa6e13d8606150e45490146eea8
 
 @Component({
   selector: 'app-connexion',
