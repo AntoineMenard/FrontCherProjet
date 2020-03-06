@@ -1,11 +1,13 @@
 
 <div *ngIf="myService.userEnLigne()">   
-    <div *ngFor= "let p of projet"> +
-        <p style="color: antiquewhite;"> nom du projet : {{p.nom}}</p>
-        <p style="color: antiquewhite;"> date de debut : {{p.date_debut}}</p>
-        <p style="color: antiquewhite;"> date de fin : {{p.date_fin}}</p>
-        <p style="color: antiquewhite;"> descriptif : {{p.descriptif}}</p>
-        <p style="color: antiquewhite;"> interessement : {{p.interessement}}</p>
-        <p style="color: antiquewhite;"> nombre de participants : {{p.nbr_participants}}</p>
+    <div class="card" style="width: 18rem;">
+                <div *ngFor= "let p of projet"> 
+                    <h1 style="color: slategrey;"> {{p.nom}} </h1>
+                    <p style="color: slategrey;"> date de debut : {{p.dateDebut}}</p>
+                    <p style="color: slategrey;"> date de fin : {{p.dateFin}}</p>
+                    <p style="color: slategrey;"> descriptif : {{p.descriptif}}</p>
+                    <p style="color: slategrey;"> interessement : {{p.interessement}}</p>
+                    <p style="color: slategrey;"> nombre de participants : {{p.nbrParticipants}}</p>
+                </div>
     </div>
 </div>
