@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-projets',
@@ -17,37 +17,48 @@ export class ProjetsComponent implements OnInit {
   ngOnInit(): void {
 
     this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
-     + '/0').subscribe(data => {
-    console.log(data);
-    this.projetattente = data;
+      + '/0').subscribe(data => {
+        console.log(data);
+        this.projetattente = data;
       }, err => {
         console.log(err);
       });
 
     this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/1').subscribe(data => {
-     console.log(data);
-     this.projetpasse = data;
-       }, err => {
-         console.log(err);
-       });
+        console.log(data);
+        this.projetpasse = data;
+      }, err => {
+        console.log(err);
+      });
 
     this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
-       + '/2').subscribe(data => {
-       console.log(data);
-       this.projetencours = data;
-        }, err => {
-          console.log(err);
-        });
+      + '/2').subscribe(data => {
+        console.log(data);
+        this.projetencours = data;
+      }, err => {
+        console.log(err);
+      });
 
     this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
-        + '/3').subscribe(data => {
-       console.log(data);
-       this.projetavenir = data;
-         }, err => {
-           console.log(err);
-         });
+      + '/3').subscribe(data => {
+        console.log(data);
+        this.projetavenir = data;
+      }, err => {
+        console.log(err);
+      });
   }
 
+  deleteProjetattente() {
+    console.log(this.projetattente.idProjet);
 
+
+    this.http.delete('http://localhost:8088/projet/').subscribe(data => {
+      console.log(data);
+
+      this.projetavenir = data;
+    }, err => {
+      console.log(err);
+    });
   }
+}

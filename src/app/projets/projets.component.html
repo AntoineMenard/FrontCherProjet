@@ -1,37 +1,134 @@
 
-<div *ngIf="myService.userEnLigne()">   
-    <div class="card" style="width: 18rem;">
-        <div *ngFor= "let p of projetattente"> 
-            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
-            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
-            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
-            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
-            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
-            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+<div *ngIf="myService.userEnLigne()">  
+<h1>Projets en attente de candidats</h1>
+    <div class="row">
+        <div *ngFor="let p of projetattente" style="color: white;">
+            <div class="col-sm-12">
+                <div class="container">
+                    <mat-card style="">
+                        <mat-card-header>
+                            <div mat-card-avatar
+                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                            </div>
+                            <mat-card-title>{{p.projet.nom}}</mat-card-title>
+                            <mat-card-subtitle>{{p.projet.dateDebut}} - {{p.projet.dateFin}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>{{p.projet.descriptif}} </p>
+                            <br>
+                            <p style="color:gray">
+                                <b>Participants nécéssaires :</b> {{p.projet.nbrParticipants}} <br>
+                                <b>Intéressement : </b> {{p.projet.interessement}}
+                            </p>
+
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>Modifier</button>
+                            
+                            <button mat-button (click)="deleteProjetattente()">Supprimer</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
         </div>
-        <div *ngFor= "let p of projetpasse"> 
-            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
-            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
-            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
-            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
-            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
-            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+    </div>
+    <br>
+    <h1 >Projets terminés</h1>
+
+    <div class="row">
+        <div *ngFor="let p of projetpasse" style="color: white;">
+            <div class="col-sm-12">
+                <div class="container">
+                    <mat-card style="">
+                        <mat-card-header>
+                            <div mat-card-avatar
+                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                            </div>
+                            <mat-card-title>{{p.projet.nom}}</mat-card-title>
+                            <mat-card-subtitle>{{p.projet.dateDebut}} - {{p.projet.dateFin}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>{{p.projet.descriptif}} </p>
+                            <br>
+                            <p style="color:gray">
+                                <b>Participants nécéssaires :</b> {{p.projet.nbrParticipants}} <br>
+                                <b>Intéressement : </b> {{p.projet.interessement}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>Modifier</button>
+                            <button mat-button>Supprimer</button>
+                        </mat-card-actions>
+                    </mat-card>
+                    <br>
+                </div>
+            </div>
         </div>
-        <div *ngFor= "let p of projetencours"> 
-            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
-            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
-            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
-            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
-            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
-            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+    </div>
+    <br>
+    <h1>Projets en cours</h1>
+    <div class="row">
+        <div *ngFor="let p of projetencours" style="color: white;">
+            <div class="col-sm-12">
+                <div class="container">
+                    <mat-card style="">
+                        <mat-card-header>
+                            <div mat-card-avatar
+                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                            </div>
+                            <mat-card-title>{{p.projet.nom}}</mat-card-title>
+                            <mat-card-subtitle>{{p.projet.dateDebut}} - {{p.projet.dateFin}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>{{p.projet.descriptif}} </p>
+                            <br>
+                            <p style="color:gray">
+                                <b>Participants nécéssaires :</b> {{p.projet.nbrParticipants}} <br>
+                                <b>Intéressement : </b> {{p.projet.interessement}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>Modifier</button>
+                            <button mat-button>Supprimer</button>
+                        </mat-card-actions>
+                    </mat-card>
+                    <br>
+                </div>
+            </div>
+
         </div>
-        <div *ngFor= "let p of projetavenir"> 
-            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
-            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
-            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
-            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
-            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
-            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+    </div>
+    <br>
+    <h1>Projets à venir</h1>
+    <div class="row">
+        <div *ngFor="let p of projetavenir" style="color: white;">
+            <div class="col-sm-12">
+                <div class="container">
+                    <mat-card style="">
+                        <mat-card-header>
+                            <div mat-card-avatar
+                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                            </div>
+                            <mat-card-title>{{p.projet.nom}}</mat-card-title>
+                            <mat-card-subtitle>{{p.projet.dateDebut}} - {{p.projet.dateFin}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>{{p.projet.descriptif}} </p>
+                            <br>
+                            <p style="color:gray">
+                                <b>Participants nécéssaires :</b> {{p.projet.nbrParticipants}} <br>
+                                <b>Intéressement : </b> {{p.projet.interessement}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>Modifier</button>
+                            <button mat-button >Supprimer</button>
+                        </mat-card-actions>
+                    </mat-card>
+                    <br>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
