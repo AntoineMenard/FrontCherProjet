@@ -4,6 +4,8 @@ import { Particulier } from '../model/Particulier';
 import { Entreprise } from '../model/Entreprise';
 import { HttpClient } from '@angular/common/http';
 import { CherserviceService } from '../cherservice.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { InscriptionconnexionComponent } from '../inscriptionconnexion/inscriptionconnexion.component';
 
 @Component({
   selector: 'app-connexion',
@@ -24,6 +26,7 @@ export class ConnexionComponent implements OnInit {
   constructor(
     private router: Router,
     private http: HttpClient,
+    public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
     public myService: CherserviceService) { }
 
   ngOnInit(): void {
@@ -44,7 +47,11 @@ export class ConnexionComponent implements OnInit {
         sessionStorage.setItem('idUtilisateur', this.p.idUtilisateur);
         sessionStorage.setItem('statut', this.p.statut);
         this.myService.visibleNavParticulier = true;
+
+
         this.router.navigate(['/recherche-projet']);
+
+        this.dialogRef.close();
 
 
       } else { this.msgVisible();}
@@ -63,6 +70,7 @@ export class ConnexionComponent implements OnInit {
           this.myService.visibleNavEntreprise = true;
           console.log(this.myService.visibleNavEntreprise);
           this.router.navigate(['/projets']);
+          this.dialogRef.close();
        } else { this.msgVisible();}
       }, err => { console.log(err);
       });
