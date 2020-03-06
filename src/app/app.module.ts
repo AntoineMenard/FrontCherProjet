@@ -23,7 +23,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { InscriptionconnexionComponent } from './inscriptionconnexion/inscriptionconnexion.component';
-import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-profil-entreprise.component'; 
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProposerProjetUtilisateurComponent,
     HomepageComponent,
     InscriptionconnexionComponent,
+    ModifProfilEntrepriseComponent,
     
   ],
   imports: [

@@ -12,6 +12,7 @@ import { RechercheEntrepriseComponent } from './recherche-entreprise/recherche-e
 import { RechercheProjetComponent } from './recherche-projet/recherche-projet.component';
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-profil-entreprise.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'recherche-projet', component: RechercheProjetComponent},
   {path: 'proposer-projet-utilisateur', component: ProposerProjetUtilisateurComponent},
   {path: 'home-page', component: HomepageComponent},
+  {path: 'modif-profil-entreprise', component: ModifProfilEntrepriseComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];

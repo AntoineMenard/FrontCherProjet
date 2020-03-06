@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ModifProfilEntrepriseComponent } from '../modif-profil-entreprise/modif-profil-entreprise.component';
-import { MatDialog } from '@angular/material/dialog';
-
 
 @Component({
-  selector: 'app-profil-entreprise',
-  templateUrl: './profil-entreprise.component.html',
-  styleUrls: ['./profil-entreprise.component.css']
+  selector: 'app-modif-profil-entreprise',
+  templateUrl: './modif-profil-entreprise.component.html',
+  styleUrls: ['./modif-profil-entreprise.component.css']
 })
-export class ProfilEntrepriseComponent implements OnInit {
+export class ModifProfilEntrepriseComponent implements OnInit {
 
   constructor(
     private router: Router,
@@ -20,6 +18,9 @@ export class ProfilEntrepriseComponent implements OnInit {
     private dialog: MatDialog) { }
 
   entreprise;
+  nomenterprise;
+  mailentreprise;
+  descentreprise;
   id = sessionStorage.getItem('idUtilisateur');
 
 
@@ -28,19 +29,16 @@ export class ProfilEntrepriseComponent implements OnInit {
     this.http.get(this.myService.lienHttp + "entreprise/" + this.id, this.entreprise)
       .subscribe(data => {
         this.entreprise = data;
+        this.nomenterprise = this.entreprise.nom;
+        this.descentreprise = this.entreprise.description;
+        this.mailentreprise = this.entreprise.mail;
 
 
       }, err => {
         console.log(err);
       });
+
+      
   }
-  callModifProfilEntreprise() {
-    const mydial = this.dialog.open(ModifProfilEntrepriseComponent);
-
-  }
-
-
-
-
 
 }
