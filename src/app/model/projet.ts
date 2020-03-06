@@ -1,10 +1,15 @@
+import { Entreprise } from './Entreprise';
+
 export class Projet {
+    idProjet: number;
+    nom: string;
+    descriptif: string;
     dateDebut: Date;
     dateFin: Date;
-    descriptif: string;
-    interessement: string;
     nbrParticipants: number;
-    nom: string;
+    entreprise: Entreprise;
+    interessement: string;
+    statut: number;
 
     constructor() {
 
