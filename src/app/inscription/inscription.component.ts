@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Particulier } from '../model/Particulier';
+import { HttpClient } from '@angular/common/http';
+import { Entreprise } from '../model/Entreprise';
 
 
 @Component({
@@ -9,9 +12,18 @@ import { Router } from '@angular/router';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private router: Router) { }
+ 
   particulier = false;
   entreprise = false;
+  verifmailpart;
+  verifmailentreprise;
+  mailcorrect = false;
+
+
+
+  partic: Particulier = new Particulier();
+  entrep: Entreprise = new Entreprise();
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -39,5 +51,32 @@ export class InscriptionComponent implements OnInit {
   GoToHome() {
     this.router.navigate(['/home-page']);
   }
+
+
+  addParticulier() {
+    this.http.post('http://localhost:8088/particulier', this.partic)
+    .subscribe(data => {
+      this.verifmailpart = data;
+      if (!this.verifmailpart) {
+        this.mailcorrect = true;
+      }
+      
+
+    }, err => {
+      console.log(err);
+    });
+  }
+  addEntreprise() {
+    this.http.post('http://localhost:8088/entreprise', this.entrep)
+    .subscribe(data => {
+      this.verifmailentreprise = data;
+      if (!this.verifmailentreprise) {
+        this.mailcorrect = true;
+      }
+    }, err => {
+      console.log(err);
+    });
+  }
+
 
 }
