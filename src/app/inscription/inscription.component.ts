@@ -36,8 +36,8 @@ export class InscriptionComponent implements OnInit {
     }
   }
 
-  GoToConnexion() {
-    this.router.navigate(['/login']);
+  GoToHome() {
+    this.router.navigate(['/home-page']);
   }
 
 }

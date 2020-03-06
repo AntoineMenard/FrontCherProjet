@@ -13,6 +13,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
     vertical-align:middle !important; 
 }
+.btncoinscr{
+  background-color: darkgray !important;
+}
 
 
 BODY {
@@ -100,16 +103,18 @@ BODY {
     font-size:1.2rem;
   }
   
-  .visit{
-    color:white;
-    font-size:12px;
-    background:#32333a;;
-    width:150px;
-    padding:6px;
-    border-radius:10px;
-    position:fixed;
-    right:20px;
-  }
+   .visit {
+      color: white;
+      font-size: 12px;
+      background: #32333a;
+      ;
+      width: 150px;
+      padding: 6px;
+      border-radius: 10px;
+      position: fixed;
+      right: 20px;
+    }
+
   .colorWhite{
       color: white;
       letter-spacing: 3px;
