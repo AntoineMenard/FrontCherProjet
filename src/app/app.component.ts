@@ -12,12 +12,12 @@ export class AppComponent {
 
   // visibleNav = true;
   title = 'CherProjet';
+
   deconnexion() {
   sessionStorage.removeItem('idUtilisateur');
   sessionStorage.removeItem('statut');
   this.myService.visibleNavEntreprise = false;
   this.myService.visibleNavParticulier = false;
-  
-}
+  }
 }
 

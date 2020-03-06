@@ -11,6 +11,12 @@
                 <div class="card_body ">
                     <br>
                     <div class="container">
+
+                        <p  *ngIf="myService.msgIfNotCo" class="text-center font-weight-bold" style="color:crimson">
+                            <br>
+                                Vous devez être connecté(e)!
+                        </p>
+
                         <div class="row">
                             <div class="col-sm-6 text-center">
                                 <button class="btn btn-primary btn-raised btn-block "
@@ -47,6 +53,8 @@
                                     Identifiants incorrects!
                                   </p>
 
+                                
+
 
                             </form>
                         </div>
@@ -77,6 +85,9 @@
                                   </p>
 
                             </form>
+
+                           
+
                         </div>
                     </div>
                 </div>
