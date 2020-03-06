@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Particulier } from '../model/Particulier';
 import { HttpClient } from '@angular/common/http';
 import { Entreprise } from '../model/Entreprise';
+import { CherserviceService } from '../cherservice.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class InscriptionComponent implements OnInit {
 
   partic: Particulier = new Particulier();
   entrep: Entreprise = new Entreprise();
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(public myService: CherserviceService, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -54,7 +55,7 @@ export class InscriptionComponent implements OnInit {
 
 
   addParticulier() {
-    this.http.post('http://localhost:8088/particulier', this.partic)
+    this.http.post(this.myService.lienHttp + 'particulier', this.partic)
     .subscribe(data => {
       this.verifmailpart = data;
       if (!this.verifmailpart) {
@@ -67,7 +68,7 @@ export class InscriptionComponent implements OnInit {
     });
   }
   addEntreprise() {
-    this.http.post('http://localhost:8088/entreprise', this.entrep)
+    this.http.post(this.myService.lienHttp + 'entreprise', this.entrep)
     .subscribe(data => {
       this.verifmailentreprise = data;
       if (!this.verifmailentreprise) {
