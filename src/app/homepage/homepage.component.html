@@ -1,13 +1,23 @@
 <div>
     <!-- partial:index.partial.html -->
-    <div class="visit" (click)="callConnexionOrInscription()"> Connexion/Inscription</div>
     <div id="particles-js">
         <div class="container">
             <div class="row top">
-                <div class="twelve column">
+                <div class="col-sm-10">
                     <div class="logo">C</div>
                     <h1 class="font-weight-bold">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;HerProject</h1>
                     <h2> Project Space</h2>
+                </div>
+                <div class="">
+                    <div class="">
+                        <button class="visit" (click)="callConnexionOrInscription()"> Connexion/Inscription</button>
+                        <p  *ngIf="myService.msgIfNotCo" class="text-center font-weight-bold" style="color:white">
+                            <br>
+                                Vous devez être connecté(e)!
+                        </p>
+
+                    </div>
+
                 </div>
             </div>
 

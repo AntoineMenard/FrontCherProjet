@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +39,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     InscriptionComponent,
     ProposerProjetUtilisateurComponent,
     HomepageComponent,
-    InscriptionconnexionComponent
+    InscriptionconnexionComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule,
+    MatButtonModule
   ],
   entryComponents: [InscriptionconnexionComponent],
   providers: [],

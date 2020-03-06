@@ -20,7 +20,7 @@ export class CherserviceService {
     } else {
       this.connecte = false;
       this.msgIfNotCo = true;
-      this.router.navigate(['login']);
+      this.router.navigate(['home-page']);
     }
 
     return this.connecte;
