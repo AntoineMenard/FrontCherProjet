@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Projet } from '../model/projet';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proposer-projet-entreprise',
@@ -6,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proposer-projet-entreprise.component.css']
 })
 export class ProposerProjetEntrepriseComponent implements OnInit {
+  visible = false;
+  p;
+  Projet: Projet = new Projet();
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
   }
+  msgVisible() {
+    if (this.visible === false) {
+      this.visible = true;
+    } else {
+      this.visible = false;
+    }
+  }
 
+  SoumettreProjet() {
+    this.http.post('http://localhost:8088/projet', this.Projet).subscribe(data => {
+        this.p = data;
+        this.router.navigate(['/projets']);
+    }, err => { console.log(err);
+    });
+  }
 }
