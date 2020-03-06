@@ -1,13 +1,37 @@
 
 <div *ngIf="myService.userEnLigne()">   
     <div class="card" style="width: 18rem;">
-                <div *ngFor= "let p of projet"> 
-                    <h1 style="color: slategrey;"> {{p.nom}} </h1>
-                    <p style="color: slategrey;"> date de debut : {{p.dateDebut}}</p>
-                    <p style="color: slategrey;"> date de fin : {{p.dateFin}}</p>
-                    <p style="color: slategrey;"> descriptif : {{p.descriptif}}</p>
-                    <p style="color: slategrey;"> interessement : {{p.interessement}}</p>
-                    <p style="color: slategrey;"> nombre de participants : {{p.nbrParticipants}}</p>
-                </div>
+        <div *ngFor= "let p of projetattente"> 
+            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
+            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
+            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
+            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
+            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
+            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+        </div>
+        <div *ngFor= "let p of projetpasse"> 
+            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
+            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
+            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
+            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
+            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
+            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+        </div>
+        <div *ngFor= "let p of projetencours"> 
+            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
+            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
+            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
+            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
+            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
+            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+        </div>
+        <div *ngFor= "let p of projetavenir"> 
+            <h1 style="color: slategrey;"> {{p.projet.nom}} </h1>
+            <p style="color: slategrey;"> date de debut : {{p.projet.dateDebut}}</p>
+            <p style="color: slategrey;"> date de fin : {{p.projet.dateFin}}</p>
+            <p style="color: slategrey;"> descriptif : {{p.projet.descriptif}}</p>
+            <p style="color: slategrey;"> interessement : {{p.projet.interessement}}</p>
+            <p style="color: slategrey;"> nombre de participants : {{p.projet.nbrParticipants}}</p>
+        </div>
     </div>
 </div>
