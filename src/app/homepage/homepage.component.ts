@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
+import { InscriptionComponent } from '../inscription/inscription.component';
+import { MatDialog } from '@angular/material/dialog';
+import { InscriptionconnexionComponent } from '../inscriptionconnexion/inscriptionconnexion.component';
 
 declare const animHome: any;
 declare const test: any;
@@ -13,7 +16,7 @@ declare var particlesJS: any;
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(public myService: CherserviceService) { }
+  constructor(public myService: CherserviceService,  private dialog: MatDialog) { }
 
   ngOnInit(): void {
     particlesJS.load('particles-js', 'particles.json', null);
@@ -136,6 +139,8 @@ export class HomepageComponent implements OnInit {
 
 
 
-
+callConnexionOrInscription() {
+  const mydial = this.dialog.open(InscriptionconnexionComponent);
+}
 
 }

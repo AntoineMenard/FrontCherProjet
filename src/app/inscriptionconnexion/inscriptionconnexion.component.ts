@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css']
+  selector: 'app-inscriptionconnexion',
+  templateUrl: './inscriptionconnexion.component.html',
+  styleUrls: ['./inscriptionconnexion.component.css']
 })
-export class InscriptionComponent implements OnInit {
+export class InscriptionconnexionComponent implements OnInit {
 
   constructor(private router: Router) { }
   particulier = false;
@@ -16,28 +15,24 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  visibleParticulier() {
+  visibleParticulierCo() {
     if (this.particulier) {
       this.particulier = false;
 
     } else {
       this.particulier = true;
       this.entreprise = true;
-      this.visibleEntreprise();
+      this.visibleEntrepriseCo();
     }
   }
-  visibleEntreprise() {
+  visibleEntrepriseCo() {
     if (this.entreprise) {
       this.entreprise = false;
     } else {
       this.entreprise = true;
       this.particulier = true;
-      this.visibleParticulier();
+      this.visibleParticulierCo();
     }
-  }
-
-  GoToHome() {
-    this.router.navigate(['/home-page']);
   }
 
 }

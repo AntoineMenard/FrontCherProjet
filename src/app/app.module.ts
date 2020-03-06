@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { InscriptionconnexionComponent } from './inscriptionconnexion/inscriptionconnexion.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 @NgModule({
   declarations: [
@@ -33,15 +38,21 @@ import { HomepageComponent } from './homepage/homepage.component';
     ConnexionComponent,
     InscriptionComponent,
     ProposerProjetUtilisateurComponent,
-    HomepageComponent
+    HomepageComponent,
+    InscriptionconnexionComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatButtonModule
   ],
+  entryComponents: [InscriptionconnexionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

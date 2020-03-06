@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Particulier } from '../model/Particulier';
 import { Entreprise } from '../model/Entreprise';
 import { HttpClient } from '@angular/common/http';
+import { CherserviceService } from '../cherservice.service';
 
 @Component({
   selector: 'app-connexion',
@@ -22,7 +23,8 @@ export class ConnexionComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    public myService: CherserviceService) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +41,9 @@ export class ConnexionComponent implements OnInit {
     this.http.post('http://localhost:8088/particuliers', this.Particulier).subscribe(data => {
       this.p = data;
       if (this.p.mail != null) {
-        sessionStorage.setItem('idUtilisateur', this.p.id_utilisateur);
+        sessionStorage.setItem('idUtilisateur', this.p.idUtilisateur);
+        sessionStorage.setItem('statut', this.p.statut);
+        this.myService.visibleNavParticulier = true;
         this.router.navigate(['/recherche-projet']);
 
 
@@ -54,7 +58,10 @@ export class ConnexionComponent implements OnInit {
       this.http.post('http://localhost:8088/entreprises', this.Entreprise).subscribe(data => {
         this.e = data;
         if (this.e.mail != null) {
-          sessionStorage.setItem('idUtilisateur', this.e.id_utilisateur);
+          sessionStorage.setItem('idUtilisateur', this.e.idUtilisateur);
+          sessionStorage.setItem('statut', this.e.statut);
+          this.myService.visibleNavEntreprise = true;
+          console.log(this.myService.visibleNavEntreprise);
           this.router.navigate(['/projets']);
        } else { this.msgVisible();}
       }, err => { console.log(err);

@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class CherserviceService {
 
-  visibleNav = false;
+  visibleNavParticulier = false;
+  visibleNavEntreprise = false;
 
 
   constructor() { }
