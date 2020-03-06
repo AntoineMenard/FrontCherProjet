@@ -1,9 +1,68 @@
-<div class="container bgWhite">
+<div class="container shadow p-3 mb-5 bg-white rounded">
 
-<div class="row">
+    <div class="container bgWhite">
+        <div class="row">
+            <div class="sm-col-2"></div>
 
-</div>
 
+        </div>
+
+        <div class="nom-entreprise">
+
+            {{entreprise.nom}}
+            <button class="btn btn-primary pull-right" id="right-panel-link"> Modifier</button>
+        </div>
+        
+        <br>
+        <hr>
+        <p class="titremoy">Présentation de l'entreprise :</p>
+
+        <p placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs">{{entreprise.description}}
+        </p>
+        <br>
+        <div class="row">
+            <div class="col-sm-3"></div>
+
+            <div class="col-sm-8">
+                <table class="table table-borderless borderless">
+                    <tbody>
+                        <tr>
+                            <td class="font-weight-bold ombre align-middle"> Site web </td>
+                            <td class="petittexte">{{entreprise.siteWeb}} </td>
+                        </tr>
+                        <tr class="my-auto">
+                            <td class="font-weight-bold ombre align-middle"> Secteur </td>
+                            <td class="petittexte"></td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold ombre align-middle"> Taille de l'entreprise &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp;
+                            <td class="petittexte">{{entreprise.tailleEntreprise}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold ombre align-middle"> Siège social </td>
+                            <td class="petittexte">{{entreprise.adresse}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold ombre align-middle">Fondée en </td>
+                            <td class="petittexte">{{entreprise.dateCreation}} </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
 
 
 </div>

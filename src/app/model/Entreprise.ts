@@ -8,6 +8,9 @@ export class Entreprise {
     mdp: string;
     mail: string;
     statut: number;
+    siteWeb: string;
+    dateCreation: number;
+    tailleEntreprise: number;
 
     constructor() {
 
