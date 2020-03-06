@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-recherche-projet',
@@ -8,9 +9,21 @@ import { CherserviceService } from '../cherservice.service';
 })
 export class RechercheProjetComponent implements OnInit {
 
-  constructor(public myService: CherserviceService) { }
+  projet;
+
+  constructor(
+    public myService: CherserviceService,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
+
+    this.http.get('http://localhost:8088/projet').subscribe(data => {
+    console.log(data);
+    this.projet = data;
+      }, err => {
+        console.log(err);
+      });
+
   }
 
 }
