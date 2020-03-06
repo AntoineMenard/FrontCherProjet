@@ -1,4 +1,7 @@
-<div *ngIf="myService.visibleNav">
+
+<div *ngIf="myService.visibleNavEntreprise">
+  
+
   
 <!-- Navbar entreprise -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,6 +36,9 @@
 
   </ul>
 </nav>
+</div>
+
+<div *ngIf="myService.visibleNavParticulier">
 
 <!-- Navbar utilisateur -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -72,6 +78,7 @@
 </nav>
 
 </div>
+
 
 
 <br><br>
