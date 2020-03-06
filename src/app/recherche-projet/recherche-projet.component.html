@@ -2,28 +2,31 @@
 
     <div *ngFor= "let p of projet" style="color: white;">
 
-        <p>{{p.nom}}</p>
-        {{p.nbrParticipants}}
-
-        <mat-card class="example-card">
+        <div class="container">
+        <mat-card style="width: 25rem;">
             <mat-card-header>
-              <div mat-card-avatar></div>
+              <div mat-card-avatar style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;" ></div>
               <mat-card-title>{{p.nom}}</mat-card-title>
               <mat-card-subtitle>{{p.entreprise.nom}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
+              <p>{{p.descriptif}}</p>
+              <br>
+
+              <p style="color:gray">
+                 {{p.dateDebut}} - {{p.dateFin}} <br>
+                 <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
+                 <b>Intéressement : </b> {{p.interessement}} 
               </p>
+
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
+              <button mat-button>DEMANDE D'ENGAGEMENT</button>
             </mat-card-actions>
           </mat-card>
+        </div>
+
+        <br>
 
         
 

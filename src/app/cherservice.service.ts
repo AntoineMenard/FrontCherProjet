@@ -10,6 +10,7 @@ export class CherserviceService {
   visibleNavEntreprise = false;
   connecte = false;
   msgIfNotCo = false;
+  lienHttp = 'http://localhost:8088/';
 
 
   constructor(public router: Router) { }
