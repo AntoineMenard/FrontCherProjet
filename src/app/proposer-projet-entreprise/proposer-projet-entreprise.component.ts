@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Projet } from '../model/projet';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-proposer-projet-entreprise',
@@ -15,7 +16,8 @@ export class ProposerProjetEntrepriseComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
