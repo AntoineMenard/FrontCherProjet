@@ -24,45 +24,44 @@
                         <br>
 
                         <div>
-                            <form>
+                            <form (ngSubmit)="addParticulier()" name="formparticulier">
                                 <div class="row">
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
                                             <input type="text " class="form-control " placeholder="nom" name="nompart"
-                                                required>
+                                                required [(ngModel)]="partic.nom">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
                                             <input type="text " class="form-control " placeholder="prénom"
-                                                name="prenompart" required>
+                                                name="prenompart" required [(ngModel)]="partic.prenom">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="date" id="example-date-input" required>
+                                    <input class="form-control" type="date" name="datenaisspart" id="example-date-input" required [(ngModel)]="partic.dateNaissance">
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="adresse mail" name="mailpart"
-                                        required>
+                                        required [(ngModel)]="partic.mail">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text " class="form-control" placeholder="domaine d'intérêt" name="nom"
-                                        required>
+                                    <input type="text " class="form-control" placeholder="domaine d'intérêt" name="domainepart"
+                                        required >
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="mot de passe" type="password"
-                                        name="mdp" required>
+                                        name="mdp" required [(ngModel)]="partic.mdp">
                                 </div>
+                                <p style="color:red " *ngIf="mailincorrect">adresse mail deja utilisée</p>
                                 <nav>
                                     <button class="btn btn-primary btn-block" type="submit"> Valider
                                         l'inscription</button>
                                 </nav>
-
-
                             </form>
                         </div>
                     </div>
@@ -70,44 +69,47 @@
                         <br>
 
                         <div>
-                            <form>
+                            <form (ngSubmit) = addEntreprise() name="formentreprise">
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="nom de l'entreprise"
-                                        name="nomentreprise" required>
+                                        name="nomentreprise" required required [(ngModel)]="entrep.nom">
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="adresse mail"
-                                        name="mailentreprise" required>
+                                        name="mailentreprise" required [(ngModel)]="entrep.mail">
+                                        
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="domaine d'expertise"
-                                        name="domaineentreprise" required>
+                                        name="domaineentreprise" required >
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <input type="text " class="form-control" placeholder="adresse"
-                                                name="adresseentreprise" required>
+                                                name="adresseentreprise" required [(ngModel)]="entrep.adresse">
                                         </div>
 
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <input type="number" class="form-control" placeholder="code postal"
-                                                name="CPentreprise" required>
+                                                name="CPentreprise" required [(ngModel)]="entrep.codePostal"> 
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="téléphone"
-                                        name="telentreprise" required>
+                                        name="telentreprise" required [(ngModel)]="entrep.telephone">
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="mot de passe" type="password"
-                                        name="mdpentreprise" required>
+                                        name="mdpentreprise" required [(ngModel)]="entrep.mdp">
                                 </div>
+                                <p style="color:red text-center" *ngIf="mailincorrect">adresse mail deja utilisée</p>
+
                                 <nav>
                                     <button class="btn btn-block" style="color:cadetblue" type="submit"> Valider
                                         l'inscription</button>
@@ -116,8 +118,8 @@
 
                             </form>
                         </div>
+                        
                     </div>
-                    
                     
 
                 </div>

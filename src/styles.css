@@ -114,6 +114,8 @@ BODY {
       position: fixed;
       right: 20px;
     }
+  
+
 
   .colorWhite{
       color: white;
@@ -150,3 +152,7 @@ BODY {
       font-size: 4rem;
     }
   }
+
+.bgWhite{
+  background-color: white;
+}

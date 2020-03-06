@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Particulier } from '../model/Particulier';
+import { HttpClient } from '@angular/common/http';
+import { Entreprise } from '../model/Entreprise';
+import { CherserviceService } from '../cherservice.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { InscriptionconnexionComponent } from '../inscriptionconnexion/inscriptionconnexion.component';
 
 
 @Component({
@@ -9,9 +15,22 @@ import { Router } from '@angular/router';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private router: Router) { }
+
   particulier = false;
   entreprise = false;
+  verifmailpart;
+  verifmailentreprise;
+  mailincorrect = false;
+
+
+
+  partic: Particulier = new Particulier();
+  entrep: Entreprise = new Entreprise();
+  constructor(public myService: CherserviceService,
+              private http: HttpClient,
+              private router: Router,
+              public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -36,8 +55,37 @@ export class InscriptionComponent implements OnInit {
     }
   }
 
-  GoToHome() {
-    this.router.navigate(['/home-page']);
+
+  addParticulier() {
+    this.http.post(this.myService.lienHttp + 'particulier', this.partic)
+      .subscribe(data => {
+        this.verifmailpart = data;
+        if (!this.verifmailpart) {
+          this.mailincorrect = true;
+        } else {
+          this.dialogRef.close();
+
+        }
+
+
+      }, err => {
+        console.log(err);
+      });
   }
+  addEntreprise() {
+    this.http.post(this.myService.lienHttp + 'entreprise', this.entrep)
+      .subscribe(data => {
+        this.verifmailentreprise = data;
+        if (!this.verifmailentreprise) {
+          this.mailincorrect = true;
+        } else {
+          this.dialogRef.close();
+
+        }
+      }, err => {
+        console.log(err);
+      });
+  }
+
 
 }

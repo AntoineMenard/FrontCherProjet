@@ -17,7 +17,7 @@ export class RechercheProjetComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('http://localhost:8088/projet').subscribe(data => {
+    this.http.get(this.myService.lienHttp + 'projetPropose').subscribe(data => {
     console.log(data);
     this.projet = data;
       }, err => {
