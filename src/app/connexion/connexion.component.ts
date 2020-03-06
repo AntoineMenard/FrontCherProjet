@@ -41,7 +41,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   connexionParticulier() {
-    this.http.post('http://localhost:8088/particuliers', this.Particulier).subscribe(data => {
+    this.http.post(this.myService.lienHttp + 'particuliers', this.Particulier).subscribe(data => {
       this.p = data;
       if (this.p.mail != null) {
         sessionStorage.setItem('idUtilisateur', this.p.idUtilisateur);
@@ -62,7 +62,7 @@ export class ConnexionComponent implements OnInit {
     }
 
     connexionEntreprise() {
-      this.http.post('http://localhost:8088/entreprises', this.Entreprise).subscribe(data => {
+      this.http.post(this.myService.lienHttp + 'entreprises', this.Entreprise).subscribe(data => {
         this.e = data;
         if (this.e.mail != null) {
           sessionStorage.setItem('idUtilisateur', this.e.idUtilisateur);

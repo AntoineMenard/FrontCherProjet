@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Particulier } from '../model/Particulier';
 import { HttpClient } from '@angular/common/http';
 import { Entreprise } from '../model/Entreprise';
+import { CherserviceService } from '../cherservice.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { InscriptionconnexionComponent } from '../inscriptionconnexion/inscriptionconnexion.component';
 
 
 @Component({
@@ -12,18 +15,22 @@ import { Entreprise } from '../model/Entreprise';
 })
 export class InscriptionComponent implements OnInit {
 
- 
+
   particulier = false;
   entreprise = false;
   verifmailpart;
   verifmailentreprise;
-  mailcorrect = false;
+  mailincorrect = false;
 
 
 
   partic: Particulier = new Particulier();
   entrep: Entreprise = new Entreprise();
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(public myService: CherserviceService,
+              private http: HttpClient,
+              private router: Router,
+              public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -48,34 +55,36 @@ export class InscriptionComponent implements OnInit {
     }
   }
 
-  GoToHome() {
-    this.router.navigate(['/home-page']);
-  }
-
 
   addParticulier() {
-    this.http.post('http://localhost:8088/particulier', this.partic)
-    .subscribe(data => {
-      this.verifmailpart = data;
-      if (!this.verifmailpart) {
-        this.mailcorrect = true;
-      }
-      
+    this.http.post(this.myService.lienHttp + 'particulier', this.partic)
+      .subscribe(data => {
+        this.verifmailpart = data;
+        if (!this.verifmailpart) {
+          this.mailincorrect = true;
+        } else {
+          this.dialogRef.close();
 
-    }, err => {
-      console.log(err);
-    });
+        }
+
+
+      }, err => {
+        console.log(err);
+      });
   }
   addEntreprise() {
-    this.http.post('http://localhost:8088/entreprise', this.entrep)
-    .subscribe(data => {
-      this.verifmailentreprise = data;
-      if (!this.verifmailentreprise) {
-        this.mailcorrect = true;
-      }
-    }, err => {
-      console.log(err);
-    });
+    this.http.post(this.myService.lienHttp + 'entreprise', this.entrep)
+      .subscribe(data => {
+        this.verifmailentreprise = data;
+        if (!this.verifmailentreprise) {
+          this.mailincorrect = true;
+        } else {
+          this.dialogRef.close();
+
+        }
+      }, err => {
+        console.log(err);
+      });
   }
 
 
