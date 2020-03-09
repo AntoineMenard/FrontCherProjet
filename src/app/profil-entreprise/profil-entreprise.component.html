@@ -8,7 +8,6 @@
         </div>
 
         <div class="nom-entreprise">
-
             {{entreprise.nom}}
             <button class="btn btn-primary pull-right" id="right-panel-link" (click) = "callModifProfilEntreprise()" > Modifier</button>
         </div>
@@ -27,8 +26,12 @@
                 <table class="table table-borderless borderless">
                     <tbody>
                         <tr>
+                            <td class="font-weight-bold ombre align-middle"> Mail </td>
+                            <td class="petittexte">{{entreprise.mail}} </td>
+                        </tr>
+                        <tr>
                             <td class="font-weight-bold ombre align-middle"> Site web </td>
-                            <td class="petittexte">{{entreprise.siteWeb}} </td>
+                            <td class="petittexte"><a href="{{entreprise.siteWeb}}">{{entreprise.siteWeb}} </a></td>
                         </tr>
                         <tr class="my-auto">
                             <td class="font-weight-bold ombre align-middle"> Secteur </td>
