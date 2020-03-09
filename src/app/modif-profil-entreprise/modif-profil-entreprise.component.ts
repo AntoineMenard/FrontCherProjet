@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Entreprise } from '../model/Entreprise';
+
+
 
 @Component({
   selector: 'app-modif-profil-entreprise',
@@ -15,13 +18,24 @@ export class ModifProfilEntrepriseComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     public myService: CherserviceService,
-    private dialog: MatDialog) { }
+    public dialogRefr: MatDialogRef<ModifProfilEntrepriseComponent>,
+    ) { }
 
   entreprise;
-  nomenterprise;
+  nomentreprise;
   mailentreprise;
   descentreprise;
+  domaineentreprise;
+  adresseentreprise;
+  CPentreprise;
+  taillentreprise;
+  dateCreationentreprise;
+  siteWebentreprise;
+  mdpentreprise;
+  telentreprise;
   id = sessionStorage.getItem('idUtilisateur');
+  entrepmodif: Entreprise = new Entreprise();
+
 
 
 
@@ -29,16 +43,40 @@ export class ModifProfilEntrepriseComponent implements OnInit {
     this.http.get(this.myService.lienHttp + "entreprise/" + this.id, this.entreprise)
       .subscribe(data => {
         this.entreprise = data;
-        this.nomenterprise = this.entreprise.nom;
+        this.nomentreprise = this.entreprise.nom;
         this.descentreprise = this.entreprise.description;
         this.mailentreprise = this.entreprise.mail;
+        this.domaineentreprise = this.domaineentreprise;
+        this.adresseentreprise = this.entreprise.adresse;
+        this.CPentreprise = this.entreprise.codePostal;
+        this.taillentreprise = this.entreprise.tailleEntreprise;
+        this.dateCreationentreprise = this.entreprise.dateCreation;
+        this.siteWebentreprise = this.entreprise.siteWeb;
+        this.telentreprise = this.entreprise.telephone;
+        this.mdpentreprise = this.entreprise.mdp;
 
+        this.entrepmodif = this.entreprise;
 
       }, err => {
         console.log(err);
       });
-
-      
   }
+
+  modifEntreprise() {
+
+
+
+    
+    this.http.put(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
+      .subscribe(data => {
+        this.dialogRefr.close();
+
+      }, err => {
+        console.log(err);
+      });
+  }
+
+
+
 
 }

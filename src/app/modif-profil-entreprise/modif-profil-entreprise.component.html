@@ -1,63 +1,64 @@
-<div class="container">
-    <br>
+<div class="mat-dialog-content ">
 
     <div>
         <p class="titremoy">Modification du profil :</p>
 
-        <form  name="formentreprise">
+        <form name="formentreprise" (ngSubmit)="modifEntreprise()">
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="nom de l'entreprise"
-                    name="nomentreprise" required required [value]='nomenterprise' >
+                <input type="text " class="form-control " placeholder="nom de l'entreprise" name="nomentreprise"
+                    required  [(ngModel)]="entrepmodif.nom"  [value]='nomentreprise'>
             </div>
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="adresse mail"
-                    name="mailentreprise" required [value]='mailentreprise'>
-                    
+                <input type="text " class="form-control" placeholder="adresse mail" name="mailentreprise" required
+                     [(ngModel)]="entrepmodif.mail" [value]='mailentreprise'>
+
             </div>
-            
-            <textarea id="form7" class=" form-control" name = "descentreprise" placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs" [value]='descentreprise'></textarea>
-            
+
+            <textarea id="form7" class=" form-control" name="descentreprise"
+                placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs" [value]='descentreprise'
+                 [(ngModel)]="entrepmodif.description"></textarea>
+
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="domaine d'expertise"
-                    name="domaineentreprise" required  >
+                <input type="text " class="form-control" placeholder="domaine d'expertise" name="domaineentreprise"
+                     >
             </div>
 
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <input type="text " class="form-control" placeholder="siège social"
-                            name="adresseentreprise" required >
+                        <input type="text " class="form-control" placeholder="siège social" name="adresseentreprise" [value]='adresseentreprise'
+                             [(ngModel)]="entrepmodif.adresse">
                     </div>
 
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="code postal"
-                            name="CPentreprise" required > 
+                        <input type="number" class="form-control" placeholder="code postal" name="CPentreprise" 
+                        [value]='CPentreprise' [(ngModel)]="entrepmodif.codePostal">
                     </div>
 
                 </div>
             </div>
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="taille de l'entreprise"
-                    name="taillentreprise"  >
+                <input type="text " class="form-control" placeholder="taille de l'entreprise" name="taillentreprise"
+                    [value]='taillentreprise' [(ngModel)]="entrepmodif.tailleEntreprise">
             </div>
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="année de création"
-                    name="dateCreationentreprise"  >
+                <input type="text " class="form-control" placeholder="année de création" name="dateCreationentreprise"
+                    [value]='dateCreationentreprise' [(ngModel)]="entrepmodif.dateCreation">
             </div>
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="site web"
-                    name="siteWebentreprise"  >
+                <input type="text " class="form-control" placeholder="site web" name="siteWebentreprise"
+                    [value]='siteWebentreprise' [(ngModel)]="entrepmodif.siteWeb">
             </div>
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="téléphone"
-                    name="telentreprise" required >
+                <input type="text " class="form-control" placeholder="téléphone" name="telentreprise" required
+                    [value]='telentreprise' [(ngModel)]="entrepmodif.telephone">
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="mot de passe" type="password"
-                    name="mdpentreprise" required >
+                <input type="text" class="form-control" placeholder="mot de passe" type="password" name="mdpentreprise"
+                    required [value]='mdpentreprise' [(ngModel)]="entrepmodif.mdp">
             </div>
             <nav>
                 <button class="btn btn-block" style="color:cadetblue" type="submit"> Valider les modifications</button>
@@ -66,5 +67,5 @@
 
         </form>
     </div>
-    
+
 </div>
