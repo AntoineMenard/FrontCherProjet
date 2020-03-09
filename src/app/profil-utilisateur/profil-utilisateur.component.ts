@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ModifProfilEntrepriseComponent } from '../modif-profil-entreprise/modif-profil-entreprise.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ModifProfilParticulierComponent } from '../modif-profil-particulier/modif-profil-particulier.component';
 
 @Component({
   selector: 'app-profil-utilisateur',
@@ -32,6 +32,10 @@ export class ProfilUtilisateurComponent implements OnInit {
         console.log(err);
       });
 
+  }
+
+  callModifProfilParticulier() {
+    const mydial = this.dialog.open(ModifProfilParticulierComponent);
   }
 
 }
