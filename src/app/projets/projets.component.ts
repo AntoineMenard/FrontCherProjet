@@ -16,7 +16,7 @@ export class ProjetsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
+    this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/0').subscribe(data => {
         console.log(data);
         this.projetattente = data;
@@ -24,7 +24,7 @@ export class ProjetsComponent implements OnInit {
         console.log(err);
       });
 
-    this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
+    this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/1').subscribe(data => {
         console.log(data);
         this.projetpasse = data;
@@ -32,7 +32,7 @@ export class ProjetsComponent implements OnInit {
         console.log(err);
       });
 
-    this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
+    this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/2').subscribe(data => {
         console.log(data);
         this.projetencours = data;
@@ -40,7 +40,7 @@ export class ProjetsComponent implements OnInit {
         console.log(err);
       });
 
-    this.http.get('http://localhost:8088/participation/entreprise/' + sessionStorage.getItem('idUtilisateur')
+    this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/3').subscribe(data => {
         console.log(data);
         this.projetavenir = data;
@@ -49,14 +49,14 @@ export class ProjetsComponent implements OnInit {
       });
   }
 
-  deleteProjetattente() {
-    console.log(this.projetattente.idProjet);
+  deleteProjetattente(p) {
+    console.log(p.idProjet);
 
 
-    this.http.delete('http://localhost:8088/projet/').subscribe(data => {
+    this.http.delete(this.myService.lienHttp + 'projet/' + p.idProjet).subscribe(data => {
       console.log(data);
 
-      this.projetavenir = data;
+      p = data;
     }, err => {
       console.log(err);
     });
