@@ -1,0 +1,46 @@
+<div *ngIf="myService.userEnLigne()"> 
+
+<div class="mat-dialog-content ">
+
+    <div>
+        <p class="titre">Modification du profil :</p>
+
+        <form name="formparticulier" (ngSubmit)="modifParticulier()">
+            <div class="form-group">
+                <input type="text " class="form-control " placeholder="nom de l'utilisateur" name="nom" required
+                    [(ngModel)]="partmodif.nom" [value]='nom'>
+            </div>
+            <div class="form-group">
+                <input type="text " class="form-control " placeholder="prenom de l'utilisateur" name="prenom" required
+                    [(ngModel)]="partmodif.prenom" [value]='prenom'>
+            </div>
+            <div class="form-group">
+                <input type="text " class="form-control" placeholder="adresse mail" name="mail" required
+                    [(ngModel)]="partmodif.mail" [value]='mail'>
+
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="date" placeholder="date de naissance" name="dateNaissance" required
+                    [(ngModel)]="partmodif.dateNaissance" [value]="dateNaissance">
+            </div>
+
+            <textarea id="form7" class=" form-control" name="bio"
+                placeholder="Décrivez ici votre parcours, vos expériences et vos projets futurs." [value]='bio'
+                [(ngModel)]="partmodif.bio"></textarea>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="mot de passe" type="password" name="mdp" required
+                    [value]='mdp' [(ngModel)]="partmodif.mdp">
+            </div>
+            <nav>
+                <button class="btn btn-block" style="color:cadetblue" type="submit"> Valider les modifications</button>
+            </nav>
+
+
+        </form>
+    </div>
+
+</div>
+
+</div> 
