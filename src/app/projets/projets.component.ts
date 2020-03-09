@@ -49,14 +49,14 @@ export class ProjetsComponent implements OnInit {
       });
   }
 
-  deleteProjetattente() {
-    console.log(this.projetattente.idProjet);
+  deleteProjetattente(p) {
+    console.log(p.projet.idProjet);
 
 
-    this.http.delete('http://localhost:8088/projet/').subscribe(data => {
+    this.http.delete(this.myService.lienHttp + 'projet/' + p.projet.idProjet).subscribe(data => {
       console.log(data);
 
-      this.projetavenir = data;
+      p = data;
     }, err => {
       console.log(err);
     });
