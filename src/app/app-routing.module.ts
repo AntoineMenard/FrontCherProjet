@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'home-page', component: HomepageComponent},
   {path: 'modif-profil-entreprise', component: ModifProfilEntrepriseComponent},
   {path: 'projets-particulier', component: ProjetsParticulierComponent},
-  {path: 'demande', component: DemandeParticipationProjetUtilisateurComponent},
+  {path: 'demande-participation-projet-utilisateur', component: DemandeParticipationProjetUtilisateurComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];
