@@ -10,6 +10,7 @@ export class CherserviceService {
   visibleNavEntreprise = false;
   connecte = false;
   msgIfNotCo = false;
+  modifProjet = -1;
   lienHttp = 'http://localhost:8088/';
 
 

@@ -51,11 +51,8 @@ export class ProjetsComponent implements OnInit {
 
   deleteProjetattente(p) {
     console.log(p.idProjet);
-
-
     this.http.delete(this.myService.lienHttp + 'projet/' + p.idProjet).subscribe(data => {
-      console.log(data);
-
+      window.location.reload();
       p = data;
     }, err => {
       console.log(err);
