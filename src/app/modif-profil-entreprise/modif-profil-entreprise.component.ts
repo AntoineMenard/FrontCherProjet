@@ -62,8 +62,7 @@ export class ModifProfilEntrepriseComponent implements OnInit {
       });
   }
 
-  modifEntreprise() {
-    
+  modifEntreprise() {  
     this.http.put(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
       .subscribe(data => {
         this.dialogRefr.close();

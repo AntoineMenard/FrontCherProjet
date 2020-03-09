@@ -41,6 +41,7 @@ export class ProposerProjetEntrepriseComponent implements OnInit {
 
   SoumettreProjet() {
     this.Projet.entreprise = this.entreprise;
+    console.log(this.Projet);
     this.http.post('http://localhost:8088/projet', this.Projet).subscribe(data => {
         this.router.navigate(['/projets']);
     }, err => { console.log(err);

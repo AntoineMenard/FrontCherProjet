@@ -29,6 +29,7 @@ import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-
 import { ProjetsParticulierComponent } from './projets-particulier/projets-particulier.component';
 import { ModifProjetEntrepriseComponent } from './modif-projet-entreprise/modif-projet-entreprise.component';
 import { DemandeParticipationProjetUtilisateurComponent } from './demande-participation-projet-utilisateur/demande-participation-projet-utilisateur.component';
+import { ModifProfilParticulierComponent } from './modif-profil-particulier/modif-profil-particulier.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { DemandeParticipationProjetUtilisateurComponent } from './demande-partic
     ProjetsParticulierComponent,
     ModifProjetEntrepriseComponent,
     DemandeParticipationProjetUtilisateurComponent,
+    ModifProfilParticulierComponent,
     
   ],
   imports: [
