@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ModifProfilEntrepriseComponent } from '../modif-profil-entreprise/modif-profil-entreprise.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ModifProfilEntrepriseComponent } from '../modif-profil-entreprise/modif-profil-entreprise.component';
 
 
 @Component({
@@ -36,7 +36,6 @@ export class ProfilEntrepriseComponent implements OnInit {
   }
   callModifProfilEntreprise() {
     const mydial = this.dialog.open(ModifProfilEntrepriseComponent);
-
   }
 
 

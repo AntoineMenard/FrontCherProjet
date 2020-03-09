@@ -23,7 +23,7 @@
 
                         </mat-card-content>
                         <mat-card-actions>
-                            <button mat-button>Modifier</button>
+                            <button mat-button (click)="modifProjetAttente(p)">Modifier</button>
                             
                             <button mat-button (click)="deleteProjetattente(p)">Supprimer</button>
                         </mat-card-actions>
@@ -60,7 +60,7 @@
                             <button mat-button>Supprimer</button>
                         </mat-card-actions>
                     </mat-card>
-                    <br>
+                    
                 </div>
             </div>
         </div>

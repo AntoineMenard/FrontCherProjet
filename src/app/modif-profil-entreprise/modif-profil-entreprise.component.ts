@@ -63,9 +63,6 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   }
 
   modifEntreprise() {
-
-
-
     
     this.http.put(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
       .subscribe(data => {
