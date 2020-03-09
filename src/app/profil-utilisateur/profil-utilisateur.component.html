@@ -1,1 +1,62 @@
-<p>profil-utilisateur works!</p>
+<div *ngIf="myService.userEnLigne()"> 
+
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+
+        <div class="container bgWhite">
+            <div class="row">
+                <div class="sm-col-2"></div>
+    
+    
+            </div>
+    
+            <div class="nom-particulier">
+                {{particulier.prenom}} {{particulier.nom}}
+                <button class="btn btn-primary pull-right" id="right-panel-link"> Modifier</button>
+            </div>
+            
+            <br>
+            <hr>
+            <p class="titremoy">Description :</p>
+    
+            <p placeholder="Décrivez ici votre parcours, vos expériences et vos projets futurs.">{{particulier.bio}}
+            </p>
+            <br>
+            <div class="row">
+                <div class="col-sm-3"></div>
+    
+                <div class="col-sm-8">
+                    <table class="table table-borderless borderless">
+                        <tbody>
+                            <tr>
+                                <td class="font-weight-bold ombre align-middle"> Mail </td>
+                                <td class="petittexte">{{particulier.mail}} </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-bold ombre align-middle"> Date de naissance </td>
+                                <td class="petittexte">{{particulier.dateNaissance}}</td>
+                            </tr>
+                            <tr class="my-auto">
+                                <td class="font-weight-bold ombre align-middle"> Secteur(s) d'intérêt </td>
+                                <td class="petittexte"></td>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        </div>
+    
+    
+    </div>
+
+</div>
