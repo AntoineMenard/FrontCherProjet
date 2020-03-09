@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,8 @@ import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateu
 import { HomepageComponent } from './homepage/homepage.component';
 import { InscriptionconnexionComponent } from './inscriptionconnexion/inscriptionconnexion.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-profil-entreprise.component'; 
+import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-profil-entreprise.component';
+import { ProjetsParticulierComponent } from './projets-particulier/projets-particulier.component'; 
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-
     HomepageComponent,
     InscriptionconnexionComponent,
     ModifProfilEntrepriseComponent,
+    ProjetsParticulierComponent,
     
   ],
   imports: [
@@ -54,7 +57,8 @@ import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-
     MatDialogModule,
     MatTabsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule
   ],
   entryComponents: [InscriptionconnexionComponent],
   providers: [],
