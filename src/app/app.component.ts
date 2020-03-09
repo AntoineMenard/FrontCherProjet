@@ -16,6 +16,7 @@ export class AppComponent {
   deconnexion() {
   sessionStorage.removeItem('idUtilisateur');
   sessionStorage.removeItem('statut');
+  sessionStorage.removeItem('modifProjet');
   this.myService.visibleNavEntreprise = false;
   this.myService.visibleNavParticulier = false;
   }
