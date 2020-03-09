@@ -13,6 +13,7 @@ import { RechercheProjetComponent } from './recherche-projet/recherche-projet.co
 import { ProposerProjetUtilisateurComponent } from './proposer-projet-utilisateur/proposer-projet-utilisateur.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-profil-entreprise.component';
+import { ProjetsParticulierComponent} from './projets-particulier/projets-particulier.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'proposer-projet-utilisateur', component: ProposerProjetUtilisateurComponent},
   {path: 'home-page', component: HomepageComponent},
   {path: 'modif-profil-entreprise', component: ModifProfilEntrepriseComponent},
+  {path: 'projets-particulier', component: ProjetsParticulierComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];
