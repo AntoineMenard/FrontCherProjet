@@ -28,7 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-profil-entreprise.component';
 import { ProjetsParticulierComponent } from './projets-particulier/projets-particulier.component';
 import { ModifProjetEntrepriseComponent } from './modif-projet-entreprise/modif-projet-entreprise.component';
-import { DemandeParticipationProjetUtilisateurComponent } from './demande-participation-projet-utilisateur/demande-participation-projet-utilisateur.component'; 
+import { DemandeParticipationProjetUtilisateurComponent } from './demande-participation-projet-utilisateur/demande-participation-projet-utilisateur.component';
 
 @NgModule({
   declarations: [
