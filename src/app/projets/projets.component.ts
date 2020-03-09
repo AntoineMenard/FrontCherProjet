@@ -50,10 +50,10 @@ export class ProjetsComponent implements OnInit {
   }
 
   deleteProjetattente(p) {
-    console.log(p.projet.idProjet);
+    console.log(p.idProjet);
 
 
-    this.http.delete(this.myService.lienHttp + 'projet/' + p.projet.idProjet).subscribe(data => {
+    this.http.delete(this.myService.lienHttp + 'projet/' + p.idProjet).subscribe(data => {
       console.log(data);
 
       p = data;
