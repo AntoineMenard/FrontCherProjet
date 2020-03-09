@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
+import { ModifProjetEntrepriseComponent } from '../modif-projet-entreprise/modif-projet-entreprise.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-projets',
@@ -12,7 +14,7 @@ export class ProjetsComponent implements OnInit {
   projetpasse;
   projetencours;
   projetavenir;
-  constructor(public myService: CherserviceService, private http: HttpClient) { }
+  constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -51,14 +53,16 @@ export class ProjetsComponent implements OnInit {
 
   deleteProjetattente(p) {
     console.log(p.idProjet);
-
-
     this.http.delete(this.myService.lienHttp + 'projet/' + p.idProjet).subscribe(data => {
-      console.log(data);
-
+      window.location.reload();
       p = data;
     }, err => {
       console.log(err);
     });
+  }
+
+  modifProjetAttente(p) {
+    
+    const mydial = this.dialog.open(ModifProjetEntrepriseComponent);
   }
 }
