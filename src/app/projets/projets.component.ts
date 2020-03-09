@@ -14,6 +14,7 @@ export class ProjetsComponent implements OnInit {
   projetpasse;
   projetencours;
   projetavenir;
+
   constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class ProjetsComponent implements OnInit {
       });
   }
 
-  deleteProjetattente(p) {
+  deleteProjet(p) {
     console.log(p.idProjet);
     this.http.delete(this.myService.lienHttp + 'projet/' + p.idProjet).subscribe(data => {
       window.location.reload();
@@ -60,9 +61,8 @@ export class ProjetsComponent implements OnInit {
       console.log(err);
     });
   }
-
-  modifProjetAttente(p) {
-    
+  modifProjet(p) {
+    sessionStorage.setItem('modifProjet', p.idProjet);
     const mydial = this.dialog.open(ModifProjetEntrepriseComponent);
   }
 }
