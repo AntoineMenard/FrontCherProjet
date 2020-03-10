@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gestion.component.css']
 })
 export class GestionComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
