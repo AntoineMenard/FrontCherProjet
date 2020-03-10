@@ -33,6 +33,7 @@ import { ModifProfilParticulierComponent } from './modif-profil-particulier/modi
 import { FiltreNomProjet } from './filtre-nom-projet.pipe';
 import { FiltreNomEntreprise } from './filtre-nom-entreprise.pipe';
 import { TriParDate } from './tri-projet-par-date.pipe';
+import { GestionComponent } from './gestion/gestion.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { TriParDate } from './tri-projet-par-date.pipe';
     ModifProfilParticulierComponent,
     FiltreNomProjet,
     FiltreNomEntreprise,
-    TriParDate
+    TriParDate,
+    GestionComponent
   ],
   imports: [
     BrowserModule,
