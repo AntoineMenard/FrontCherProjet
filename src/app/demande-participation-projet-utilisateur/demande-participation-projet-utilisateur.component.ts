@@ -36,7 +36,7 @@ export class DemandeParticipationProjetUtilisateurComponent implements OnInit {
 
 supprimerCandidature(){
   this.http.delete(this.myService.lienHttp
-    + 'demandeParticipation/entreprise/' + sessionStorage.getItem('validerProjet')).subscribe(data => {
+    + 'demandeParticipation/' + sessionStorage.getItem('validerProjet')).subscribe(data => {
   this.del = data;
   console.log(data);
 }, err => {
@@ -47,42 +47,27 @@ supprimerCandidature(){
 
 accepterCandidature(p){
 
-  //entreprise
   this.http.get(this.myService.lienHttp + 'entreprise/' + sessionStorage.getItem('idUtilisateur')).subscribe(data => {
     p.entreprise = data;
-    this.participation.entreprise = p.entreprise;
-    //console.log(this.participation.Entreprise);
-  }, err => {
-    console.log(err);
-  
-  });
-
-
-  //projet
-  this.http.get(this.myService.lienHttp + 'projet/' + sessionStorage.getItem('validerProjet')).subscribe(data => {
+    this.participation.entreprise = p.entreprise; 
+    this.http.get(this.myService.lienHttp + 'projet/' + sessionStorage.getItem('validerProjet')).subscribe(data => {
     p.projet = data;
     this.participation.projet = p.projet;
-    //console.log(this.participation.Projet);
-  }, err => {
-    console.log(err);
-  
-  });
-  
-  //console.log(p.entreprise);
- 
-  this.participation.particulier = p.particulier;
-  console.log(this.participation);
-
-  this.http.post(this.myService.lienHttp + 'participation/', this.participation).subscribe(data => {
+    this.participation.particulier = p.particulier;  
+    this.http.post(this.myService.lienHttp + 'participation/', this.participation).subscribe(data => {
     console.log(data);
   }, err => {
     console.log(err);
-  
   });
-
-  //this.supprimerCandidature();
-
+  }, err => {
+    console.log(err);
+  });
+  }, err => {
+    console.log(err);
+  });
+  this.supprimerCandidature();
 }
+
 
 
 
