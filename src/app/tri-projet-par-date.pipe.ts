@@ -6,9 +6,7 @@ import { Projet } from './model/projet';
 export class TriParDate implements PipeTransform {
     transform(projets: Projet[], searchTerm: string): Projet[] {
         if (searchTerm) {
-            console.log("ok");
-            projets.sort((a, b) => a.dateDebut.valueOf() - b.dateDebut.valueOf());
-            console.log(projets[0].dateDebut.getDay() - projets[0].dateDebut.getDay());
+            projets.sort((a, b) => a.dateDebut.getTime() - b.dateDebut.getTime());
             return(projets);
         } else {
             return projets;
