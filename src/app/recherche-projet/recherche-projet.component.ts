@@ -15,6 +15,7 @@ import { Projet } from '../model/projet';
 export class RechercheProjetComponent implements OnInit {
 
   projet;
+  filtreNom: string;
   particulier;
   demandeParti: DemandeParticipation = new DemandeParticipation();
 
@@ -49,5 +50,7 @@ export class RechercheProjetComponent implements OnInit {
       console.log(err);
     });
   }
+
+
 
 }
