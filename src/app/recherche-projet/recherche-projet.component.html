@@ -1,41 +1,18 @@
-<!-- <div *ngIf="myService.userEnLigne()"> -->
-    <script >
-        // FIlter anything
-        $(document).ready(function () {
-        $("#anythingSearch").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("#myDIV *").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-        });
-    </script>
-    <!-- Search form -->
-    <!--div class="container bg-primary text-white">
-        <input class="form-control" id="anythingSearch" type="text" placeholder="Type something to search list items">
-        <div id="myDIV">
-          <p>I am a paragraph.</p>
-          <div>I am a div element inside div.</div>
-          <button class="btn btn-default" >I am a button</button>
-          <button class="btn btn-info">Another button</button>
-          <p>Another paragraph.</p>
-        </div>
-      </div-->
 <div class="container">
-    <nav class="navbar navbar-light bg-light justify-content-between">
+    <nav class="navbar navbar-light bg-light ">
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light" type="submit">Search</button>
+
+            <input class="form-control mr-sm-2" type="text" placeholder="Nom du projet" name = "choix" [(ngModel)] = "filtreNom">
+            
         </form>
-      </nav>
-    <br>
+    </nav>
     <div class="row">
-        <div *ngFor="let p of projet" style="color: white;">
-    
+        <div *ngFor="let p of projet | filtreNomProjet:filtreNom" style="color: white;">
+
             <div class="col-sm-12">
                 <div class="container">
-    
-                    <mat-card style ="">
+
+                    <mat-card style="">
                         <mat-card-header>
                             <div mat-card-avatar
                                 style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
@@ -46,28 +23,28 @@
                         <mat-card-content>
                             <p>{{p.descriptif}} </p>
                             <br>
-    
+
                             <p style="color:gray">
-                                {{p.dateDebut}} - {{p.dateFin}} <br>
+                                Du {{p.dateDebut}} au {{p.dateFin}} <br>
                                 <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
                                 <b>Intéressement : </b> {{p.interessement}}
                             </p>
-    
+
                         </mat-card-content>
                         <mat-card-actions>
                             <button mat-button (click)="engagement(p)">JE M'ENGAGE</button>
                         </mat-card-actions>
                     </mat-card>
                     <br>
-    
+
                 </div>
-    
+
             </div>
-    
-    
-    
+
+
+
         </div>
-    
+
     </div>
     <!-- </div> -->
 
