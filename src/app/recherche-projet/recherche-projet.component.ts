@@ -14,9 +14,12 @@ import { Projet } from '../model/projet';
 })
 export class RechercheProjetComponent implements OnInit {
 
+
   projet;
   filtreNom: string;
+  filtreNomEntreprise: string;
   particulier;
+  triParDate;
   demandeParti: DemandeParticipation = new DemandeParticipation();
 
 

@@ -2,12 +2,21 @@
     <nav class="navbar navbar-light bg-light ">
         <form class="form-inline">
 
-            <input class="form-control mr-sm-2" type="text" placeholder="Nom du projet" name = "choix" [(ngModel)] = "filtreNom">
-            
+            <input class="form-control mr-sm-2" type="text" placeholder="Nom du projet" name="choix"
+                [(ngModel)]="filtreNom">
+            <input class="form-control mr-sm-2" type="text" placeholder="Nom de l'entreprise" name="choix"
+                [(ngModel)]="filtreNomEntreprise">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="triParDate" name = "triParDate" value = "tri" [(ngModel)]="triParDate" >
+                <label class="custom-control-label" for="triParDate" >Trier par date</label>
+            </div>
+
         </form>
     </nav>
     <div class="row">
-        <div *ngFor="let p of projet | filtreNomProjet:filtreNom" style="color: white;">
+        <div *ngFor="let p of projet | filtreNomProjet:filtreNom | filtreNomEntreprise:filtreNomEntreprise | triParDate:triParDate"
+            style="color: white;">
 
             <div class="col-sm-12">
                 <div class="container">

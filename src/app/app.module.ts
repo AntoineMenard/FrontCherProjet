@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,8 @@ import { ModifProjetEntrepriseComponent } from './modif-projet-entreprise/modif-
 import { DemandeParticipationProjetUtilisateurComponent } from './demande-participation-projet-utilisateur/demande-participation-projet-utilisateur.component';
 import { ModifProfilParticulierComponent } from './modif-profil-particulier/modif-profil-particulier.component';
 import { FiltreNomProjet } from './filtre-nom-projet.pipe';
+import { FiltreNomEntreprise } from './filtre-nom-entreprise.pipe';
+import { TriParDate } from './tri-projet-par-date.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { FiltreNomProjet } from './filtre-nom-projet.pipe';
     ModifProjetEntrepriseComponent,
     DemandeParticipationProjetUtilisateurComponent,
     ModifProfilParticulierComponent,
-    FiltreNomProjet    
+    FiltreNomProjet,
+    FiltreNomEntreprise,
+    TriParDate
   ],
   imports: [
     BrowserModule,
