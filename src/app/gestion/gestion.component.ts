@@ -36,5 +36,5 @@ export class GestionComponent implements OnInit {
       console.log(err);
     });
   }
-
 }
+
