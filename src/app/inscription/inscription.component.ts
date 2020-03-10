@@ -31,9 +31,9 @@ export class InscriptionComponent implements OnInit {
   partic: Particulier = new Particulier();
   entrep: Entreprise = new Entreprise();
   constructor(public myService: CherserviceService,
-    private http: HttpClient,
-    private router: Router,
-    public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
+              private http: HttpClient,
+              private router: Router,
+              public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
   ) { }
 
   ngOnInit(): void {
