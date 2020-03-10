@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +35,12 @@ import { ProjetsParticulierComponent } from './projets-particulier/projets-parti
 import { ModifProjetEntrepriseComponent } from './modif-projet-entreprise/modif-projet-entreprise.component';
 import { DemandeParticipationProjetUtilisateurComponent } from './demande-participation-projet-utilisateur/demande-participation-projet-utilisateur.component';
 import { ModifProfilParticulierComponent } from './modif-profil-particulier/modif-profil-particulier.component';
+import { FiltreNomProjet } from './filtre-nom-projet.pipe';
+import { FiltreNomEntreprise } from './filtre-nom-entreprise.pipe';
+import { TriParDate } from './tri-projet-par-date.pipe';
+import { GestionComponent } from './gestion/gestion.component';
+import { FiltreEntrepriseParNom} from './filtre-entreprises-par-nom.pipe';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +63,12 @@ import { ModifProfilParticulierComponent } from './modif-profil-particulier/modi
     ModifProjetEntrepriseComponent,
     DemandeParticipationProjetUtilisateurComponent,
     ModifProfilParticulierComponent,
-    
+    FiltreNomProjet,
+    FiltreNomEntreprise,
+    TriParDate,
+    GestionComponent,
+    FiltreEntrepriseParNom,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +80,14 @@ import { ModifProfilParticulierComponent } from './modif-profil-particulier/modi
     MatTabsModule,
     MatButtonModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    CommonModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   entryComponents: [InscriptionconnexionComponent],
   providers: [],

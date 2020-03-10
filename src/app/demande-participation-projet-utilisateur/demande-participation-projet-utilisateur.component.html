@@ -1,10 +1,10 @@
 <br>
 <div class="row">
     
-    <div *ngFor="let p of particulier" style="color: white;">
-    <button  *ngIf = "visible!=true" (click) ="consult(p)" class="btn-primary">Consulter</button>
+    <div *ngFor="let p of part" style="color: white;">
+    
     <br>
-        <div *ngIf = "visible" class="col-sm-12">
+        <div class="col-sm-12">
             <div class="container">
                 <mat-card style ="">
                     <mat-card-header>
@@ -23,8 +23,8 @@
                         <button mat-button class="form-control">VOIR LE PROFIL</button>
                         <button mat-button class="form-control">CONTACTER</button>
                         <br>
-                        <button mat-button class="form-control">VALIDER</button>
-                        <button mat-button class="form-control">REFUSER</button>
+                        <button mat-button class="form-control" (click) = "accepterCandidature(p)">VALIDER</button>
+                        <button mat-button class="form-control" (click) = "supprimerCandidature()">REFUSER</button>
                     </mat-card-actions>
                 </mat-card>
                 <br>

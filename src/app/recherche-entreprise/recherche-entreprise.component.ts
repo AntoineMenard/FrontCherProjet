@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class RechercheEntrepriseComponent implements OnInit {
 
   entreprise;
+  filtreNom;
 
   constructor(
     public myService: CherserviceService,

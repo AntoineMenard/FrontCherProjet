@@ -16,6 +16,8 @@ import { ModifProfilEntrepriseComponent } from './modif-profil-entreprise/modif-
 import { ProjetsParticulierComponent} from './projets-particulier/projets-particulier.component';
 import { DemandeParticipationProjetUtilisateurComponent } from './demande-participation-projet-utilisateur/demande-participation-projet-utilisateur.component';
 import { ModifProfilParticulierComponent } from './modif-profil-particulier/modif-profil-particulier.component';
+import { GestionComponent } from './gestion/gestion.component';
+import { DemoComponent } from './demo/demo.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path: 'projets-particulier', component: ProjetsParticulierComponent},
   {path: 'demande-participation-projet-utilisateur', component: DemandeParticipationProjetUtilisateurComponent},
   {path: 'modif-profil-particulier', component: ModifProfilParticulierComponent},
+  {path: 'gestion', component: GestionComponent},
+  {path: 'demo', component: DemoComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];

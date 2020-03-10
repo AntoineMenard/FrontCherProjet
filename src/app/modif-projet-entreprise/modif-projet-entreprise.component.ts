@@ -52,8 +52,6 @@ export class ModifProjetEntrepriseComponent implements OnInit {
         this.nbrParticipantsProjet = this.projet.nbrParticipants;
         this.interessementProjet = this.projet.interessement;
         this.projetmodif = this.projet;
-
-
       }, err => {
         console.log(err);
       });

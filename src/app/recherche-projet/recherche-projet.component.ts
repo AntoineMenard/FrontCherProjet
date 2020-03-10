@@ -14,8 +14,13 @@ import { Projet } from '../model/projet';
 })
 export class RechercheProjetComponent implements OnInit {
 
+
   projet;
+  filtreNom: string;
+  filtreNomEntreprise: string;
   particulier;
+  triParDate;
+  datetest;
   demandeParti: DemandeParticipation = new DemandeParticipation();
 
 
@@ -37,6 +42,9 @@ export class RechercheProjetComponent implements OnInit {
       console.log(err);
     });
 
+    console.log(typeof(this.datetest));
+
+
   }
   engagement(p) {
 
@@ -49,5 +57,7 @@ export class RechercheProjetComponent implements OnInit {
       console.log(err);
     });
   }
+
+
 
 }

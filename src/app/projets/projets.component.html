@@ -1,134 +1,136 @@
+<div *ngIf="myService.userEnLigne()">
+    <div class="container bgWhite">
+        <h1>Projets en attente de candidats</h1>
+        <div class="row">
+            <div *ngFor="let p of projetattente" style="color: white;">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <mat-card style="">
+                            <mat-card-header>
+                                <div mat-card-avatar
+                                    style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                                </div>
+                                <mat-card-title>{{p.nom}}</mat-card-title>
+                                <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>{{p.descriptif}} </p>
+                                <br>
+                                <p style="color:gray">
+                                    <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
+                                    <b>Intéressement : </b> {{p.interessement}}
+                                </p>
 
-<div *ngIf="myService.userEnLigne()">  
-<h1>Projets en attente de candidats</h1>
-    <div class="row">
-        <div *ngFor="let p of projetattente" style="color: white;">
-            <div class="col-sm-12">
-                <div class="container">
-                    <mat-card style="">
-                        <mat-card-header>
-                            <div mat-card-avatar
-                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
-                            </div>
-                            <mat-card-title>{{p.nom}}</mat-card-title>
-                            <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>{{p.descriptif}} </p>
-                            <br>
-                            <p style="color:gray">
-                                <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
-                                <b>Intéressement : </b> {{p.interessement}}
-                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button (click)="modifProjet(p)">Modifier</button>
+                                <button mat-button (click)="validerProjet(p)">Voir les candidatures</button>
+                                <button mat-button (click)="deleteProjet(p)">Supprimer</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1>Projets terminés</h1>
 
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button (click)="modifProjet(p)">Modifier</button>
-                            
-                            <button mat-button (click)="deleteProjet(p)">Supprimer</button>
-                        </mat-card-actions>
-                    </mat-card>
+        <div class="row">
+            <div *ngFor="let p of projetpasse" style="color: white;">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <mat-card style="">
+                            <mat-card-header>
+                                <div mat-card-avatar
+                                    style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                                </div>
+                                <mat-card-title>{{p.nom}}</mat-card-title>
+                                <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>{{p.descriptif}} </p>
+                                <br>
+                                <p style="color:gray">
+                                    <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
+                                    <b>Intéressement : </b> {{p.interessement}}
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button (click)="modifProjet(p)">Modifier</button>
+                                <button mat-button (click)="deleteProjet(p)">Supprimer</button>
+                            </mat-card-actions>
+                        </mat-card>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1>Projets en cours</h1>
+        <div class="row">
+            <div *ngFor="let p of projetencours" style="color: white;">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <mat-card style="">
+                            <mat-card-header>
+                                <div mat-card-avatar
+                                    style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                                </div>
+                                <mat-card-title>{{p.nom}}</mat-card-title>
+                                <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>{{p.descriptif}} </p>
+                                <br>
+                                <p style="color:gray">
+                                    <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
+                                    <b>Intéressement : </b> {{p.interessement}}
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button (click)="modifProjet(p)">Modifier</button>
+                                <button mat-button (click)="deleteProjet(p)">Supprimer</button>
+                                <button mat-button (click)="goToProjet(p)">Gestion du projet</button>
+                            </mat-card-actions>
+                        </mat-card>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <h1>Projets à venir</h1>
+        <div class="row">
+            <div *ngFor="let p of projetavenir" style="color: white;">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <mat-card style="">
+                            <mat-card-header>
+                                <div mat-card-avatar
+                                    style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                                </div>
+                                <mat-card-title>{{p.nom}}</mat-card-title>
+                                <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>{{p.descriptif}} </p>
+                                <br>
+                                <p style="color:gray">
+                                    <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
+                                    <b>Intéressement : </b> {{p.interessement}}
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button (click)="modifProjet(p)">Modifier</button>
+                                <button mat-button (click)="deleteProjet(p)">Supprimer</button>
+                            </mat-card-actions>
+                        </mat-card>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
-    <h1 >Projets terminés</h1>
 
-    <div class="row">
-        <div *ngFor="let p of projetpasse" style="color: white;">
-            <div class="col-sm-12">
-                <div class="container">
-                    <mat-card style="">
-                        <mat-card-header>
-                            <div mat-card-avatar
-                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
-                            </div>
-                            <mat-card-title>{{p.nom}}</mat-card-title>
-                            <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>{{p.descriptif}} </p>
-                            <br>
-                            <p style="color:gray">
-                                <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
-                                <b>Intéressement : </b> {{p.interessement}}
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button (click)="modifProjet(p)">Modifier</button>
-                            <button mat-button (click)="deleteProjet(p)">Supprimer</button>
-                        </mat-card-actions>
-                    </mat-card>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <h1>Projets en cours</h1>
-    <div class="row">
-        <div *ngFor="let p of projetencours" style="color: white;">
-            <div class="col-sm-12">
-                <div class="container">
-                    <mat-card style="">
-                        <mat-card-header>
-                            <div mat-card-avatar
-                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
-                            </div>
-                            <mat-card-title>{{p.nom}}</mat-card-title>
-                            <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>{{p.descriptif}} </p>
-                            <br>
-                            <p style="color:gray">
-                                <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
-                                <b>Intéressement : </b> {{p.interessement}}
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button (click)="modifProjet(p)">Modifier</button>
-                            <button mat-button (click)="deleteProjet(p)">Supprimer</button>
-                        </mat-card-actions>
-                    </mat-card>
-                    <br>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <br>
-    <h1>Projets à venir</h1>
-    <div class="row">
-        <div *ngFor="let p of projetavenir" style="color: white;">
-            <div class="col-sm-12">
-                <div class="container">
-                    <mat-card style="">
-                        <mat-card-header>
-                            <div mat-card-avatar
-                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
-                            </div>
-                            <mat-card-title>{{p.nom}}</mat-card-title>
-                            <mat-card-subtitle>{{p.dateDebut}} - {{p.dateFin}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <p>{{p.descriptif}} </p>
-                            <br>
-                            <p style="color:gray">
-                                <b>Participants nécéssaires :</b> {{p.nbrParticipants}} <br>
-                                <b>Intéressement : </b> {{p.interessement}}
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button (click)="modifProjet(p)">Modifier</button>
-                            <button mat-button (click)="deleteProjet(p)">Supprimer</button>
-                        </mat-card-actions>
-                    </mat-card>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
