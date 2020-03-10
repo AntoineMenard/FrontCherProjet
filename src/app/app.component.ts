@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CherserviceService } from './cherservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { CherserviceService } from './cherservice.service';
 })
 export class AppComponent {
 
-  constructor( public myService: CherserviceService) {}
+  constructor( public myService: CherserviceService, public router: Router) {}
 
   // visibleNav = true;
   title = 'CherProjet';

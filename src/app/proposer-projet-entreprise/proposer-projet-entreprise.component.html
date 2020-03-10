@@ -19,36 +19,36 @@
                                 <div class="form-group">
                                     <p>Date début</p>
                                     <input  class="form-control" placeholder="date debut" type = "date" [(ngModel)] = "Projet.dateDebut"
-                                        name="date-debut" required>
+                                        name="date-debut" required="true">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <p>Date fin</p>
                                     <input type="text" class="form-control" placeholder="date fin" type="date" [(ngModel)] = "Projet.dateFin"
-                                        name="date-fin" required>
+                                        name="date-fin" required="true">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option> 
-                                       </select >
+                                        <option *ngFor="let p of domaines" required="true"  [value]="p.idDomaine">{{p.domaine}} </option> 
+                                      </select >
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="descriptif" [(ngModel)] = "Projet.descriptif"
-                                        name="descriptif" required>
+                                        name="descriptif" required="true">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="intéressement" [(ngModel)] = "Projet.interessement"
-                                        name="interet" required>
+                                        name="interet" required="true">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="nombre de participants souhaité" [(ngModel)] = "Projet.nbrParticipants"
-                                        name="nombre" required>
+                                    <input type="number" class="form-control" placeholder="nombre de participants souhaité" [(ngModel)] = "Projet.nbrParticipants"
+                                        name="nombre" required="true">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="nom du projet" [(ngModel)] = "Projet.nom"
-                                        name="nom" required>
+                                        name="nom" required="true">
                                 </div>
                                 <nav>
                                     <button class="btn btn-primary btn-block" type="submit"> Soumettre le projet </button>

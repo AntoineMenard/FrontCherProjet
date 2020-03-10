@@ -53,18 +53,18 @@ export class ProposerProjetEntrepriseComponent implements OnInit {
 
     this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
     .subscribe(data => {
-    this.DomainePro.domaine = data;
-    console.log(this.DomainePro.domaine); }, err => {console.log(err); });
+    this.DomainePro.domaine = data; }, err => {console.log(err); });
 
     this.Projet.entreprise = this.entreprise;
-    this.http.post< Projet >('http://localhost:8088/projet', this.Projet).subscribe(data => {
+    this.http.post< Projet >(this.myService.lienHttp + 'projet', this.Projet).subscribe(data => {
     this.DomainePro.projet = data;
-    }, err => { console.log(err);
-    });
-    console.log(this.DomainePro);
+    console.log(data);
     this.http.post(this.myService.lienHttp + 'domaineProjet', this.DomainePro)
     // rempli le post avec null null alors que le console log le montre bien rempli et qu'aucune erreur n'est indiquée où que ce soit
         .subscribe(data => {
         }, err => { console.log(err); });
     this.router.navigate(['/projets']);
+    }, err => { console.log(err);
+    });
+    
 }}
