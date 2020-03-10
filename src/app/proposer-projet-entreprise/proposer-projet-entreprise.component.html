@@ -30,8 +30,8 @@
                                 <br>
                                 <div class="form-group">
                                     <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option> 
-                                       </select >
+                                        <option *ngFor="let p of domaines" required  [value]="p.idDomaine">{{p.domaine}} </option> 
+                                       required</select >
                                 </div>
                                 <br>
                                 <div class="form-group">
@@ -43,7 +43,7 @@
                                         name="interet" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="nombre de participants souhaité" [(ngModel)] = "Projet.nbrParticipants"
+                                    <input type="number" class="form-control" placeholder="nombre de participants souhaité" [(ngModel)] = "Projet.nbrParticipants"
                                         name="nombre" required>
                                 </div>
                                 <div class="form-group">

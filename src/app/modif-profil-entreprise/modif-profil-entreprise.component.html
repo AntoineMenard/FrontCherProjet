@@ -18,10 +18,11 @@
                 placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs" [value]='descentreprise'
                  [(ngModel)]="entrepmodif.description"></textarea>
 
-            <div class="form-group">
-                <input type="text " class="form-control" placeholder="domaine d'expertise" name="domaineentreprise"
-                     >
-            </div>
+                <div class="form-group">
+                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
+                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true" >{{p.domaine}}</option> 
+                       </select >
+                </div>
 
             <div class="row">
                 <div class="col-sm-8">

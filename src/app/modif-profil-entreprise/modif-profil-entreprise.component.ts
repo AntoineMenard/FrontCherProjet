@@ -4,6 +4,8 @@ import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Entreprise } from '../model/Entreprise';
+import { Domaine } from '../model/domaine';
+import { DomaineEntreprise } from '../model/DomaineEntreprise';
 
 
 
@@ -13,13 +15,16 @@ import { Entreprise } from '../model/Entreprise';
   styleUrls: ['./modif-profil-entreprise.component.css']
 })
 export class ModifProfilEntrepriseComponent implements OnInit {
+  domaines;
+  Domaine: Domaine = new Domaine();
+  DomaineEnt: DomaineEntreprise = new DomaineEntreprise();
 
   constructor(
     private router: Router,
     private http: HttpClient,
     public myService: CherserviceService,
     public dialogRefr: MatDialogRef<ModifProfilEntrepriseComponent>,
-    ) { }
+  ) { }
 
   entreprise;
   nomentreprise;
@@ -40,6 +45,13 @@ export class ModifProfilEntrepriseComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
+      this.domaines = data;
+    }, err => {
+      console.log(err);
+    });
+
     this.http.get(this.myService.lienHttp + "entreprise/" + this.id, this.entreprise)
       .subscribe(data => {
         this.entreprise = data;
@@ -62,16 +74,25 @@ export class ModifProfilEntrepriseComponent implements OnInit {
       });
   }
 
-  modifEntreprise() {  
-    this.http.put(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
+  modifEntreprise() {
+    this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
       .subscribe(data => {
-        this.dialogRefr.close();
-        window.location.reload();
+        this.DomaineEnt.domaine = data;
+        console.log(this.DomaineEnt.domaine);
+      }, err => { console.log(err); });
 
-
-      }, err => {
+    this.http.put<Entreprise>(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
+      .subscribe(data => { this.DomaineEnt.entreprise = data; }, err => {
         console.log(err);
       });
+    console.log(this.DomaineEnt);
+    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.entrepmodif.idUtilisateur, this.DomaineEnt)
+      // rempli le post avec null null alors que le console log le montre bien rempli et qu'aucune erreur n'est indiquée où que ce soit
+      .subscribe(data => {
+      }, err => { console.log(err); });
+
+    // this.dialogRefr.close();
+    // window.location.reload();
   }
 
 
