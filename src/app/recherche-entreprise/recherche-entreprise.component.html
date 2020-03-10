@@ -1,5 +1,11 @@
 <br>
 <div class="row">
+    <nav class="navbar navbar-light bg-light ">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Nom de l'entreprise" name="choix"
+                [(ngModel)]="filtreNom">
+        </form>
+    </nav>
     <div *ngFor="let e of entreprise" style="color: white;">
 
         <div class="col-sm-12">
