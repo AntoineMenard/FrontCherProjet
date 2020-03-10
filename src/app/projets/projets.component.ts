@@ -3,6 +3,7 @@ import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { ModifProjetEntrepriseComponent } from '../modif-projet-entreprise/modif-projet-entreprise.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projets',
@@ -15,7 +16,7 @@ export class ProjetsComponent implements OnInit {
   projetencours;
   projetavenir;
 
-  constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog) { }
+  constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -64,5 +65,9 @@ export class ProjetsComponent implements OnInit {
   modifProjet(p) {
     sessionStorage.setItem('modifProjet', p.idProjet);
     const mydial = this.dialog.open(ModifProjetEntrepriseComponent);
+  }
+  validerProjet(p) {
+    sessionStorage.setItem('validerProjet', p.idProjet);
+    this.router.navigate(['demande-participation-projet-utilisateur']);
   }
 }
