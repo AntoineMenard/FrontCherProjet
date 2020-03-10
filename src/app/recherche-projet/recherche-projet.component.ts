@@ -20,6 +20,7 @@ export class RechercheProjetComponent implements OnInit {
   filtreNomEntreprise: string;
   particulier;
   triParDate;
+  datetest;
   demandeParti: DemandeParticipation = new DemandeParticipation();
 
 
@@ -40,6 +41,9 @@ export class RechercheProjetComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+
+    console.log(typeof(this.datetest));
+
 
   }
   engagement(p) {
