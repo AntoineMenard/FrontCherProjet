@@ -7,20 +7,20 @@
 
         <form name="formparticulier" (ngSubmit)="modifParticulier()">
             <div class="form-group">
-                <input type="text " class="form-control " placeholder="nom de l'utilisateur" name="nom" required
+                <input type="text " class="form-control " placeholder="nom de l'utilisateur" name="nom" required="true"
                     [(ngModel)]="partmodif.nom" [value]='nom'>
             </div>
             <div class="form-group">
-                <input type="text " class="form-control " placeholder="prenom de l'utilisateur" name="prenom" required
+                <input type="text " class="form-control " placeholder="prenom de l'utilisateur" name="prenom" required="true"
                     [(ngModel)]="partmodif.prenom" [value]='prenom'>
             </div>
             <div class="form-group">
-                <input type="text " class="form-control" placeholder="adresse mail" name="mail" required
+                <input type="text " class="form-control" placeholder="adresse mail" name="mail" required="true"
                     [(ngModel)]="partmodif.mail" [value]='mail'>
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="date" placeholder="date de naissance" name="dateNaissance" required
+                <input class="form-control" type="date" placeholder="date de naissance" name="dateNaissance" required="true"
                     [(ngModel)]="partmodif.dateNaissance" [value]="dateNaissance">
             </div>
 
@@ -29,7 +29,7 @@
                 [(ngModel)]="partmodif.bio"></textarea>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="mot de passe" type="password" name="mdp" required
+                <input type="text" class="form-control" placeholder="mot de passe" type="password" name="mdp" required="true"
                     [value]='mdp' [(ngModel)]="partmodif.mdp">
             </div>
             <nav>
