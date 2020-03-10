@@ -11,6 +11,7 @@ export class CherserviceService {
   connecte = false;
   msgIfNotCo = false;
   modifProjet = -1;
+  idProjetFocus = -1;
   lienHttp = 'http://localhost:8088/';
 
 

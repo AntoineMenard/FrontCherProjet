@@ -1,4 +1,20 @@
-<form method="post" enctype="multipart/form-data">
+
+
+
+<div class="container bgWhite">
+
+  <h1 class="nom-entreprise">{{projet.nom}}</h1>
+  <br>
+  <p>Participants au projet</p>
+  <div *ngFor="let participation of participations ">
+    {{participation.particulier.nom}}
+  </div>
+
+  <div class="container theme-showcase">
+    <h1>Calendar</h1>
+  <div id="holder" class="row" ></div>
+  </div>
+  <form method="post" enctype="multipart/form-data">
     <div style="color: skyblue;">
       <label for="image_uploads">Sélectionner des images à uploader (PNG, JPG)</label>
       <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
@@ -10,6 +26,6 @@
       <button>Envoyer</button>
     </div>
   </form>
-
-
   
+  
+</div>

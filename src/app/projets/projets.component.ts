@@ -70,4 +70,10 @@ export class ProjetsComponent implements OnInit {
     sessionStorage.setItem('validerProjet', p.idProjet);
     this.router.navigate(['demande-participation-projet-utilisateur']);
   }
+
+  goToProjet(p){
+    sessionStorage.setItem('idProjetFocus', p.idProjet);
+    this.router.navigate(['gestion']);
+
+  }
 }

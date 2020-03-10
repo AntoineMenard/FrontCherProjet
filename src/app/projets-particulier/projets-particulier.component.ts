@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projets-particulier',
@@ -13,7 +14,7 @@ export class ProjetsParticulierComponent implements OnInit {
   projetpasse;
   projetattente;
 
-  constructor(public myService: CherserviceService, private http: HttpClient) { }
+  constructor(public myService: CherserviceService, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -40,6 +41,11 @@ export class ProjetsParticulierComponent implements OnInit {
       }, err => {
         console.log(err);
       });
+
+  }
+  goToProjet(p) {
+    sessionStorage.setItem('idProjetFocus', p.idProjet);
+    this.router.navigate(['gestion']);
 
   }
 
