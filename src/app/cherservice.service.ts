@@ -29,4 +29,22 @@ export class CherserviceService {
     return this.connecte;
 
   }
+
+  EnLigne() {
+
+    if (sessionStorage.getItem('statut') === '0') {
+      this.visibleNavEntreprise = true;
+      this.visibleNavParticulier = false;
+    } else if (sessionStorage.getItem('statut') === '1') {
+      this.visibleNavEntreprise = false;
+      this.visibleNavParticulier = true;
+    } else {
+      this.visibleNavEntreprise = false;
+      this.visibleNavParticulier = false;
+    }
+
+    return true;
+
+  }
+
 }
