@@ -66,11 +66,9 @@ export class InscriptionComponent implements OnInit {
 
 
   addParticulier() {
-    this.http.get(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
+    this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
       .subscribe(data => {
-        this.dom = data;
-        this.DomainePar.domaine = this.dom;
-
+        this.DomainePar.domaine = data;
       }, err => {
         console.log(err);
       });
@@ -79,12 +77,10 @@ export class InscriptionComponent implements OnInit {
 
     this.http.post<Particulier>(this.myService.lienHttp + 'particulier', this.partic)
       .subscribe(data => {
-        this.dom = data;
+        this.DomainePar.particulier = data;
         if (!data.mail) {
           this.mailincorrect = true;
         } else {
-
-          this.DomainePar.particulier = this.dom;
           this.dialogRef.close();
           this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
             .subscribe(data => {

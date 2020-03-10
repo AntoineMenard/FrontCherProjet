@@ -1,1 +1,34 @@
-<p>demande-participation-projet-utilisateur works!</p>
+<br>
+<div class="row">
+    
+    <div *ngFor="let p of particulier" style="color: white;">
+    <button  *ngIf = "visible!=true" (click) ="consult(p)" class="btn-primary">Consulter</button>
+    <br>
+        <div *ngIf = "visible" class="col-sm-12">
+            <div class="container">
+                <mat-card style ="">
+                    <mat-card-header>
+                        <div mat-card-avatar
+                            style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                        </div>
+                        <mat-card-title>{{p.projet.nom}}</mat-card-title>
+                        <mat-card-subtitle>{{p.particulier.nom}} {{p.particulier.prenom}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <br>
+                        <p>{{p.particulier.bio}} </p>
+                        <br>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button class="form-control">VOIR LE PROFIL</button>
+                        <button mat-button class="form-control">CONTACTER</button>
+                        <br>
+                        <button mat-button class="form-control">VALIDER</button>
+                        <button mat-button class="form-control">REFUSER</button>
+                    </mat-card-actions>
+                </mat-card>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

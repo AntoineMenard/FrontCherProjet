@@ -4,6 +4,8 @@ import { Projet } from '../model/projet';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CherserviceService } from '../cherservice.service';
+import { Domaine } from '../model/domaine';
+import { DomaineProjet } from '../model/DomaineProjet';
 
 @Component({
   selector: 'app-proposer-projet-entreprise',
@@ -11,10 +13,13 @@ import { CherserviceService } from '../cherservice.service';
   styleUrls: ['./proposer-projet-entreprise.component.css']
 })
 export class ProposerProjetEntrepriseComponent implements OnInit {
+  domaines;
   visible = false;
   p;
   Projet: Projet = new Projet();
   entreprise;
+  Domaine: Domaine = new Domaine();
+  DomainePro: DomaineProjet = new DomaineProjet();
 
   constructor(
     private router: Router,
@@ -23,6 +28,11 @@ export class ProposerProjetEntrepriseComponent implements OnInit {
     private myService: CherserviceService) { }
 
   ngOnInit(): void {
+    this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
+      this.domaines = data;
+    }, err => {
+      console.log(err);
+    });
 
     this.http.get(this.myService.lienHttp + 'entreprise/' + sessionStorage.getItem('idUtilisateur')).subscribe(data => {
       this.entreprise = data;
@@ -40,11 +50,21 @@ export class ProposerProjetEntrepriseComponent implements OnInit {
   }
 
   SoumettreProjet() {
+
+    this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
+    .subscribe(data => {
+    this.DomainePro.domaine = data;
+    console.log(this.DomainePro.domaine); }, err => {console.log(err); });
+
     this.Projet.entreprise = this.entreprise;
-    console.log(this.Projet);
-    this.http.post('http://localhost:8088/projet', this.Projet).subscribe(data => {
-        this.router.navigate(['/projets']);
+    this.http.post< Projet >('http://localhost:8088/projet', this.Projet).subscribe(data => {
+    this.DomainePro.projet = data;
     }, err => { console.log(err);
     });
-  }
-}
+    console.log(this.DomainePro);
+    this.http.post(this.myService.lienHttp + 'domaineProjet', this.DomainePro)
+    // rempli le post avec null null alors que le console log le montre bien rempli et qu'aucune erreur n'est indiquée où que ce soit
+        .subscribe(data => {
+        }, err => { console.log(err); });
+    this.router.navigate(['/projets']);
+}}
