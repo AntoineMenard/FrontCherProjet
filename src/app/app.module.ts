@@ -34,6 +34,7 @@ import { FiltreNomProjet } from './filtre-nom-projet.pipe';
 import { FiltreNomEntreprise } from './filtre-nom-entreprise.pipe';
 import { TriParDate } from './tri-projet-par-date.pipe';
 import { GestionComponent } from './gestion/gestion.component';
+import { FiltreEntrepriseParNom} from './filtre-entreprises-par-nom.pipe';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { GestionComponent } from './gestion/gestion.component';
     FiltreNomProjet,
     FiltreNomEntreprise,
     TriParDate,
-    GestionComponent
+    GestionComponent,
+    FiltreEntrepriseParNom
   ],
   imports: [
     BrowserModule,
