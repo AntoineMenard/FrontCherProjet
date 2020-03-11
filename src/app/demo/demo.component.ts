@@ -21,8 +21,6 @@ import {
 } from 'angular-calendar';
 
 
-
-
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -44,6 +42,7 @@ const colors: any = {
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent {
+
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -58,13 +57,6 @@ export class DemoComponent {
   };
 
   actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fa fa-fw fa-pencil"></i>',
-      a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      }
-    },
     {
       label: '<i class="fa fa-fw fa-times"></i>',
       a11yLabel: 'Delete',
@@ -156,10 +148,10 @@ export class DemoComponent {
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
   }
 
   addEvent(): void {
+
     this.events = [
       ...this.events,
       {

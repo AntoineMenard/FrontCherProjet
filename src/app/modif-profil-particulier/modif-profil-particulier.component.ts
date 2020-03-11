@@ -22,10 +22,10 @@ export class ModifProfilParticulierComponent implements OnInit {
   mdp;
   dateNaissance;
   partmodif;
-  photo;
+  photo: any;
+  img: any = null;
 
   selectedFile: File = null;
-  imgURL: any = null;
 
 
   constructor(
@@ -69,14 +69,22 @@ export class ModifProfilParticulierComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
 
     reader.onload = (event2) => {
-      this.imgURL = reader.result;
+      this.img = reader.result;
+
+      if (this.img == null){
+        this.partmodif.photo = this.photo;
+      } else {
+        this.partmodif.photo = window.btoa(this.img);
+      }
+
     };
+
   }
 
   modifParticulier() {
     this.http.put(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur'), this.partmodif)
       .subscribe(data => {
-        console.log("ça ferme");
+        console.log('ça marche');
         this.dialogRefr.close();
         window.location.reload();
 

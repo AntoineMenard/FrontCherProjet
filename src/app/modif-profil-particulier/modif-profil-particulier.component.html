@@ -1,3 +1,4 @@
+<div *ngIf="myService.SessionParticulier()">
 <div *ngIf="myService.userEnLigne()"> 
 
 <div class="mat-dialog-content ">
@@ -45,7 +46,7 @@
             <br>
 
             <div class="text-center">
-                <img [src]="imgURL" height="80" *ngIf="imgURL">
+                <img [src]="img" height="80" *ngIf="img">
             </div>
             <br>
 
@@ -67,3 +68,4 @@
 </div>
 
 </div> 
+</div>
