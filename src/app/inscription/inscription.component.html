@@ -24,7 +24,7 @@
                         <br>
 
                         <div>
-                            <form (ngSubmit)="addParticulier()" name="formparticulier">
+                            <form (ngSubmit)="addParticulier()" name="formparticulier" #forme=ngForm>
                                 <div class="row">
                                     <div class="col-sm-6">
 
@@ -49,8 +49,8 @@
                                         required="true" [(ngModel)]="partic.mail">
                                 </div>
                                 <div class="form-group">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines" required="true" [value]="p.idDomaine">{{p.domaine}}</option> 
+                                    <select class=form-control required="true" name="domainepart" [(ngModel)]="Domaine.idDomaine" >
+                                        <option *ngFor="let p of domaines"  [value]="p.idDomaine">{{p.domaine}}</option> 
                                        </select >
                                 </div>
                          
@@ -58,9 +58,9 @@
                                     <input type="text" class="form-control" placeholder="mot de passe" type="password"
                                         name="mdp" required="true" [(ngModel)]="partic.mdp">
                                 </div>
-                                <p style="color:red " *ngIf="mailincorrect">adresse mail deja utilisée</p>
+                                <p style="color:red " *ngIf="mailincorrect">adresse mail ou nom déjà utilisé</p>
                                 <nav>
-                                    <button class="btn btn-primary btn-block" type="submit"> Valider
+                                    <button class="btn btn-primary btn-block" type="submit" [disabled]="!forme.form.valid"> Valider
                                         l'inscription</button>
                                 </nav>
                             </form>
@@ -70,7 +70,7 @@
                         <br>
 
                         <div>
-                            <form (ngSubmit) = addEntreprise() name="formentreprise">
+                            <form (ngSubmit) = addEntreprise() name="formentreprise" #forme=ngForm>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="nom de l'entreprise"
                                         name="nomentreprise" required="true" [(ngModel)]="entrep.nom">
@@ -81,8 +81,8 @@
                                         
                                 </div>
                                 <div class="form-group">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines" required="true" [value]="p.idDomaine">{{p.domaine}}</option> 
+                                    <select class=form-control required="true" name="domainepart" [(ngModel)]="Domaine.idDomaine" >
+                                        <option *ngFor="let p of domaines"  [value]="p.idDomaine">{{p.domaine}}</option> 
                                        </select >
                                 </div>
                                 <div class="row">
@@ -113,7 +113,7 @@
                                 <p style="color:red text-center" *ngIf="mailincorrect">adresse mail deja utilisée</p>
 
                                 <nav>
-                                    <button class="btn btn-block" style="color:cadetblue" type="submit"> Valider
+                                    <button [disabled]="!forme.form.valid" class="btn btn-block" style="color:cadetblue" type="submit"> Valider
                                         l'inscription</button>
                                 </nav>
 

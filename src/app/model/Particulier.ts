@@ -3,11 +3,12 @@ export class Particulier {
     mail: string;
     mdp: string;
     statut: number;
+    photo: Blob;
     nom: string;
     prenom: string;
     dateNaissance: Date;
     bio: string;
-    photo: string;
+    
 
     constructor() {
 

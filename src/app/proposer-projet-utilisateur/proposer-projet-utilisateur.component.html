@@ -1,1 +1,75 @@
-<p>proposer-projet-utilisateur works!</p>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="card ">
+                <div class="card-header formhead ">
+                    <h1 class="text-center"> Proposez VOTRE projet en seulement quelques clics !!! <br>
+                        <span class="font-weight-bold">Parce que c'est VOTRE projet!</span></h1>
+                </div>
+                <div class="card_body ">
+                    <br>
+                    <div class="container">
+                        <br>
+
+                        <div>
+                            <form (ngSubmit)="SoumettreProjet()" #forme=ngForm>
+     
+                                <div class="form-group">
+                                    <p>Date début</p>
+                                    <input  class="form-control" placeholder="date debut" type = "date" [(ngModel)] = "ProjetPropose.dateDebut"
+                                        name="date-debut" required="true">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <p>Date fin</p>
+                                    <input type="text" class="form-control" placeholder="date fin" type="date" [(ngModel)] = "ProjetPropose.dateFin"
+                                        name="date-fin" required="true">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <select class=form-control name="domainepart" required="true" [(ngModel)]="Domaine.idDomaine" >
+                                        <option *ngFor="let p of domaines"   [value]="p.idDomaine">{{p.domaine}} </option> 
+                                      </select >
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="descriptif" [(ngModel)] = "ProjetPropose.descriptif"
+                                        name="descriptif" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder="nombre de participants souhaité" [(ngModel)] = "ProjetPropose.nbrParticipants"
+                                        name="nombre" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="nom du projet" [(ngModel)] = "ProjetPropose.nom"
+                                        name="nom" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="entreprise à contacter" 
+                                        name="nom" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Commentaires" [(ngModel)] = "ProjetPropose.commentaire"
+                                        name="nom" required="true">
+                                </div>
+                                <nav>
+                                    <button [disabled]="!forme.form.valid" class="btn btn-primary btn-block" type="submit"> Soumettre le projet </button>
+                                </nav>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+
+
+
+
+    </div>
+
+</div>

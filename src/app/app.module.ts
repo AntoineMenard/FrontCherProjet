@@ -42,6 +42,7 @@ import { GestionComponent } from './gestion/gestion.component';
 import { FiltreEntrepriseParNom} from './filtre-entreprises-par-nom.pipe';
 import { DemoComponent } from './demo/demo.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

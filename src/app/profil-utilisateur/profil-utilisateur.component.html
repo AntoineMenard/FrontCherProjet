@@ -3,14 +3,20 @@
     <div class="container shadow p-3 mb-5 bg-white rounded">
 
         <div class="container bgWhite">
+
+
             <div class="row">
                 <div class="sm-col-2"></div>
-    
-    
+            </div>
+
+            <div>
+
+                <img  [src]="changeForm(p.photo)" *ngIf="photoExist(p.photo)"  width="100px" class="rounded">
+
             </div>
     
             <div class="nom-particulier">
-                {{particulier.prenom}} {{particulier.nom}}
+                {{p.prenom}} {{p.nom}}
                 <button class="btn btn-primary pull-right" id="right-panel-link" (click) = "callModifProfilParticulier()"> Modifier</button>
             </div>
             
@@ -18,7 +24,7 @@
             <hr>
             <p class="titremoy">Description :</p>
     
-            <p placeholder="Décrivez ici votre parcours, vos expériences et vos projets futurs.">{{particulier.bio}}
+            <p placeholder="Décrivez ici votre parcours, vos expériences et vos projets futurs.">{{p.bio}}
             </p>
             <br>
             <div class="row">
@@ -29,11 +35,11 @@
                         <tbody>
                             <tr>
                                 <td class="font-weight-bold ombre align-middle"> Mail </td>
-                                <td class="petittexte">{{particulier.mail}} </td>
+                                <td class="petittexte">{{p.mail}} </td>
                             </tr>
                             <tr>
                                 <td class="font-weight-bold ombre align-middle"> Date de naissance </td>
-                                <td class="petittexte">{{particulier.dateNaissance}}</td>
+                                <td class="petittexte">{{p.dateNaissance}}</td>
                             </tr>
                             <tr class="my-auto">
                                 <td class="font-weight-bold ombre align-middle"> Secteur(s) d'intérêt </td>
