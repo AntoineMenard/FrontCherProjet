@@ -25,19 +25,20 @@
                         <br>
 
                         <div>
-                            <form (ngSubmit)="connexionParticulier()">
+                            <form (ngSubmit)="connexionParticulier()" #forme=ngForm>
      
                                 <div class="form-group">
-                                    <input type="text " class="form-control" placeholder="adresse mail" [(ngModel)] = "Particulier.mail"
-                                        name="mail" required="true">
+                                    <input type="text " class="form-control" #mailAction="ngModel" placeholder="adresse mail" [(ngModel)] = "Particulier.mail"
+                                        name="mail" required >
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="mot de passe" [(ngModel)] = "Particulier.mdp" type="password"
-                                        name="mdp" required="true">
+                                        name="mdp" required>
+
                                 </div>
                                 <nav>
-                                    <button class="btn btn-primary btn-block" type="submit"> Se connecter </button>
+                                    <button [disabled]="!forme.form.valid" class="btn btn-primary btn-block" type="submit"> Se connecter </button>
                                 </nav>
 
                                 <p *ngIf="visible" class="text-center font-weight-bold" style="color:crimson">
@@ -55,7 +56,7 @@
                         <br>
 
                         <div>
-                            <form (ngSubmit)="connexionEntreprise()">
+                            <form (ngSubmit)="connexionEntreprise()" #forme=ngForm>
      
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="adresse mail" [(ngModel)] = "Entreprise.mail"
@@ -67,7 +68,7 @@
                                         name="mdpentreprise" required>
                                 </div>
                                 <nav>
-                                   <button class="btn btn-block" style="color:cadetblue" type="submit"> Se connecter </button>
+                                   <button class="btn btn-block" [disabled]="!forme.form.valid" style="color:cadetblue" type="submit"> Se connecter </button>
                                 </nav>
 
                                 

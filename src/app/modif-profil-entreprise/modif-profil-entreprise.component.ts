@@ -17,6 +17,10 @@ import { DomaineEntreprise } from '../model/DomaineEntreprise';
 export class ModifProfilEntrepriseComponent implements OnInit {
   domaines;
   Domaine: Domaine = new Domaine();
+  Domaine1: Domaine = new Domaine();
+  Domaine2: Domaine = new Domaine();
+  Domaine3: Domaine = new Domaine();
+  Domaine4: Domaine = new Domaine();
   DomaineEnt: DomaineEntreprise = new DomaineEntreprise();
 
   constructor(
@@ -25,7 +29,7 @@ export class ModifProfilEntrepriseComponent implements OnInit {
     public myService: CherserviceService,
     public dialogRefr: MatDialogRef<ModifProfilEntrepriseComponent>,
   ) { }
-
+  domainesEntreprise;
   entreprise;
   nomentreprise;
   mailentreprise;
@@ -40,11 +44,24 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   telentreprise;
   id = sessionStorage.getItem('idUtilisateur');
   entrepmodif: Entreprise = new Entreprise();
-
-
+  visible1 = false;
+  visible2 = false;
+  visible3 = false;
+  visible4 = false;
+  visible5 = true;
+  
 
 
   ngOnInit(): void {
+    this.http.get(this.myService.lienHttp + 'domaineEntreprise/' + this.id).subscribe(data => {
+      this.domainesEntreprise = data;
+      this.domaineentreprise.array.forEach(element => {
+      
+      });
+    }, err => {
+      console.log(err);
+    });
+
 
     this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
       this.domaines = data;
@@ -52,7 +69,7 @@ export class ModifProfilEntrepriseComponent implements OnInit {
       console.log(err);
     });
 
-    this.http.get(this.myService.lienHttp + "entreprise/" + this.id, this.entreprise)
+    this.http.get(this.myService.lienHttp + 'entreprise/' + this.id, this.entreprise)
       .subscribe(data => {
         this.entreprise = data;
         this.nomentreprise = this.entreprise.nom;
@@ -79,23 +96,37 @@ export class ModifProfilEntrepriseComponent implements OnInit {
       .subscribe(data => {
         this.DomaineEnt.domaine = data;
         console.log(this.DomaineEnt.domaine);
+        this.http.put<Entreprise>(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
+          .subscribe(data => {
+            this.DomaineEnt.entreprise = data;
+            console.log(this.DomaineEnt);
+            this.gérerlessecteurs();
+            this.dialogRefr.close();
+            window.location.reload();
+          }, err => {
+            console.log(err);
+          });
       }, err => { console.log(err); });
 
-    this.http.put<Entreprise>(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
-      .subscribe(data => { this.DomaineEnt.entreprise = data; }, err => {
-        console.log(err);
-      });
-    console.log(this.DomaineEnt);
-    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.entrepmodif.idUtilisateur, this.DomaineEnt)
-      // rempli le post avec null null alors que le console log le montre bien rempli et qu'aucune erreur n'est indiquée où que ce soit
-      .subscribe(data => {
-      }, err => { console.log(err); });
-
-    // this.dialogRefr.close();
-    // window.location.reload();
   }
 
+  rendreNextVisible() {
+    if (!this.visible1) { this.visible1 = true; }
+    else {
+      if (!this.visible2) { this.visible2 = true; }
+      else {
+        if (!this.visible3) { this.visible3 = true; }
+        else {
+          if (!this.visible4) { this.visible4 = true;
+                                this.visible5 = false; }
+          else {} }}}}
 
 
+  gérerlessecteurs(){
+    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.entrepmodif.idUtilisateur, this.DomaineEnt)
+              .subscribe(data => {
+              }, err => { console.log(err); });
 
+  }
 }
+
