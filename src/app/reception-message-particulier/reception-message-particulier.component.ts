@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reception-message-particulier',

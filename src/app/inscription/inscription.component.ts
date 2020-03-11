@@ -30,6 +30,9 @@ export class InscriptionComponent implements OnInit {
   Domaine2: Domaine = new Domaine();
   Domaine3: Domaine = new Domaine();
   Domaine4: Domaine = new Domaine();
+
+
+
   DomaineEnt: DomaineEntreprise = new DomaineEntreprise();
   DomainePar: DomaineParticulier = new DomaineParticulier();
   partic: Particulier = new Particulier();
@@ -47,6 +50,13 @@ export class InscriptionComponent implements OnInit {
   visible5 = true;
 
   ngOnInit(): void {
+
+    this.Domaine1.idDomaine = 0 ;
+    this.Domaine2.idDomaine = 0 ;
+    this.Domaine3.idDomaine = 0 ;
+    this.Domaine4.idDomaine = 0 ;
+
+
     this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
       this.domaines = data;
     }, err => {
