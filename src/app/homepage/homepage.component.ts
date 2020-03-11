@@ -19,6 +19,8 @@ export class HomepageComponent implements OnInit {
   constructor(public myService: CherserviceService,  private dialog: MatDialog) { }
 
   ngOnInit(): void {
+
+
     particlesJS.load('particles-js', 'particles.json', null);
 
     (function ($) {

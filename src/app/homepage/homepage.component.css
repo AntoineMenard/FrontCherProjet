@@ -9,6 +9,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+.body {
+  background: #000203;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Varela Round', sans-serif;
+  height: 100%;
+}
+
 .tdMiddle {
 
     vertical-align:middle !important; 
