@@ -62,7 +62,6 @@ export class GestionComponent implements OnInit {
 
   view: CalendarView = CalendarView.Month;
   idProjet = sessionStorage.getItem('idProjetFocus');
-  idEtape = sessionStorage.getItem('modifEtapeId');
   projet;
   participations;
   etapesAjout;
@@ -243,6 +242,7 @@ export class GestionComponent implements OnInit {
   }
 
   editEtape(etape) {
+    sessionStorage.setItem('modifEtapeId', etape.id);
     const mydial = this.dialog.open();
 
   }
