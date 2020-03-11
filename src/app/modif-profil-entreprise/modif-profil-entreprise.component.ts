@@ -49,14 +49,14 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   visible3 = false;
   visible4 = false;
   visible5 = true;
-  
+
 
 
   ngOnInit(): void {
     this.http.get(this.myService.lienHttp + 'domaineEntreprise/' + this.id).subscribe(data => {
       this.domainesEntreprise = data;
       this.domaineentreprise.array.forEach(element => {
-      
+
       });
     }, err => {
       console.log(err);
@@ -111,18 +111,14 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   }
 
   rendreNextVisible() {
-    if (!this.visible1) { this.visible1 = true; }
-    else {
-      if (!this.visible2) { this.visible2 = true; }
-      else {
-        if (!this.visible3) { this.visible3 = true; }
-        else {
+    if (!this.visible1) { this.visible1 = true; } else {
+      if (!this.visible2) { this.visible2 = true; } else {
+        if (!this.visible3) { this.visible3 = true; } else {
           if (!this.visible4) { this.visible4 = true;
-                                this.visible5 = false; }
-          else {} }}}}
+                                this.visible5 = false; } else {} }}}}
 
 
-  gérerlessecteurs(){
+  gérerlessecteurs() {
     this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.entrepmodif.idUtilisateur, this.DomaineEnt)
               .subscribe(data => {
               }, err => { console.log(err); });
