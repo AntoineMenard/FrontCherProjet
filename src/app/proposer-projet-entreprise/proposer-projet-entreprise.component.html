@@ -14,7 +14,7 @@
                         <br>
 
                         <div>
-                            <form (ngSubmit)="SoumettreProjet()">
+                            <form (ngSubmit)="SoumettreProjet()" #forme=ngForm>
      
                                 <div class="form-group">
                                     <p>Date début</p>
@@ -29,8 +29,8 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines" required="true"  [value]="p.idDomaine">{{p.domaine}} </option> 
+                                    <select class=form-control name="domainepart" required="true" [(ngModel)]="Domaine.idDomaine" >
+                                        <option *ngFor="let p of domaines"   [value]="p.idDomaine">{{p.domaine}} </option> 
                                       </select >
                                 </div>
                                 <br>
@@ -51,7 +51,7 @@
                                         name="nom" required="true">
                                 </div>
                                 <nav>
-                                    <button class="btn btn-primary btn-block" type="submit"> Soumettre le projet </button>
+                                    <button [disabled]="!forme.form.valid" class="btn btn-primary btn-block" type="submit"> Soumettre le projet </button>
                                 </nav>
 
 
