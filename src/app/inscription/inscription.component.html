@@ -58,7 +58,7 @@
                                     <input type="text" class="form-control" placeholder="mot de passe" type="password"
                                         name="mdp" required="true" [(ngModel)]="partic.mdp">
                                 </div>
-                                <p style="color:red " *ngIf="mailincorrect">adresse mail deja utilisée</p>
+                                <p style="color:red " *ngIf="mailincorrect">adresse mail ou nom déjà utilisé</p>
                                 <nav>
                                     <button class="btn btn-primary btn-block" type="submit" [disabled]="!forme.form.valid"> Valider
                                         l'inscription</button>
