@@ -26,6 +26,8 @@ import {
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Etape } from '../model/Etape';
+import { MatDialog } from '@angular/material/dialog';
+
 
 const colors: any = {
   red: {
@@ -52,13 +54,15 @@ export class GestionComponent implements OnInit {
   constructor(
     private http: HttpClient,
     public myService: CherserviceService,
-    private modal: NgbModal
+    private modal: NgbModal,
+    private dialog: MatDialog
   ) { }
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
   idProjet = sessionStorage.getItem('idProjetFocus');
+  idEtape = sessionStorage.getItem('modifEtapeId');
   projet;
   participations;
   etapesAjout;
@@ -239,7 +243,8 @@ export class GestionComponent implements OnInit {
   }
 
   editEtape(etape) {
-  
+    const mydial = this.dialog.open();
+
   }
 
   setView(view: CalendarView) {
