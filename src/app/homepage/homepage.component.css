@@ -8,6 +8,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: rgba(155, 228, 235, 0.87) !important;
 }
 
+
 .tdMiddle {
 
     vertical-align:middle !important; 
@@ -15,8 +16,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .btncoinscr{
   background-color: darkgray !important;
 }
-
-
   
   canvas {
     height: 100vh;
@@ -146,9 +145,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
   }
 
-.bgWhite{
-  background-color: white;
-}
+
 .nom-entreprise{
   color: #2e3fbe;
   font-size: 30px;
