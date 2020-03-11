@@ -14,6 +14,7 @@ export class ModifEtapeComponent implements OnInit {
   etape;
   etapeModif;
   dateDeb;
+  erreur = false;
   dateFin;
 
 
@@ -40,14 +41,20 @@ export class ModifEtapeComponent implements OnInit {
     }
 
     modifEtape() {
-      this.http.put(this.myService.lienHttp + 'etapeProjet/' + this.idEtape, this.etapeModif)
-      .subscribe(data => {
-        this.dialogRefr.close();
-        window.location.reload();
+      if (this.etapeModif.dateFin >= this.etapeModif.dateDebut) {
 
-      }, err => {
-        console.log(err);
-      });
+        this.http.put(this.myService.lienHttp + 'etapeProjet/' + this.idEtape, this.etapeModif)
+        .subscribe(data => {
+          this.dialogRefr.close();
+          window.location.reload();
+  
+  
+        }, err => {
+          console.log(err);
+        });
+      }else{
+        this.erreur = true;
+      }
 
     }
 

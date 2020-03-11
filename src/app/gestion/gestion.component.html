@@ -6,6 +6,7 @@
   <div *ngFor="let participation of participations ">
     {{participation.particulier.nom}}
   </div>
+
   <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
@@ -75,11 +76,11 @@
               <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout">
             </div>
             <div class="col-sm-3">
-              <input type = "date" class="form-control" [(ngModel)]="etapeNouveau.dateDebut"               
+              <input type = "date" min="{{projet.dateDebut}}" max="{{projet.dateFin}}" class="form-control" [(ngModel)]="etapeNouveau.dateDebut"               
               name="debajout" >
             </div>
             <div class="col-sm-3 form-group">
-              <input type = "date" class="form-control"  [(ngModel)]="etapeNouveau.dateFin"
+              <input type = "date" class="form-control" min="{{etapeNouveau.dateDebut}}" max="{{projet.dateFin}}" [(ngModel)]="etapeNouveau.dateFin"
                  name="finajout" >
             </div>
             <div class="col-sm-3 form-group">
@@ -87,6 +88,10 @@
             </div>
             
           </div>
+          <div *ngIf="erreur" id="erreur"> 
+            Les dates ne sont pas cohérentes !
+    
+        </div>
         </form>
 
       </div>
