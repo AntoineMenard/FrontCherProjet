@@ -15,7 +15,7 @@ import {
   toDate,
   parseISO
 } from 'date-fns';
-import { Subject } from 'rxjs';
+import { Subject, from } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
@@ -26,6 +26,9 @@ import {
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Etape } from '../model/Etape';
+import { MatDialog } from '@angular/material/dialog';
+import { ModifEtapeComponent } from '../modif-etape/modif-etape.component';
+
 
 const colors: any = {
   red: {
@@ -52,7 +55,8 @@ export class GestionComponent implements OnInit {
   constructor(
     private http: HttpClient,
     public myService: CherserviceService,
-    private modal: NgbModal
+    private modal: NgbModal,
+    private dialog: MatDialog
   ) { }
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
@@ -239,7 +243,8 @@ export class GestionComponent implements OnInit {
   }
 
   editEtape(etape) {
-  
+    sessionStorage.setItem('modifEtapeId', etape.id);
+    const mydial = this.dialog.open(ModifEtapeComponent);
   }
 
   setView(view: CalendarView) {
