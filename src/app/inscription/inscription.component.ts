@@ -26,15 +26,25 @@ export class InscriptionComponent implements OnInit {
 
   dom;
   Domaine: Domaine = new Domaine();
+  Domaine1: Domaine = new Domaine();
+  Domaine2: Domaine = new Domaine();
+  Domaine3: Domaine = new Domaine();
+  Domaine4: Domaine = new Domaine();
   DomaineEnt: DomaineEntreprise = new DomaineEntreprise();
   DomainePar: DomaineParticulier = new DomaineParticulier();
   partic: Particulier = new Particulier();
   entrep: Entreprise = new Entreprise();
   constructor(public myService: CherserviceService,
-              private http: HttpClient,
-              private router: Router,
-              public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
+    private http: HttpClient,
+    private router: Router,
+    public dialogRef: MatDialogRef<InscriptionconnexionComponent>,
   ) { }
+
+  visible1 = false;
+  visible2 = false;
+  visible3 = false;
+  visible4 = false;
+  visible5 = true;
 
   ngOnInit(): void {
     this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
@@ -82,11 +92,8 @@ export class InscriptionComponent implements OnInit {
           this.mailincorrect = true;
         } else {
           this.dialogRef.close();
-          this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
-            .subscribe(data => {
-            }, err => {
-              console.log(err);
-            });
+          this.gérerlessecteursP();
+
         }
 
 
@@ -99,7 +106,6 @@ export class InscriptionComponent implements OnInit {
       .subscribe(data => {
         this.dom = data;
         this.DomaineEnt.domaine = this.dom;
-
       }, err => {
         console.log(err);
       });
@@ -112,12 +118,8 @@ export class InscriptionComponent implements OnInit {
           this.mailincorrect = true;
         } else {
           this.DomaineEnt.entreprise = this.dom;
+          this.gérerlessecteursE();
           this.dialogRef.close();
-          this.http.post(this.myService.lienHttp + 'domaineEntreprise', this.DomaineEnt)
-            .subscribe(data => {
-            }, err => {
-              console.log(err);
-            });
 
         }
       }, err => {
@@ -125,5 +127,93 @@ export class InscriptionComponent implements OnInit {
       });
   }
 
+  rendreNextVisible() {
+    if (!this.visible1) { this.visible1 = true; } else {
+      if (!this.visible2) { this.visible2 = true; } else {
+        if (!this.visible3) { this.visible3 = true; } else {
+          if (!this.visible4) {
+            this.visible4 = true;
+            this.visible5 = false;
+          } else { }
+        }
+      }
+    }
+  }
+
+  gérerlessecteursP() {
+    this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
+      .subscribe(data => {
+        this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine1.idDomaine)
+          .subscribe(data => {
+            this.DomainePar.domaine = data;
+            this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
+              .subscribe(data => {
+                this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine2.idDomaine)
+                  .subscribe(data => {
+                    this.DomainePar.domaine = data;
+                    this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
+                      .subscribe(data => {
+                        this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine3.idDomaine)
+                          .subscribe(data => {
+                            this.DomainePar.domaine = data;
+                            this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
+                              .subscribe(data => {
+                                this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine4.idDomaine)
+                                  .subscribe(data => {
+                                    this.DomainePar.domaine = data;
+                                    this.http.post(this.myService.lienHttp + 'domaineParticulier', this.DomainePar)
+                                      .subscribe(data => {
+
+                                      }, err => { console.log(err); });
+                                  }, err => { console.log(err); });
+                              }, err => { console.log(err); });
+                          }, err => { console.log(err); });
+                      }, err => { console.log(err); });
+                  }, err => { console.log(err); });
+              }, err => { console.log(err); });
+          }, err => { console.log(err); });
+      }, err => { console.log(err); });
+  }
+
+
+
+  gérerlessecteursE() {
+    this.http.post(this.myService.lienHttp + 'domaineEntreprise', this.DomaineEnt)
+      .subscribe(data => {
+        this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine1.idDomaine)
+          .subscribe(data => {
+            this.DomaineEnt.domaine = data;
+            this.http.post(this.myService.lienHttp + 'domaineEntreprise', this.DomaineEnt)
+              .subscribe(data => {
+                this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine2.idDomaine)
+                  .subscribe(data => {
+                    this.DomaineEnt.domaine = data;
+                    this.http.post(this.myService.lienHttp + 'domaineEntreprise', this.DomaineEnt)
+                      .subscribe(data => {
+                        this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine3.idDomaine)
+                          .subscribe(data => {
+                            this.DomaineEnt.domaine = data;
+                            this.http.post(this.myService.lienHttp + 'domaineEntreprise', this.DomaineEnt)
+                              .subscribe(data => {
+                                this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine4.idDomaine)
+                                  .subscribe(data => {
+                                    this.DomaineEnt.domaine = data;
+                                    this.http.post(this.myService.lienHttp + 'domaineEntreprise', this.DomaineEnt)
+                                      .subscribe(data => {
+
+                                      }, err => { console.log(err); });
+
+                                  }, err => { console.log(err); });
+                              }, err => { console.log(err); });
+
+                          }, err => { console.log(err); });
+                      }, err => { console.log(err); });
+
+                  }, err => { console.log(err); });
+              }, err => { console.log(err); });
+
+          }, err => { console.log(err); });
+      }, err => { console.log(err); });
+  }
 
 }

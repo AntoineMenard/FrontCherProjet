@@ -4,7 +4,7 @@
         <div class=""></div>
         <div class="col-sm-12">
             <div class=" ">
-                
+
                 <div class="">
                     <br>
                     <div class="container">
@@ -42,25 +42,56 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="date" name="datenaisspart" id="example-date-input" required [(ngModel)]="partic.dateNaissance">
+                                    <input class="form-control" type="date" name="datenaisspart" id="example-date-input"
+                                        required [(ngModel)]="partic.dateNaissance">
                                 </div>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="adresse mail" name="mailpart"
                                         required="true" [(ngModel)]="partic.mail">
                                 </div>
                                 <div class="form-group">
-                                    <select class=form-control required="true" name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines"  [value]="p.idDomaine">{{p.domaine}}</option> 
-                                       </select >
+
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine"
+                                        required="true">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
+                                    </select>
                                 </div>
-                         
+                                <div class="form-group" *ngIf="visible1">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" *ngIf="visible2">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" *ngIf="visible3">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" *ngIf="visible4">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-outline-info" *ngIf="visible5"
+                                    (click)="rendreNextVisible()">
+                                    ajouter un secteur +</button>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="mot de passe" type="password"
                                         name="mdp" required="true" [(ngModel)]="partic.mdp">
                                 </div>
                                 <p style="color:red " *ngIf="mailincorrect">adresse mail ou nom déjà utilisé</p>
                                 <nav>
-                                    <button class="btn btn-primary btn-block" type="submit" [disabled]="!forme.form.valid"> Valider
+                                    <button class="btn btn-primary btn-block" type="submit"
+                                        [disabled]="!forme.form.valid"> Valider
                                         l'inscription</button>
                                 </nav>
                             </form>
@@ -70,7 +101,7 @@
                         <br>
 
                         <div>
-                            <form (ngSubmit) = addEntreprise() name="formentreprise" #forme=ngForm>
+                            <form (ngSubmit)=addEntreprise() name="formentreprise" #forme=ngForm>
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="nom de l'entreprise"
                                         name="nomentreprise" required="true" [(ngModel)]="entrep.nom">
@@ -78,13 +109,50 @@
                                 <div class="form-group">
                                     <input type="text " class="form-control" placeholder="adresse mail"
                                         name="mailentreprise" required="true" [(ngModel)]="entrep.mail">
-                                        
+
                                 </div>
+
+
+
                                 <div class="form-group">
-                                    <select class=form-control required="true" name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                                        <option *ngFor="let p of domaines"  [value]="p.idDomaine">{{p.domaine}}</option> 
-                                       </select >
+
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine"
+                                        required="true">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
+                                    </select>
                                 </div>
+                                <div class="form-group" *ngIf="visible1">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" *ngIf="visible2">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" *ngIf="visible3">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" *ngIf="visible4">
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
+                                            {{p.domaine}}</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-outline-info" *ngIf="visible5"
+                                    (click)="rendreNextVisible()">
+                                    ajouter un secteur +</button>
+
+
+
+
+
                                 <div class="row">
                                     <div class="col-sm-8">
                                         <div class="form-group">
@@ -96,7 +164,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <input type="number" class="form-control" placeholder="code postal"
-                                                name="CPentreprise" required="true" [(ngModel)]="entrep.codePostal"> 
+                                                name="CPentreprise" required="true" [(ngModel)]="entrep.codePostal">
                                         </div>
 
                                     </div>
@@ -113,16 +181,17 @@
                                 <p style="color:red text-center" *ngIf="mailincorrect">adresse mail deja utilisée</p>
 
                                 <nav>
-                                    <button [disabled]="!forme.form.valid" class="btn btn-block" style="color:cadetblue" type="submit"> Valider
+                                    <button [disabled]="!forme.form.valid" class="btn btn-block" style="color:cadetblue"
+                                        type="submit"> Valider
                                         l'inscription</button>
                                 </nav>
 
 
                             </form>
                         </div>
-                        
+
                     </div>
-                    
+
 
                 </div>
             </div>
