@@ -1,6 +1,3 @@
-
-
-
 <div class="container bgWhite">
 
   <h1 class="nom-entreprise">{{projet.nom}}</h1>
@@ -9,11 +6,140 @@
   <div *ngFor="let participation of participations ">
     {{participation.particulier.nom}}
   </div>
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="container bgWhite">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Previous
+              </div>
+              <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+              </div>
+              <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Next
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+          </div>
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
+                [class.active]="view === CalendarView.Month">
+                Month
+              </div>
+              <div class="btn btn-primary" (click)="setView(CalendarView.Week)"
+                [class.active]="view === CalendarView.Week">
+                Week
+              </div>
+              <div class="btn btn-primary" (click)="setView(CalendarView.Day)"
+                [class.active]="view === CalendarView.Day">
+                Day
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div [ngSwitch]="view">
+          <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+            (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-month-view>
+          <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-week-view>
+          <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-day-view>
+        </div>
 
-  <div class="container theme-showcase">
-    <h1>Calendar</h1>
-  <div id="holder" class="row" ></div>
+
+        <br />
+
+        <h3>
+          Edit events
+
+        </h3>
+        <form class="form" (ngSubmit)="addEtapeNouveau()" name = "formajout">
+          <div class="row">
+            <div class="col-sm-3">
+              <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout">
+            </div>
+            <div class="col-sm-3">
+              <input type = "date" class="form-control" [(ngModel)]="etapeNouveau.dateDebut"               
+              name="debajout" >
+            </div>
+            <div class="col-sm-3 form-group">
+              <input type = "date" class="form-control"  [(ngModel)]="etapeNouveau.dateFin"
+                 name="finajout" >
+            </div>
+            <div class="col-sm-3 form-group">
+              <button class="btn btn-primary btn-block" type="submit" name="submitajout">Ajout</button>
+            </div>
+            
+          </div>
+        </form>
+
+      </div>
+
+      <br>
+      <br>
+
+
+
+
+
+      <div class="table">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Début le :</th>
+              <th>Fin le </th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+
+
+          <tr *ngFor="let etape of etapesAjout">
+
+            <td>
+              <p>{{etape.nom}}</p>
+            </td>
+
+            <td>
+              {{etape.dateDebut}}
+
+            </td>
+            <td>
+              {{etape.dateDebut}}
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteEtape(etape)">
+                Delete
+              </button>
+              &nbsp;
+              <button class="btn btn-success" (click)="editEtape(etape)">
+                Edit
+              </button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
   </div>
+
+
   <form method="post" enctype="multipart/form-data">
     <div style="color: skyblue;">
       <label for="image_uploads">Sélectionner des images à uploader (PNG, JPG)</label>
@@ -23,38 +149,9 @@
       <p>Aucun fichier sélectionné pour le moment</p>
     </div>
     <div>
-      <button>Envoyer</button>
+      <button>Envoye</button>
     </div>
   </form>
-  
-  
-<!-- PLF - / -->
 
-    <!--form action="mailto:cyril.hantala@gmail.com?subject=testjavamail" name="envoi" method=POST enctype="text/plain">
-    <table><tr><td>
-    <b>Nom : </b><input name="nom"size=50 maxlength=50><br>
-    <b>Prenom : </b><input name="PRENOM"size=50 maxlength=50><br>
-    <textarea name="message" cols="60" rows="5"></textarea>
-    </td></tr></table><br>
-    Est-ce votre 1ère visite sur Mon javascript
-    <input type="radio" name="visite" value="oui">
-    Oui - &nbsp;
-    <input type="radio" name="visite" value="2-3eme">
-    Non 2 à 3éme - &nbsp;
-    <input type="radio" name="visite" value="4+">
-    Non 4 à +<br><br>
-    Votre avis sur le site
-    <input type="radio" name="avis" value="tres bien">
-    Tr&egrave;s Bien - &nbsp;
-    <input type="radio" name="avis" value="bien">
-    Bien - &nbsp;
-    <input type="radio" name="avis" value="moyen">
-    Moyen - &nbsp;
-    <input type="radio" name="avis" value="Pas bien">
-    Pas bien<br>
-    <input type="submit" value="Envoyer" name="Envoyer">
-    <input type="reset" name="Submit" value="Effacer">
-    </form>
-    <hr>
-</div-->
 
+</div>

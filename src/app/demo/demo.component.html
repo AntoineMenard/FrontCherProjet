@@ -108,6 +108,7 @@
     <thead>
       <tr>
         <th>Title</th>
+        <th>Primary color</th>
         <th>Starts at</th>
         <th>Ends at</th>
         <th>Remove</th>
@@ -124,6 +125,13 @@
             (keyup)="refresh.next()"
           />
         </td>
+        <td>
+            <input
+              type="color"
+              [(ngModel)]="event.color.primary"
+              (change)="refresh.next()"
+            />
+          </td>
  
         <td>
           <input
