@@ -25,7 +25,7 @@ export class ProposerProjetEntrepriseComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private dialog: MatDialog,
-    private myService: CherserviceService) { }
+    public myService: CherserviceService) { }
 
   ngOnInit(): void {
     this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
