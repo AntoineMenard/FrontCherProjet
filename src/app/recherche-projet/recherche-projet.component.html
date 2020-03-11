@@ -24,9 +24,10 @@
 
                     <mat-card style="">
                         <mat-card-header>
-                            <div mat-card-avatar
-                                style="background-image: url('https://static.iquesta.com/logo/iquesta/solutec2.jpg'); background-size: cover;">
+                            <div mat-card-avatar> 
+                                <img  [src]="changeForm(p.entreprise.photo)"  width="50px" style = "background-size: cover;"> 
                             </div>
+                            
                             <mat-card-title>{{p.nom}}</mat-card-title>
                             <mat-card-subtitle>{{p.entreprise.nom}}</mat-card-subtitle>
                         </mat-card-header>

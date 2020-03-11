@@ -84,7 +84,6 @@ export class ModifProfilParticulierComponent implements OnInit {
   modifParticulier() {
     this.http.put(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur'), this.partmodif)
       .subscribe(data => {
-        console.log('ça marche');
         this.dialogRefr.close();
         window.location.reload();
 
