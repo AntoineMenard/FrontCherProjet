@@ -2,10 +2,10 @@
     <div>
         <p class="titremoy">Modifications :</p>
 
-        <form name="formentreprise" (ngSubmit)="modifProjet()">
+        <form #forme=ngForm name="formentreprise" (ngSubmit)="modifProjet()">
             <div class="form-group">
                 <input type="text " class="form-control " placeholder="nom du projet" name="nomProjet"
-                    [value]="nomProjet" [(ngModel)]="projetmodif.nom">
+                    [value]="nomProjet" [(ngModel)]="projetmodif.nom" required>
             </div>
 
             <textarea id="form7" class=" form-control" name="descentreprise"
@@ -39,8 +39,8 @@
             <br>
 
             <div class="form-group">
-                <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" >
-                    <option *ngFor="let p of domaines"  [value]="p.idDomaine" required="true">{{p.domaine}}</option> 
+                <select class=form-control name="domainepart" required="true" [(ngModel)]="Domaine.idDomaine" >
+                    <option *ngFor="let p of domaines"  [value]="p.idDomaine" >{{p.domaine}}</option> 
                    </select >
             </div>
 
@@ -54,7 +54,7 @@
                     [value]="interessementProjet" [(ngModel)]="projetmodif.interessement">
             </div>
             <nav>
-                <button class="btn btn-block" style="color:cadetblue" type="submit"> Valider les modifications</button>
+                <button [disabled]="!forme.form.valid" class="btn btn-block" style="color:cadetblue" type="submit"> Valider les modifications</button>
             </nav>
         </form>
     </div>

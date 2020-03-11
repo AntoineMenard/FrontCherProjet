@@ -5,7 +5,7 @@
     <div>
         <p class="titre">Modification du profil :</p>
 
-        <form name="formparticulier" (ngSubmit)="modifParticulier()">
+        <form name="formparticulier" (ngSubmit)="modifParticulier()" #forme=ngForm>
             <div class="form-group">
                 <input type="text " class="form-control " placeholder="nom de l'utilisateur" name="nom" required="true"
                     [(ngModel)]="partmodif.nom" [value]='nom'>
@@ -33,7 +33,7 @@
                     [value]='mdp' [(ngModel)]="partmodif.mdp">
             </div>
             <nav>
-                <button class="btn btn-block" style="color:cadetblue" type="submit"> Valider les modifications</button>
+                <button [disabled]="!forme.form.valid" class="btn btn-block" style="color:cadetblue" type="submit"> Valider les modifications</button>
             </nav>
 
 
