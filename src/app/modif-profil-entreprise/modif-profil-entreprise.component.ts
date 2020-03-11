@@ -22,7 +22,11 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   Domaine3: Domaine = new Domaine();
   Domaine4: Domaine = new Domaine();
   DomaineEnt: DomaineEntreprise = new DomaineEntreprise();
-
+  DomaineEnt1: DomaineEntreprise = new DomaineEntreprise();
+  DomaineEnt2: DomaineEntreprise = new DomaineEntreprise();
+  DomaineEnt3: DomaineEntreprise = new DomaineEntreprise();
+  DomaineEnt4: DomaineEntreprise = new DomaineEntreprise();
+  
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -34,7 +38,6 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   nomentreprise;
   mailentreprise;
   descentreprise;
-  domaineentreprise;
   adresseentreprise;
   CPentreprise;
   taillentreprise;
@@ -58,9 +61,19 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   ngOnInit(): void {
     this.http.get(this.myService.lienHttp + 'domaineEntreprise/' + this.id).subscribe(data => {
       this.domainesEntreprise = data;
-      this.domaineentreprise.array.forEach(element => {
+      this.DomaineEnt = this.domainesEntreprise[0];
+      this.DomaineEnt1 = this.domainesEntreprise[1];
+      this.DomaineEnt2 = this.domainesEntreprise[2];
+      this.DomaineEnt3 = this.domainesEntreprise[3];
+      this.DomaineEnt4 = this.domainesEntreprise[4];
+      
+      if (this.DomaineEnt1.domaine.idDomaine !== 0) { this.visible1 = true; }
+      if (this.DomaineEnt2.domaine.idDomaine !== 0) { this.visible2 = true; }
+      if (this.DomaineEnt3.domaine.idDomaine !== 0) { this.visible3 = true; }
+      if (this.DomaineEnt4.domaine.idDomaine !== 0) { this.visible4 = true; }
 
-      });
+
+
     }, err => {
       console.log(err);
     });
@@ -78,7 +91,6 @@ export class ModifProfilEntrepriseComponent implements OnInit {
         this.nomentreprise = this.entreprise.nom;
         this.descentreprise = this.entreprise.description;
         this.mailentreprise = this.entreprise.mail;
-        this.domaineentreprise = this.domaineentreprise;
         this.adresseentreprise = this.entreprise.adresse;
         this.CPentreprise = this.entreprise.codePostal;
         this.taillentreprise = this.entreprise.tailleEntreprise;
@@ -105,7 +117,7 @@ export class ModifProfilEntrepriseComponent implements OnInit {
     reader.onload = (event2) => {
       this.img = reader.result;
 
-      if (this.img == null){
+      if (this.img == null) {
         this.entrepmodif.photo = this.photo;
       } else {
         this.entrepmodif.photo = window.btoa(this.img);
@@ -138,14 +150,51 @@ export class ModifProfilEntrepriseComponent implements OnInit {
     if (!this.visible1) { this.visible1 = true; } else {
       if (!this.visible2) { this.visible2 = true; } else {
         if (!this.visible3) { this.visible3 = true; } else {
-          if (!this.visible4) { this.visible4 = true;
-                                this.visible5 = false; } else {} }}}}
+          if (!this.visible4) {
+          this.visible4 = true;
+            this.visible5 = false;
+          } else { this.visible5 = false; }
+        }
+      }
+    }
+  }
 
 
   gérerlessecteurs() {
-    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.entrepmodif.idUtilisateur, this.DomaineEnt)
+    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.DomaineEnt.id, this.DomaineEnt)
+      .subscribe(data => {
+        console.log(this.entrepmodif.idUtilisateur);
+        console.log(this.DomaineEnt);
+        this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine1.idDomaine)
+          .subscribe(data => {
+            this.DomaineEnt1.domaine = data;
+            this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.DomaineEnt1.id, this.DomaineEnt1)
               .subscribe(data => {
+                this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine2.idDomaine)
+                  .subscribe(data => {
+                    this.DomaineEnt2.domaine = data;
+                    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.DomaineEnt2.id, this.DomaineEnt2)
+                      .subscribe(data => {
+                        this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine3.idDomaine)
+                          .subscribe(data => {
+                            this.DomaineEnt3.domaine = data;
+                            this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' + this.DomaineEnt3.id, this.DomaineEnt3)
+                              .subscribe(data => {
+                                this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine4.idDomaine)
+                                  .subscribe(data => {
+                                    this.DomaineEnt4.domaine = data;
+                                    this.http.put(this.myService.lienHttp + 'entrepriseDomaine/' +this.DomaineEnt4.id, this.DomaineEnt4)
+                                      .subscribe(data => {
+
+                                      }, err => { console.log(err); });
+                                  }, err => { console.log(err); });
+                              }, err => { console.log(err); });
+                          }, err => { console.log(err); });
+                      }, err => { console.log(err); });
+                  }, err => { console.log(err); });
               }, err => { console.log(err); });
+          }, err => { console.log(err); });
+      }, err => { console.log(err); });
 
   }
 }
