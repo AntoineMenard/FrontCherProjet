@@ -76,4 +76,9 @@ export class ProjetsComponent implements OnInit {
     this.router.navigate(['gestion']);
 
   }
+
+  changeForm(img) {
+    console.log(window.atob(img));
+    return window.atob(img);
+  }
 }

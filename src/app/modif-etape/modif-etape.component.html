@@ -1,0 +1,19 @@
+<form class="form" name="formmodif" (ngSubmit)= "modifEtape()">
+    <div class=" form-group">
+        <input type="text" placeholder="Titre" [value]='etape.nom' [(ngModel)]="etapeModif.nom" name="nommodif">
+    </div>
+    <div class=" form-group">
+        <input type="date" class="form-control" min="{{etapeModif.projet.dateDebut}}" max="{{etapeModif.projet.dateFin}}" [(ngModel)]="etapeModif.dateDebut" [value]='dateDeb' name="debmodif">
+    </div>
+    <div class=" form-group">
+        <input type="date" class="form-control" min="{{etapeModif.dateDebut}}" max="{{etapeModif.projet.dateFin}}" [(ngModel)]="etapeModif.dateFin" [value]='dateFin' name="finmodif">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary btn-block" type="submit" name="submitmodif">Valider</button>
+    </div>
+    <div *ngIf="erreur" id="erreur"> 
+        Les dates ne sont pas cohérentes !
+
+    </div>
+
+</form>
