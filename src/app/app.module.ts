@@ -41,7 +41,7 @@ import { TriParDate } from './tri-projet-par-date.pipe';
 import { GestionComponent } from './gestion/gestion.component';
 import { FiltreEntrepriseParNom} from './filtre-entreprises-par-nom.pipe';
 import { DemoComponent } from './demo/demo.component';
-import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -82,7 +82,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule,
     CommonModule,
     NgbModalModule,
     FlatpickrModule.forRoot(),
