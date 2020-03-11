@@ -62,77 +62,96 @@
           </mwl-calendar-day-view>
         </div>
 
-        <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
 
-        <br /><br /><br />
+        <br />
 
         <h3>
           Edit events
-          <button class="btn btn-primary pull-right" (click)="addEvent()">
-            Add new
-          </button>
-          <div class="clearfix"></div>
+
         </h3>
+        <form class="form" (ngSubmit)="addEtapeNouveau()" name = "formajout">
+          <div class="row">
+            <div class="col-sm-3">
+              <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout">
+            </div>
+            <div class="col-sm-3">
+              <input type = "date" class="form-control" [(ngModel)]="etapeNouveau.dateDebut"               
+              name="debajout" >
+            </div>
+            <div class="col-sm-3 form-group">
+              <input type = "date" class="form-control"  [(ngModel)]="etapeNouveau.dateFin"
+                 name="finajout" >
+            </div>
+            <div class="col-sm-3 form-group">
+              <button class="btn btn-primary btn-block" type="submit" name="submitajout">Ajout</button>
+            </div>
+            
+          </div>
+        </form>
 
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Starts at</th>
-                <th>Ends at</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
+      </div>
 
-            <tbody>
-              <tr *ngFor="let event of events">
-                <td>
-                  <input type="text" class="form-control" [(ngModel)]="event.title" (keyup)="refresh.next()" />
-                </td>
-
-                <td>
-                  <input class="form-control" type="text" mwlFlatpickr [(ngModel)]="event.start"
-                    (ngModelChange)="refresh.next()" [altInput]="true" [convertModelValue]="true" [enableTime]="true"
-                    dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Not set" />
-                </td>
-                <td>
-                  <input class="form-control" type="text" mwlFlatpickr [(ngModel)]="event.end"
-                    (ngModelChange)="refresh.next()" [altInput]="true" [convertModelValue]="true" [enableTime]="true"
-                    dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Not set" />
-                </td>
-                <td>
-                  <button class="btn btn-danger" (click)="deleteEvent(event)">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <br>
+      <br>
 
 
 
+
+
+      <div class="table">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Début le :</th>
+              <th>Fin le </th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+
+
+          <tr *ngFor="let etape of etapesAjout">
+
+            <td>
+              <p>{{etape.nom}}</p>
+            </td>
+
+            <td>
+              {{etape.dateDebut}}
+
+            </td>
+            <td>
+              {{etape.dateDebut}}
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteEtape(etape)">
+                Delete
+              </button>
+              &nbsp;
+              <button class="btn btn-success" (click)="editEtape(etape)">
+                Edit
+              </button>
+            </td>
+          </tr>
+
+        </table>
       </div>
     </div>
-
-
-
-
-
-
-    <form method="post" enctype="multipart/form-data">
-      <div style="color: skyblue;">
-        <label for="image_uploads">Sélectionner des images à uploader (PNG, JPG)</label>
-        <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
-      </div>
-      <div class="preview">
-        <p>Aucun fichier sélectionné pour le moment</p>
-      </div>
-      <div>
-        <button>Envoyer</button>
-      </div>
-    </form>
-
-
   </div>
+
+
+  <form method="post" enctype="multipart/form-data">
+    <div style="color: skyblue;">
+      <label for="image_uploads">Sélectionner des images à uploader (PNG, JPG)</label>
+      <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+    </div>
+    <div class="preview">
+      <p>Aucun fichier sélectionné pour le moment</p>
+    </div>
+    <div>
+      <button>Envoye</button>
+    </div>
+  </form>
+
+
+</div>

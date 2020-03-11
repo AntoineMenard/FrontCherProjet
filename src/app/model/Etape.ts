@@ -1,7 +1,7 @@
 import { Projet } from './projet';
 
 export class Etape {
-    idEtape: number;
+    id: number;
     dateDebut: Date;
     dateFin: Date;
     nom: string;

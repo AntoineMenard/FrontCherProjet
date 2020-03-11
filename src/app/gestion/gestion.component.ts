@@ -63,6 +63,8 @@ export class GestionComponent implements OnInit {
   participations;
   etapesAjout;
   eventAjout;
+  modifEtape;
+  etapeNouveau; 
 
 
   CalendarView = CalendarView;
@@ -173,7 +175,6 @@ export class GestionComponent implements OnInit {
     ];
     this.http.post(this.myService.lienHttp + '/etapeProjet/', this.eventAjout)
     .subscribe(data => {
-      console.log("ok");
     }, err => {
       console.log(err);
     });
@@ -198,8 +199,47 @@ export class GestionComponent implements OnInit {
 
   }
 
+  updateEtape(event){
+    this.modifEtape.nom = event.title;
+    this.modifEtape.dateDebut = event.start;
+    this.modifEtape.dateFin = event.end;
+    this.modifEtape.projet = this.projet;
+
+    this.http.put(this.myService.lienHttp + 'etapeProjet/' + this.idProjet, this.eventAjout)
+    .subscribe(data => {
+    }, err => {
+      console.log(err);
+    });
+    this.refresh.next();
+  }
+
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
+  }
+
+  addEtapeNouveau(etape) {
+    console.log(this.etapeNouveau);
+    this.http.post(this.myService.lienHttp + 'etapeProjet/', this.etapeNouveau)
+    .subscribe(data => {
+    }, err => {
+      console.log(err);
+    });
+    window.location.reload();
+  }
+ 
+
+  deleteEtape(etape) {
+    console.log(etape.id);
+    this.http.delete(this.myService.lienHttp + 'etapeProjet/'+ etape.id)
+    .subscribe(data => {
+    }, err => {
+      console.log(err);
+    });
+    window.location.reload();
+  }
+
+  editEtape(etape) {
+  
   }
 
   setView(view: CalendarView) {
@@ -216,7 +256,7 @@ ngOnInit(): void {
   this.http.get(this.myService.lienHttp + 'projet/' + this.idProjet)
     .subscribe(data => {
       this.projet = data;
-
+      this.etapeNouveau = new Etape('', startOfDay(new Date()), endOfDay(new Date()), this.projet);
     }, err => {
       console.log(err);
     });
@@ -237,6 +277,7 @@ ngOnInit(): void {
     }, err => {
       console.log(err);
     });
+
 
 
 }
