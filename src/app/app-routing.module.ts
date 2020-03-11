@@ -18,6 +18,7 @@ import { DemandeParticipationProjetUtilisateurComponent } from './demande-partic
 import { ModifProfilParticulierComponent } from './modif-profil-particulier/modif-profil-particulier.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { DemoComponent } from './demo/demo.component';
+import { UploadFichierComponent } from './upload-fichier/upload-fichier.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'modif-profil-particulier', component: ModifProfilParticulierComponent},
   {path: 'gestion', component: GestionComponent},
   {path: 'demo', component: DemoComponent},
+  {path: 'upload-fichier', component: UploadFichierComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];
