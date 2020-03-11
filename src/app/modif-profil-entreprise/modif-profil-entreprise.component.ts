@@ -43,12 +43,15 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   mdpentreprise;
   telentreprise;
   id = sessionStorage.getItem('idUtilisateur');
-  entrepmodif: Entreprise = new Entreprise();
+  entrepmodif;
   visible1 = false;
   visible2 = false;
   visible3 = false;
   visible4 = false;
   visible5 = true;
+  photo: any;
+  img: any = null;
+  selectedFile: File = null;
 
 
 
@@ -83,12 +86,33 @@ export class ModifProfilEntrepriseComponent implements OnInit {
         this.siteWebentreprise = this.entreprise.siteWeb;
         this.telentreprise = this.entreprise.telephone;
         this.mdpentreprise = this.entreprise.mdp;
+        this.photo = this.entreprise.photo;
 
         this.entrepmodif = this.entreprise;
 
       }, err => {
         console.log(err);
       });
+  }
+
+  onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (event2) => {
+      this.img = reader.result;
+
+      if (this.img == null){
+        this.entrepmodif.photo = this.photo;
+      } else {
+        this.entrepmodif.photo = window.btoa(this.img);
+      }
+
+    };
+
   }
 
   modifEntreprise() {

@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CherserviceService } from '../cherservice.service';
 import { Domaine } from '../model/domaine';
 import { DomaineProjetPropose } from '../model/DomaineProjetPropose';
+import { Entreprise } from '../model/Entreprise';
 
 @Component({
   selector: 'app-proposer-projet-utilisateur',
@@ -19,7 +20,9 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
   p;
   projetpropose: ProjetPropose = new ProjetPropose();
   entreprise;
+  particulier;
   Domaine: Domaine = new Domaine();
+  Entre: Entreprise = new Entreprise();
   DomainePro: DomaineProjetPropose = new DomaineProjetPropose();
 
   constructor(
@@ -35,9 +38,16 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
       console.log(err);
     });
 
-    this.http.get(this.myService.lienHttp + 'entreprise/' + sessionStorage.getItem('idUtilisateur')).subscribe(data => {
+    this.http.get(this.myService.lienHttp + 'entreprise/').subscribe(data => {
       this.entreprise = data;
-      console.log(this.entreprise);
+      //console.log(this.entreprise);
+    }, err => {
+      console.log(err);
+    });
+
+    this.http.get(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur')).subscribe(data => {
+      this.particulier = data;
+      //console.log(this.entreprise);
     }, err => {
       console.log(err);
     });
@@ -55,19 +65,29 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
 
     this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
     .subscribe(data => {
-    this.DomainePro.domaine = data; }, err => {console.log(err); });
-
+      //console.log(data);
+    this.DomainePro.domaine = data;    
+    this.http.get<Entreprise>(this.myService.lienHttp + 'entreprise/nom/' + this.Entre.nom)
+    .subscribe(data => {
+      //console.log(data);
+    this.entreprise = data;
     this.projetpropose.entreprise = this.entreprise;
-    
+    this.projetpropose.particulier = this.particulier; 
     this.http.post< ProjetPropose >(this.myService.lienHttp + 'ProjetPropose', this.projetpropose).subscribe(data => {
     this.DomainePro.projetpropose = data;
-    //console.log(data);
+    //console.log(this.DomainePro);
     this.http.post(this.myService.lienHttp + 'domaineProjet', this.DomainePro)
     // rempli le post avec null null alors que le console log le montre bien rempli et qu'aucune erreur n'est indiquée où que ce soit
         .subscribe(data => {
-          
+          //console.log(data); 
+        }
+        , err => {console.log(err); });
+
+}
+        , err => {console.log(err); });
+
         }, err => { console.log(err); });
-    this.router.navigate(['/projets']);
+    this.router.navigate(['/recherche-projet']);
     }, err => { console.log(err);
     });
 }}

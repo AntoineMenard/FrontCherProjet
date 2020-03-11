@@ -15,7 +15,7 @@ import {
   toDate,
   parseISO
 } from 'date-fns';
-import { Subject } from 'rxjs';
+import { Subject, from } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
@@ -26,6 +26,9 @@ import {
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Etape } from '../model/Etape';
+import { MatDialog } from '@angular/material/dialog';
+import { ModifEtapeComponent } from '../modif-etape/modif-etape.component';
+
 
 const colors: any = {
   red: {
@@ -52,7 +55,8 @@ export class GestionComponent implements OnInit {
   constructor(
     private http: HttpClient,
     public myService: CherserviceService,
-    private modal: NgbModal
+    private modal: NgbModal,
+    private dialog: MatDialog
   ) { }
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
@@ -64,7 +68,9 @@ export class GestionComponent implements OnInit {
   etapesAjout;
   eventAjout;
   modifEtape;
-  etapeNouveau; 
+  etapeNouveau;
+  erreur = false;
+
 
 
   CalendarView = CalendarView;
@@ -90,32 +96,7 @@ export class GestionComponent implements OnInit {
   refresh: Subject<any> = new Subject();
 
   events: CalendarEvent[] = [
-    /*{
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.blue,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    },
 
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }*/
   ];
 
   activeDayIsOpen: boolean = true;
@@ -157,29 +138,6 @@ export class GestionComponent implements OnInit {
     this.modalData = { event, action };
   }
 
-  addEvent(): void {
-    this.eventAjout = new Etape('Nouvel evenement', startOfDay(new Date()), endOfDay(new Date()), this.projet);
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true
-        }
-      }
-    ];
-    this.http.post(this.myService.lienHttp + '/etapeProjet/', this.eventAjout)
-    .subscribe(data => {
-    }, err => {
-      console.log(err);
-    });
-
-  }
 
   addEventInit( etape : Etape ): void {
     this.events = [
@@ -218,13 +176,17 @@ export class GestionComponent implements OnInit {
   }
 
   addEtapeNouveau(etape) {
-    console.log(this.etapeNouveau);
+    if (this.etapeNouveau.dateFin >= this.etapeNouveau.dateDebut) {
+
     this.http.post(this.myService.lienHttp + 'etapeProjet/', this.etapeNouveau)
     .subscribe(data => {
     }, err => {
       console.log(err);
     });
     window.location.reload();
+  } else {
+    this.erreur = true;
+  }
   }
  
 
@@ -239,7 +201,8 @@ export class GestionComponent implements OnInit {
   }
 
   editEtape(etape) {
-  
+    sessionStorage.setItem('modifEtapeId', etape.id);
+    const mydial = this.dialog.open(ModifEtapeComponent);
   }
 
   setView(view: CalendarView) {

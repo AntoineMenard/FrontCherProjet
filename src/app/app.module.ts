@@ -41,6 +41,9 @@ import { TriParDate } from './tri-projet-par-date.pipe';
 import { GestionComponent } from './gestion/gestion.component';
 import { FiltreEntrepriseParNom} from './filtre-entreprises-par-nom.pipe';
 import { DemoComponent } from './demo/demo.component';
+import { ModifEtapeComponent } from './modif-etape/modif-etape.component';
+import { ReceptionMessageParticulierComponent } from './reception-message-particulier/reception-message-particulier.component';
+import { EnvoiMessageParticulierComponent } from './envoi-message-particulier/envoi-message-particulier.component';
 
 
 @NgModule({
@@ -69,7 +72,10 @@ import { DemoComponent } from './demo/demo.component';
     TriParDate,
     GestionComponent,
     FiltreEntrepriseParNom,
-    DemoComponent
+    DemoComponent,
+    ModifEtapeComponent,
+    ReceptionMessageParticulierComponent,
+    EnvoiMessageParticulierComponent
   ],
   imports: [
     BrowserModule,

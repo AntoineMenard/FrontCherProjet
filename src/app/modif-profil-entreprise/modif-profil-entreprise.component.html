@@ -82,14 +82,23 @@
                         required="true" [value]='telentreprise' [(ngModel)]="entrepmodif.telephone">
                 </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="mot de passe" type="password"
-                        name="mdpentreprise" required="true" [value]='mdpentreprise' [(ngModel)]="entrepmodif.mdp">
-                </div>
-                <nav>
-                    <button class="btn btn-block" [disabled]="!forme.form.valid" style="color:cadetblue" type="submit">
-                        Valider les modifications</button>
-                </nav>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="mot de passe" type="password" name="mdpentreprise"
+                    required="true" [value]='mdpentreprise' [(ngModel)]="entrepmodif.mdp">
+            </div>
+
+            <input type="file" name="photo" [value] = 'photo' [(ngModel)]="entrepmodif.photo" (change)="onFileChanged($event)" #file>
+
+            <br>
+
+            <div class="text-center">
+                <img [src]="img" height="80" *ngIf="img">
+            </div>
+            <br>
+
+            <nav>
+                <button class="btn btn-block" [disabled]="!forme.form.valid" style="color:cadetblue" type="submit"> Valider les modifications</button>
+            </nav>
 
 
             </form>

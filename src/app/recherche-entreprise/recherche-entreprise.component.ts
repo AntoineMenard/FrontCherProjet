@@ -24,4 +24,9 @@ export class RechercheEntrepriseComponent implements OnInit {
     });
   }
 
+  changeForm(img) {
+    console.log(window.atob(img));
+    return window.atob(img);
+  }
+
 }
