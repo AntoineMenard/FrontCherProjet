@@ -17,7 +17,7 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
   domaines;
   visible = false;
   p;
-  ProjetPropose: ProjetPropose = new ProjetPropose();
+  projetpropose: ProjetPropose = new ProjetPropose();
   entreprise;
   Domaine: Domaine = new Domaine();
   DomainePro: DomaineProjetPropose = new DomaineProjetPropose();
@@ -37,6 +37,7 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
 
     this.http.get(this.myService.lienHttp + 'entreprise/' + sessionStorage.getItem('idUtilisateur')).subscribe(data => {
       this.entreprise = data;
+      console.log(this.entreprise);
     }, err => {
       console.log(err);
     });
@@ -56,13 +57,15 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
     .subscribe(data => {
     this.DomainePro.domaine = data; }, err => {console.log(err); });
 
-    this.ProjetPropose.entreprise = this.entreprise;
-    this.http.post< ProjetPropose >(this.myService.lienHttp + 'ProjetPropose', this.ProjetPropose).subscribe(data => {
+    this.projetpropose.entreprise = this.entreprise;
+    
+    this.http.post< ProjetPropose >(this.myService.lienHttp + 'ProjetPropose', this.projetpropose).subscribe(data => {
     this.DomainePro.projetpropose = data;
-    console.log(data);
+    //console.log(data);
     this.http.post(this.myService.lienHttp + 'domaineProjet', this.DomainePro)
     // rempli le post avec null null alors que le console log le montre bien rempli et qu'aucune erreur n'est indiquée où que ce soit
         .subscribe(data => {
+          
         }, err => { console.log(err); });
     this.router.navigate(['/projets']);
     }, err => { console.log(err);
