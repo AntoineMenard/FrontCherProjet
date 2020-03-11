@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { CherserviceService } from '../cherservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Domaine } from '../model/domaine';
 
 @Component({
   selector: 'app-modif-profil-particulier',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class ModifProfilParticulierComponent implements OnInit {
 
+  domaines;
+  Domaine: Domaine = new Domaine();
   particulier;
   nom;
   prenom;
@@ -19,6 +22,10 @@ export class ModifProfilParticulierComponent implements OnInit {
   mdp;
   dateNaissance;
   partmodif;
+  photo;
+
+  selectedFile: File = null;
+  imgURL: any = null;
 
 
   constructor(
@@ -29,6 +36,12 @@ export class ModifProfilParticulierComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
+      this.domaines = data;
+    }, err => {
+      console.log(err);
+    });
+
     this.http.get(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur'),)
     .subscribe(data => {
       this.particulier = data;
@@ -38,6 +51,7 @@ export class ModifProfilParticulierComponent implements OnInit {
       this.mail = this.particulier.mail;
       this.mdp = this.particulier.mdp;
       this.dateNaissance = this.particulier.dateNaissance;
+      this.photo = this.particulier.photo;
 
       this.partmodif = this.particulier;
 
@@ -47,9 +61,22 @@ export class ModifProfilParticulierComponent implements OnInit {
 
   }
 
+  onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+    };
+  }
+
   modifParticulier() {
     this.http.put(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur'), this.partmodif)
       .subscribe(data => {
+        console.log("ça ferme");
         this.dialogRefr.close();
         window.location.reload();
 

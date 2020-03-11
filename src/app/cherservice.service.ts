@@ -47,4 +47,19 @@ export class CherserviceService {
 
   }
 
+SessionParticulier() {
+    if (sessionStorage.getItem('statut') === '1') {
+      return true;
+    } else{
+      return false;
+    }
+  }
+
+SessionEntreprise() {
+    if (sessionStorage.getItem('statut') === '0') {
+      return true;
+    } else{
+      return false;
+    }
+  }
 }
