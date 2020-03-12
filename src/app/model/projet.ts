@@ -7,6 +7,7 @@ export class Projet {
     dateDebut: Date;
     dateFin: Date;
     nbrParticipants: number;
+    nbrParticipantsReel: number;
     entreprise: Entreprise;
     interessement: string;
     statut: number;
