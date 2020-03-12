@@ -1,11 +1,14 @@
 <div class="container bgWhite">
 
     <h1 class="nom-entreprise">{{projet.nom}}</h1>
+    <p>Projet de {{projet.entreprise.nom}}</p>
     <br>
-    <p>Participants au projet</p>
+    <p>Participants au projet :</p>
     <div *ngFor="let participation of participations ">
-      {{participation.particulier.nom}}
+     - {{participation.particulier.nom}}
     </div>
+
+    <br>
 
     <mat-tab-group>
         <mat-tab label="Calendrier">
