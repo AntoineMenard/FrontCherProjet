@@ -17,11 +17,8 @@ export class PartageFichierComponent implements OnInit {
 
   
   partagefichier;
-  entreprise: Entreprise = new Entreprise();
   particulier: Particulier = new Particulier();
   nom;
-  entrepvisible = false;
-  partivisible = false;
 
 
   constructor(
@@ -33,15 +30,19 @@ export class PartageFichierComponent implements OnInit {
 
     this.http.get(this.myService.lienHttp + 'partageFichier/projet/' + sessionStorage.getItem('idProjetFocus')).subscribe(data => {
       this.partagefichier = data;
+      this.partagefichier.forEach(element => {
+        if (element.particulier === null){
+          element.particulier = new Particulier();
+          element.particulier.nom = element.projet.entreprise.nom;
+          element.particulier.prenom = '';
+
+        }
+        
+      });
+
     }, err => {
       console.log(err);
     });
-
-    if (this.partagefichier.particulier == null) {
-      this.entrepvisible = true;
-    } else {
-      this.partivisible = true;
-    }
 
     }
 
