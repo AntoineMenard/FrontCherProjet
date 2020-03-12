@@ -22,13 +22,19 @@ export class RechercheProjetComponent implements OnInit {
   triParDate;
   datetest;
   demandeParti: DemandeParticipation = new DemandeParticipation();
-
+  domainesProjet;
 
   constructor(
     public myService: CherserviceService,
     private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get(this.myService.lienHttp + 'domaineProjet').subscribe(data => {
+      this.domainesProjet = data;
+      console.log(this.domainesProjet);
+    }, err => {
+      console.log(err);
+    });
 
     this.http.get(this.myService.lienHttp + 'projetPropose').subscribe(data => {
       this.projet = data;

@@ -39,7 +39,7 @@
             </div>
             <br>
 
-            <div class="form-group">
+            <div class="form-group" *ngIf="false">
                 <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" required="true">
                     <option ng-selected="selected" [value]="DomainePro.domaine.idDomaine">{{DomainePro.domaine.domaine}}</option>
                     <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
@@ -47,28 +47,28 @@
             </div>
 
 
-            <div class="form-group" *ngIf="visible1">
+            <div class="form-group" *ngIf="false">
                 <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
                     <option [value]="DomainePro1.domaine.idDomaine" selected>{{DomainePro1.domaine.domaine}}
                     </option>
                     <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
                 </select>
             </div>
-            <div class="form-group" *ngIf="visible2">
+            <div class="form-group" *ngIf="false">
                 <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
                     <option selected="true" [value]="DomainePro2.domaine.idDomaine">{{DomainePro2.domaine.domaine}}
                     </option>
                     <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
                 </select>
             </div>
-            <div class="form-group" *ngIf="visible3">
+            <div class="form-group" *ngIf="false">
                 <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
                     <option selected="true" [value]="DomainePro3.domaine.idDomaine">{{DomainePro3.domaine.domaine}}
                     </option>
                     <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
                 </select>
             </div>
-            <div class="form-group" *ngIf="visible4">
+            <div class="form-group" *ngIf="false">
                 <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
                     <option selected="true" [value]="DomainePro4.domaine.idDomaine">{{DomainePro4.domaine.domaine}}
                     </option>

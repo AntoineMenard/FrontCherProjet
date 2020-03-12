@@ -57,7 +57,7 @@
                             </tr>
                             <tr class="my-auto">
                                 <td class="font-weight-bold ombre align-left"> Secteur(s) d'intérêt </td>
-                                <td class="petittexte"></td>
+                                <td class="petittexte" *ngFor="let p of domainesParticulier " ><div *ngIf="p.domaine.idDomaine != '1'" >{{p.domaine.domaine}}</div></td>
                             </tr>
     
                         </tbody>

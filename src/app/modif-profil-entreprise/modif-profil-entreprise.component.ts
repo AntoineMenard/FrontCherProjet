@@ -70,7 +70,7 @@ export class ModifProfilEntrepriseComponent implements OnInit {
       if (this.DomaineEnt1.domaine.idDomaine !== 1) { this.visible1 = true; }
       if (this.DomaineEnt2.domaine.idDomaine !== 1) { this.visible2 = true; }
       if (this.DomaineEnt3.domaine.idDomaine !== 1) { this.visible3 = true; }
-      if (this.DomaineEnt4.domaine.idDomaine !== 1) { this.visible4 = true; }
+      if (this.DomaineEnt4.domaine.idDomaine !== 1) { this.visible4 = true;  this.visible5 = false;  }
       console.log(this.DomaineEnt4.domaine.idDomaine);
 
 

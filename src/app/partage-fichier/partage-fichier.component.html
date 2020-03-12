@@ -17,8 +17,9 @@
                <strong > de: {{pf.particulier.prenom}} {{pf.particulier.nom}}</strong>
                 <br>
                 <p> &nbsp; {{pf.commentaire}}</p>
-                <br>
-                &nbsp;  <!-- FICHIER -->
+                <!-- &nbsp;  <object type="application/pdf" [data]="changeForm(pf.fichier)"></object> -->
+                <button (click)="openPdf(pf.fichier)" >Télécharger le fichier</button>
+
             </div>
         </div>
         <br>
