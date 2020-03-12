@@ -7,43 +7,56 @@
 
 
             <div class="row">
-                <div class="sm-col-2"></div>
-            </div>
-
-            <div>
-
-                <img  [src]="changeForm(p.photo)" *ngIf="photoExist(p.photo)"  width="100px" class="rounded">
-
-            </div>
+                <div class="col-sm-2"><div>
     
-            <div class="nom-particulier">
-                {{p.prenom}} {{p.nom}}
-                <button class="btn btn-primary pull-right" id="right-panel-link" (click) = "callModifProfilParticulier()"> Modifier</button>
+                    <img  [src]="changeForm(p.photo)" *ngIf="photoExist(p.photo)"  width="100px" class="rounded">
+    
+                </div></div>
+                <div class="col-sm-9">
+                    <div class="text-align-middle">
+                        {{p.prenom}} {{p.nom}}
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    
+                    <button class="btn btn-primary pull-right" id="right-panel-link" (click) = "callModifProfilParticulier()"> Modifier</button>
+                </div>
+                
             </div>
+
+    
+            
             
             <br>
             <hr>
-            <p class="titremoy">Description :</p>
+            <p class=" font-weight-bold"> Description :</p>
     
-            <p placeholder="Décrivez ici votre parcours, vos expériences et vos projets futurs.">{{p.bio}}
+            <p>{{p.bio}}
             </p>
             <br>
+            <hr>
+            <br>
             <div class="row">
-                <div class="col-sm-3"></div>
+                
+                
+                <div class="col-sm-3"> 
+                    
+                    <p class=" font-weight-bold"> Détails :</p>
+                </div>
     
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <table class="table table-borderless borderless">
                         <tbody>
                             <tr>
-                                <td class="font-weight-bold ombre align-middle"> Mail </td>
+                                <td class="font-weight-bold ombre align-left"> Mail </td>
                                 <td class="petittexte">{{p.mail}} </td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold ombre align-middle"> Date de naissance </td>
+                                <td class="font-weight-bold ombre align-left"> Date de naissance </td>
                                 <td class="petittexte">{{p.dateNaissance}}</td>
                             </tr>
                             <tr class="my-auto">
-                                <td class="font-weight-bold ombre align-middle"> Secteur(s) d'intérêt </td>
+                                <td class="font-weight-bold ombre align-left"> Secteur(s) d'intérêt </td>
                                 <td class="petittexte"></td>
                             </tr>
     
