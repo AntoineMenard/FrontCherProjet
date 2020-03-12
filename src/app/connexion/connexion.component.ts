@@ -20,7 +20,7 @@ export class ConnexionComponent implements OnInit {
   Particulier: Particulier = new Particulier();
   Entreprise: Entreprise = new Entreprise();
   particulier = false;
-  entreprise = false;
+  entreprise = true;
   visible = false;
 
   constructor(
