@@ -51,9 +51,9 @@
                                 </div>
                                 <div class="form-group">
 
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine"
+                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" 
                                         required="true">
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
+                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >{{p.domaine}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group" *ngIf="visible1">
