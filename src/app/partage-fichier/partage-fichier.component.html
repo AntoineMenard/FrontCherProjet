@@ -18,7 +18,10 @@
                 <br>
                 <p> &nbsp; {{pf.commentaire}}</p>
                 <br>
-                &nbsp;  <!-- FICHIER -->
+                &nbsp;  <object type="application/pdf" [data]="changeForm(pf.fichier)"></object>
+                <a type="application/pdf" [href]="changeForm(pf.fichier)">le pdf</a>
+
+                  <!-- FICHIER -->
             </div>
         </div>
         <br>
