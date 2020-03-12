@@ -7,6 +7,7 @@ import { PartageFichier } from '../model/PartageFichier';
 import { Utilisateur } from '../model/Utilisateur';
 import { Entreprise } from '../model/Entreprise';
 import { Particulier } from '../model/Particulier';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-partage-fichier',
@@ -19,12 +20,14 @@ export class PartageFichierComponent implements OnInit {
   partagefichier;
   particulier: Particulier = new Particulier();
   nom;
+  url;
 
 
   constructor(
     private http: HttpClient,
     public myService: CherserviceService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
@@ -56,4 +59,15 @@ openUploadFichier() {
 });
 
 }
+
+changeForm(fichier) {
+  //console.log(window.atob(img));
+  this.url = window.atob(fichier);
+  return this.sanitizer.bypassSecurityTrustResourceUrl(this.url) ;
+}
+
+openPdf(fichier) {
+  
+}
+
 }
