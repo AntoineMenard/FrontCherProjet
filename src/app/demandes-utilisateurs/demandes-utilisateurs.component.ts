@@ -11,12 +11,18 @@ import { ModifProjetEntrepriseComponent } from '../modif-projet-entreprise/modif
   styleUrls: ['./demandes-utilisateurs.component.css']
 })
 export class DemandesUtilisateursComponent implements OnInit {
-
+  domainesProjetPropose;
   projetpropose;
   del;
   constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
+    this.http.get(this.myService.lienHttp + 'domaineProjetPropose').subscribe(data => {
+      this.domainesProjetPropose = data;
+      console.log(this.domainesProjetPropose);
+    }, err => {
+      console.log(err);
+    });
 
     this.http.get('http://localhost:8088/ProjetsProposes').subscribe(data => {
         console.log(data);

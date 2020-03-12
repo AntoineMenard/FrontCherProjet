@@ -18,10 +18,16 @@ export class ProjetsComponent implements OnInit {
   projetavenir;
   projet;
   Projet: Projet = new Projet();
-
+  domainesProjet;
   constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
+    this.http.get(this.myService.lienHttp + 'domaineProjet').subscribe(data => {
+      this.domainesProjet = data;
+      console.log(this.domainesProjet);
+    }, err => {
+      console.log(err);
+    });
 
     this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/0').subscribe(data => {
