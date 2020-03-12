@@ -1,0 +1,27 @@
+<div class="container bgWhite">
+    <br>
+    <form >
+        <input type="text" placeholder="..." >
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+    </form>
+    
+    <table class="table table-borderless">
+        
+
+        <tr *ngFor="let message of messages">
+          <td class="datemsgprojet">
+              {{message.date}}
+            </td>     
+            <td class="datemsgprojet">
+                Auteur
+            </td>       
+            <td>
+                : {{message.contenu}}
+                
+            </td>
+
+        </tr>
+
+      </table>
+      <br><br><br><br><br>
+</div>

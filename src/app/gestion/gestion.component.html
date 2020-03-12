@@ -1,11 +1,5 @@
 <div class="container bgWhite">
-
-  <h1 class="nom-entreprise">{{projet.nom}}</h1>
   <br>
-  <p>Participants au projet</p>
-  <div *ngFor="let participation of participations ">
-    {{participation.particulier.nom}}
-  </div>
 
   <div class="row">
     <div class="col-sm-1"></div>
@@ -70,28 +64,28 @@
           Edit events
 
         </h3>
-        <form class="form" (ngSubmit)="addEtapeNouveau()" name = "formajout">
+        <form class="form" (ngSubmit)="addEtapeNouveau()" name="formajout">
           <div class="row">
             <div class="col-sm-3">
               <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout">
             </div>
             <div class="col-sm-3">
-              <input type = "date" min="{{projet.dateDebut}}" max="{{projet.dateFin}}" class="form-control" [(ngModel)]="etapeNouveau.dateDebut"               
-              name="debajout" >
+              <input type="date" min="{{projet.dateDebut}}" max="{{projet.dateFin}}" class="form-control"
+                [(ngModel)]="etapeNouveau.dateDebut" name="debajout">
             </div>
             <div class="col-sm-3 form-group">
-              <input type = "date" class="form-control" min="{{etapeNouveau.dateDebut}}" max="{{projet.dateFin}}" [(ngModel)]="etapeNouveau.dateFin"
-                 name="finajout" >
+              <input type="date" class="form-control" min="{{etapeNouveau.dateDebut}}" max="{{projet.dateFin}}"
+                [(ngModel)]="etapeNouveau.dateFin" name="finajout">
             </div>
             <div class="col-sm-3 form-group">
               <button class="btn btn-primary btn-block" type="submit" name="submitajout">Ajout</button>
             </div>
-            
+
           </div>
-          <div *ngIf="erreur" id="erreur"> 
+          <div *ngIf="erreur" id="erreur">
             Les dates ne sont pas cohérentes !
-    
-        </div>
+
+          </div>
         </form>
 
       </div>

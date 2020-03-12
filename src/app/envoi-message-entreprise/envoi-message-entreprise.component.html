@@ -4,8 +4,8 @@
 
     <form (ngSubmit)="envoiMessage()">
 
-        <select name="entreprise" required="true"  [(ngModel)]="destinataireE">
-            <option *ngFor="let entreprise of entreprises" [value]="entreprise.nom" >{{entreprise.nom}} </option>
+        <select name="particulier" required="true"  [(ngModel)]="destinataireP">
+            <option *ngFor="let particulier of particuliers" [value]="particulier.idUtilisateur" >{{particulier.nom}}, {{particulier.prenom}} </option>
         </select>
 
         <hr>

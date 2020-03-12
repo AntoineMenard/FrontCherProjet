@@ -1,0 +1,27 @@
+<div class="container bgWhite">
+
+    <h1 class="nom-entreprise">{{projet.nom}}</h1>
+    <br>
+    <p>Participants au projet</p>
+    <div *ngFor="let participation of participations ">
+      {{participation.particulier.nom}}
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Calendrier">
+            <app-gestion></app-gestion>
+           
+
+        </mat-tab>
+        <mat-tab label="Messagerie">
+            <app-messagerie-projet></app-messagerie-projet>
+
+
+        </mat-tab>
+    </mat-tab-group>
+
+</div>
+
+    
+
+

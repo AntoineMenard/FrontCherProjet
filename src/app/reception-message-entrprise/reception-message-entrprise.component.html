@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bgWhite">
     <br>
     <table class="table table-bordered">
         <thead>
@@ -10,13 +10,12 @@
           </tr>
         </thead>
 
-
         <tr *ngFor="let message of messages">
           <td>
               {{message.date}}
             </td>            
             <td>               
-                {{message.auteurE.nom}}               
+                {{message.auteurP.nom}} &nbsp; {{message.auteurP.prenom}}               
             </td>
             <td>
                 {{message.contenu}}

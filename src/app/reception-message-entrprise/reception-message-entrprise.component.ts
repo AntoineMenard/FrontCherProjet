@@ -5,11 +5,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-reception-message-particulier',
-  templateUrl: './reception-message-particulier.component.html',
-  styleUrls: ['./reception-message-particulier.component.css']
+  selector: 'app-reception-message-entrprise',
+  templateUrl: './reception-message-entrprise.component.html',
+  styleUrls: ['./reception-message-entrprise.component.css']
 })
-export class ReceptionMessageParticulierComponent implements OnInit {
+export class ReceptionMessageEntrpriseComponent implements OnInit {
 
   idDestinataire = sessionStorage.getItem('idUtilisateur');
   messages;
@@ -19,11 +19,10 @@ export class ReceptionMessageParticulierComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get(this.myService.lienHttp + 'messages/destinataireP/' + this.idDestinataire ).subscribe(data => {
+    this.http.get(this.myService.lienHttp + 'messages/destinataireE/' + this.idDestinataire ).subscribe(data => {
       this.messages = data;
     }, err => {
       console.log(err);
     });
   }
-
 }

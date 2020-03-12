@@ -73,7 +73,7 @@ export class ProjetsComponent implements OnInit {
 
   goToProjet(p){
     sessionStorage.setItem('idProjetFocus', p.idProjet);
-    this.router.navigate(['gestion']);
+    this.router.navigate(['gestion-projet']);
 
   }
 
