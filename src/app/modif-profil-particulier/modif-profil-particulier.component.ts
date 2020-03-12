@@ -62,7 +62,7 @@ export class ModifProfilParticulierComponent implements OnInit {
       if (this.DomainePar1.domaine.idDomaine !== 1) { this.visible1 = true; }
       if (this.DomainePar2.domaine.idDomaine !== 1) { this.visible2 = true; }
       if (this.DomainePar3.domaine.idDomaine !== 1) { this.visible3 = true; }
-      if (this.DomainePar4.domaine.idDomaine !== 1) { this.visible4 = true; }
+      if (this.DomainePar4.domaine.idDomaine !== 1) { this.visible4 = true;  this.visible5 = false; }
     }, err => {
       console.log(err);
     });
