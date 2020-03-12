@@ -19,8 +19,10 @@
                 <p> &nbsp; {{pf.commentaire}}</p>
                 <br>
                 &nbsp;  <object type="application/pdf" [data]="changeForm(pf.fichier)"></object>
-                <a type="application/pdf" [href]="changeForm(pf.fichier)">le pdf</a>
+                <a type="application/pdf" [href]="changeForm(pf.fichier)">ouvr le pdf</a>
 
+
+                <button (click)="openPdf(pf.fichier)" >ouvrir pdf</button>
                   <!-- FICHIER -->
             </div>
         </div>

@@ -66,4 +66,8 @@ changeForm(fichier) {
   return this.sanitizer.bypassSecurityTrustResourceUrl(this.url) ;
 }
 
+openPdf(fichier) {
+  
+}
+
 }
