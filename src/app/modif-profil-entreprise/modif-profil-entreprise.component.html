@@ -19,44 +19,44 @@
                     placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs"
                     [value]='descentreprise' [(ngModel)]="entrepmodif.description"></textarea>
 
-
+                <br>
 
                 <div class="form-group">
-                    <select class=form-control  name="domainepart" [(ngModel)]="Domaine.idDomaine" required="true">
-                        <option  [value]="DomaineEnt.domaine.idDomaine">{{DomaineEnt.domaine.domaine}}</option>
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
-                    </select>
-                </div>
-                <div class="form-group" *ngIf="visible1">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
-                        <option [value]="DomaineEnt1.domaine.idDomaine" selected>{{DomaineEnt1.domaine.domaine}}
+                    <select class=form-control  [(ngModel)]="Domaine.idDomaine" required="true">
+                        <option [value]="DomaineEnt.domaine.idDomaine" >{{DomaineEnt.domaine.domaine}}
                         </option>
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                        <option *ngFor="let p of domaines" [selected] [ngvalue]="p.idDomaine">{{p.domaine}}</option>
                     </select>
                 </div>
-                <div class="form-group" *ngIf="visible2">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
-                        <option selected="true" [value]="DomaineEnt2.domaine.idDomaine">{{DomaineEnt2.domaine.domaine}}
+                <div class="form-group" >
+                    <select class=form-control  [(ngModel)]="Domaine1.idDomaine" required="true">
+                        <option [value]="DomaineEnt1.domaine.idDomaine" >{{DomaineEnt1.domaine.domaine}}
                         </option>
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                        <option *ngFor="let p of domaines" [selected] [ngvalue]="p.idDomaine">{{p.domaine}}</option>
                     </select>
                 </div>
-                <div class="form-group" *ngIf="visible3">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
-                        <option selected="true" [value]="DomaineEnt3.domaine.idDomaine">{{DomaineEnt3.domaine.domaine}}
+                <div class="form-group" >
+                    <select class=form-control  [(ngModel)]="Domaine2.idDomaine" required="true">
+                        <option [value]="DomaineEnt2.domaine.idDomaine" >{{DomaineEnt2.domaine.domaine}}
                         </option>
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                        <option *ngFor="let p of domaines" [selected] [ngvalue]="p.idDomaine">{{p.domaine}}</option>
                     </select>
                 </div>
-                <div class="form-group" *ngIf="visible4">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
-                        <option selected="true" [value]="DomaineEnt4.domaine.idDomaine">{{DomaineEnt4.domaine.domaine}}
+                <div class="form-group" >
+                    <select class=form-control  [(ngModel)]="Domaine3.idDomaine" required="true">
+                        <option [value]="DomaineEnt3.domaine.idDomaine" >{{DomaineEnt3.domaine.domaine}}
                         </option>
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                        <option *ngFor="let p of domaines" [selected] [ngvalue]="p.idDomaine">{{p.domaine}}</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-outline-info" *ngIf="visible5" (click)="rendreNextVisible()">
-                    ajouter un secteur +</button>
+                <div class="form-group" >
+                    <select class=form-control  [(ngModel)]="Domaine4.idDomaine" required="true">
+                        <option [value]="DomaineEnt4.domaine.idDomaine" >{{DomaineEnt4.domaine.domaine}}
+                        </option>
+                        <option *ngFor="let p of domaines" [selected] [ngvalue]="p.idDomaine">{{p.domaine}}</option>
+                    </select>
+                </div>
+
 
 
 
