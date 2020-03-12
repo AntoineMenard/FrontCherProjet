@@ -21,6 +21,7 @@ export class ReceptionMessageParticulierComponent implements OnInit {
 
     this.http.get(this.myService.lienHttp + 'messages/destinataireP/' + this.idDestinataire ).subscribe(data => {
       this.messages = data;
+      this.messages.sort((a, b) => b.id - a.id);
     }, err => {
       console.log(err);
     });
