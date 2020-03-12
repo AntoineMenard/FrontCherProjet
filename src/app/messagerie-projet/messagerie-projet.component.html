@@ -1,8 +1,15 @@
 <div class="container bgWhite">
     <br>
-    <form >
-        <input type="text" placeholder="..." >
-        <button class="btn btn-primary" type="submit">Envoyer</button>
+    <form (ngSubmit)="envoiMsg()" >
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="..." name="msg" [(ngModel)]=envoiMsgtxt >
+            </div>
+            <div class="col-sm-2">
+            <button class="btn btn-primary btn-block" type="submit">Envoyer</button>    
+        </div>            
+        </div>
     </form>
     
     <table class="table table-borderless">
@@ -13,7 +20,7 @@
               {{message.date}}
             </td>     
             <td class="datemsgprojet">
-                Auteur
+                {{message.auteurP.nom}} {{message.auteurP.prenom}}
             </td>       
             <td>
                 : {{message.contenu}}
