@@ -1,48 +1,63 @@
 <div *ngIf="myService.SessionParticulier()">
-<br>
-<div class="container bgWhite">
-    <nav class="navbar navbar-light bg-light ">
-        <form class="form-inline">
-            <input class="form-control " type="text" placeholder="Nom de l'entreprise" name="choix"
-                [(ngModel)]="filtreNom">
-        </form>
-    </nav>
-    <br>
-    <div class="row">
-    
-        <div *ngFor="let e of entreprise |FiltreEntrepriseParNom:filtreNom" >
-    
-            <div class="col-sm-12">
-                <div class="container">
-    
-                    <mat-card style ="">
-                        <mat-card-header>
-                            <div mat-card-avatar> 
-                                <img  [src]="changeForm(e.photo)"  width="50px" style = "background-size: cover;"> 
-                            </div>
-                            <mat-card-title>{{e.nom}}</mat-card-title>
-                            <br>
-                            <mat-card-subtitle>mail : {{e.mail}}</mat-card-subtitle>
-                            <mat-card-subtitle>telephone : {{e.telephone}}</mat-card-subtitle>
-                            <mat-card-subtitle>adresse : {{e.adresse}}</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <br>
-                            <p>{{e.description}} </p>
-                            <br>
-                        </mat-card-content>
-                        <mat-card-subtitle *ngFor="let p of domainesEntreprise "><div *ngIf="p.domaine.idDomaine != '1' && p.entreprise.idUtilisateur == e.idUtilisateur" >{{p.domaine.domaine}}</div></mat-card-subtitle>
-                    </mat-card>
-                    <br>
-    
-                </div>
-    
+    <div class="container bgWhite">
+        <br>
+        <h2>Rechercher une entreprise parmi nos membres </h2>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3 txtgray">
+                <br>
+                <p class="text-align-middle">Recherche par nom</p>
             </div>
-    
-    
-    
+            <div class="col-sm-3">
+                <br>
+                <input class="form-control " type="text" placeholder="Nom de l'entreprise" name="choix"
+                    [(ngModel)]="filtreNom">
+            </div>
         </div>
-    
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let e of entreprise |FiltreEntrepriseParNom:filtreNom">
+
+
+                <div class="">
+                    <div class="container">
+
+                        <mat-card class="card-style">
+                            <mat-card-header>
+                                <div mat-card-avatar>
+                                    <img [src]="changeForm(e.photo)" width="50px" style="background-size: cover;">
+                                </div>
+                                <mat-card-title>{{e.nom}}</mat-card-title>
+                                <br>
+                                <mat-card-subtitle class="petit"> <span class="txtgraypetitgras">mail :</span>   {{e.mail}}</mat-card-subtitle>
+                                <mat-card-subtitle class="petit"><span class="txtgraypetitgras">telephone :</span> {{e.telephone}}</mat-card-subtitle>
+                                <mat-card-subtitle class="petit"><span class="txtgraypetitgras">adresse :</span> {{e.adresse}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <hr>
+                            <mat-card-content>
+                                <br>
+                                <p>{{e.description}} </p>
+                                <br>
+                            </mat-card-content>
+                            <hr>
+                            <mat-card-subtitle *ngFor="let p of domainesEntreprise ">
+                                <div
+                                    *ngIf="p.domaine.idDomaine != '1' && p.entreprise.idUtilisateur == e.idUtilisateur" class="petit">
+                                    {{p.domaine.domaine}}</div>
+                            </mat-card-subtitle>
+                        </mat-card>
+                        <br>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
     </div>
-</div>
-</div>

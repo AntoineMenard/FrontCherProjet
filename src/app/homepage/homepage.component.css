@@ -102,17 +102,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size:1.2rem;
   }
   
-   .visit {
-      color: white;
-      font-size: 12px;
-      background: #32333a;
-      ;
-      width: 150px;
-      padding: 6px;
-      border-radius: 10px;
-      position: fixed;
-      right: 20px;
-    }
+   
   
 
 
@@ -184,4 +174,9 @@ table.borderless td,table.borderless th, table.borderless tr{
   position: absolute;
   top: 0;
   right: 0;
+}
+
+#btn-spec{
+  background-color: #666666 !important;
+  color: aliceblue !important;
 }
