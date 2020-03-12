@@ -1,5 +1,5 @@
 <div>
-    <form #form (ngSubmit)="onUpload(commentaire.value)">
+    <form #form (ngSubmit)="onUpload(commentairefichier.value)">
 
             <div class="text-center">
                     <img [src]="imgURL" height="80" *ngIf="imgURL">
@@ -7,7 +7,7 @@
                 <br>
 
         <div class="input-group mb-3">
-            <input type="text" class="form-control text-center" placeholder="Insérer un commentaire" #commentaire>
+            <input type="text" class="form-control text-center" placeholder="Insérer un commentaire" #commentairefichier>
             <div class="input-group-append">
                 <button type="submit" class = "btn btn-block btn-primary">
                     Envoyer

@@ -28,7 +28,6 @@ import { HttpClient } from '@angular/common/http';
 import { Etape } from '../model/Etape';
 import { MatDialog } from '@angular/material/dialog';
 import { ModifEtapeComponent } from '../modif-etape/modif-etape.component';
-import { UploadFichierComponent } from '../upload-fichier/upload-fichier.component';
 
 
 const colors: any = {
@@ -214,14 +213,7 @@ export class GestionComponent implements OnInit {
     this.activeDayIsOpen = false;
   }
 
-  openUploadFichier() {
-    const mydial = this.dialog.open(UploadFichierComponent);
-    mydial.afterClosed().subscribe(result => {
-      this.ngOnInit();
-
-});
-
-}
+  
 
 
 
