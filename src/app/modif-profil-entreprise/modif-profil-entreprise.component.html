@@ -1,107 +1,125 @@
 <div *ngIf="myService.SessionEntreprise()">
-<div class="mat-dialog-content ">
+    <div class="mat-dialog-content ">
 
-    <div>
-        <p class="titremoy">Modification du profil :</p>
+        <div>
+            <p class="titremoy">Modification du profil :</p>
 
-        <form name="formentreprise" (ngSubmit)="modifEntreprise()" #forme=ngForm>
-            <div class="form-group">
-                <input type="text " class="form-control " placeholder="nom de l'entreprise" name="nomentreprise"
-                    required="true"  [(ngModel)]="entrepmodif.nom"  [value]='nomentreprise'>
-            </div>
-            <div class="form-group">
-                <input type="text " class="form-control" placeholder="adresse mail" name="mailentreprise" required="true"
-                     [(ngModel)]="entrepmodif.mail" [value]='mailentreprise'>
+            <form name="formentreprise" (ngSubmit)="modifEntreprise()" #forme=ngForm>
+                <div class="form-group">
+                    <input type="text " class="form-control " placeholder="nom de l'entreprise" name="nomentreprise"
+                        required="true" [(ngModel)]="entrepmodif.nom" [value]='nomentreprise'>
+                </div>
+                <div class="form-group">
+                    <input type="text " class="form-control" placeholder="adresse mail" name="mailentreprise"
+                        required="true" [(ngModel)]="entrepmodif.mail" [value]='mailentreprise'>
 
-            </div>
+                </div>
 
-            <textarea id="form7" class=" form-control" name="descentreprise"
-                placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs" [value]='descentreprise'
-                 [(ngModel)]="entrepmodif.description"></textarea>
+                <textarea id="form7" class=" form-control" name="descentreprise"
+                    placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs"
+                    [value]='descentreprise' [(ngModel)]="entrepmodif.description"></textarea>
 
-                <div class="form-group" *ngFor="let n of domainesEntreprise">
+
+
+                <div class="form-group">
                     <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" required="true">
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine"  >{{p.domaine}}</option> 
-                       </select >
+                        <option ng-selected="selected" [value]="DomaineEnt.domaine.idDomaine">{{DomaineEnt.domaine.domaine}}</option>
+                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
+                    </select>
                 </div>
                 <div class="form-group" *ngIf="visible1">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine" >
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true" >{{p.domaine}}</option> 
-                       </select >
+                    <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
+                        <option [value]="DomaineEnt1.domaine.idDomaine" selected>{{DomaineEnt1.domaine.domaine}}
+                        </option>
+                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                    </select>
                 </div>
                 <div class="form-group" *ngIf="visible2">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine" >
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true" >{{p.domaine}}</option> 
-                       </select >
+                    <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
+                        <option selected="true" [value]="DomaineEnt2.domaine.idDomaine">{{DomaineEnt2.domaine.domaine}}
+                        </option>
+                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                    </select>
                 </div>
                 <div class="form-group" *ngIf="visible3">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine" >
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true" >{{p.domaine}}</option> 
-                       </select >
+                    <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
+                        <option selected="true" [value]="DomaineEnt3.domaine.idDomaine">{{DomaineEnt3.domaine.domaine}}
+                        </option>
+                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                    </select>
                 </div>
                 <div class="form-group" *ngIf="visible4">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine" >
-                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true" >{{p.domaine}}</option> 
-                       </select >
+                    <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
+                        <option selected="true" [value]="DomaineEnt4.domaine.idDomaine">{{DomaineEnt4.domaine.domaine}}
+                        </option>
+                        <option *ngFor="let p of domaines" [value]="p.idDomaine" required="true">{{p.domaine}}</option>
+                    </select>
                 </div>
-                <button type="button" class="btn btn-outline-info" *ngIf="visible5" (click)="rendreNextVisible()"> ajouter un secteur +</button>
+                <button type="button" class="btn btn-outline-info" *ngIf="visible5" (click)="rendreNextVisible()">
+                    ajouter un secteur +</button>
 
 
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <input type="text " class="form-control" placeholder="siège social" name="adresseentreprise" [value]='adresseentreprise'
-                             [(ngModel)]="entrepmodif.adresse">
+
+
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <input type="text " class="form-control" placeholder="siège social" name="adresseentreprise"
+                                [value]='adresseentreprise' [(ngModel)]="entrepmodif.adresse">
+                        </div>
+
+
                     </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="code postal" name="CPentreprise"
+                                [value]='CPentreprise' [(ngModel)]="entrepmodif.codePostal">
+                        </div>
 
-
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="number" class="form-control" placeholder="code postal" name="CPentreprise" 
-                        [value]='CPentreprise' [(ngModel)]="entrepmodif.codePostal">
                     </div>
-
                 </div>
-            </div>
-            <div class="form-group">
-                <input type="text " class="form-control" placeholder="taille de l'entreprise" name="taillentreprise"
-                    [value]='taillentreprise' [(ngModel)]="entrepmodif.tailleEntreprise">
-            </div>
-            <div class="form-group">
-                <input type="text " class="form-control" placeholder="année de création" name="dateCreationentreprise"
-                    [value]='dateCreationentreprise' [(ngModel)]="entrepmodif.dateCreation">
-            </div>
-            <div class="form-group">
-                <input type="text " class="form-control" placeholder="site web" name="siteWebentreprise"
-                    [value]='siteWebentreprise' [(ngModel)]="entrepmodif.siteWeb">
-            </div>
-            <div class="form-group">
-                <input type="text " class="form-control" placeholder="téléphone" name="telentreprise" required="true"
-                    [value]='telentreprise' [(ngModel)]="entrepmodif.telephone">
-            </div>
+                <div class="form-group">
+                    <input type="text " class="form-control" placeholder="taille de l'entreprise" name="taillentreprise"
+                        [value]='taillentreprise' [(ngModel)]="entrepmodif.tailleEntreprise">
+                </div>
+                <div class="form-group">
+                    <input type="text " class="form-control" placeholder="année de création"
+                        name="dateCreationentreprise" [value]='dateCreationentreprise'
+                        [(ngModel)]="entrepmodif.dateCreation">
+                </div>
+                <div class="form-group">
+                    <input type="text " class="form-control" placeholder="site web" name="siteWebentreprise"
+                        [value]='siteWebentreprise' [(ngModel)]="entrepmodif.siteWeb">
+                </div>
+                <div class="form-group">
+                    <input type="text " class="form-control" placeholder="téléphone" name="telentreprise"
+                        required="true" [value]='telentreprise' [(ngModel)]="entrepmodif.telephone">
+                </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="mot de passe" type="password" name="mdpentreprise"
-                    required="true" [value]='mdpentreprise' [(ngModel)]="entrepmodif.mdp">
-            </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="mot de passe" type="password"
+                        name="mdpentreprise" required="true" [value]='mdpentreprise' [(ngModel)]="entrepmodif.mdp">
+                </div>
 
-            <input type="file" name="photo" [value] = 'photo' [(ngModel)]="entrepmodif.photo" (change)="onFileChanged($event)" #file>
+                <input type="file" name="photo" [value]='photo' [(ngModel)]="entrepmodif.photo"
+                    (change)="onFileChanged($event)" #file>
 
-            <br>
+                <br>
 
-            <div class="text-center">
-                <img [src]="img" height="80" *ngIf="img">
-            </div>
-            <br>
+                <div class="text-center">
+                    <img [src]="img" height="80" *ngIf="img">
+                </div>
+                <br>
 
-            <nav>
-                <button class="btn btn-block" [disabled]="!forme.form.valid" style="color:cadetblue" type="submit"> Valider les modifications</button>
-            </nav>
+                <nav>
+                    <button class="btn btn-block" [disabled]="!forme.form.valid" style="color:cadetblue" type="submit">
+                        Valider les modifications</button>
+                </nav>
 
 
-        </form>
+            </form>
+        </div>
+
     </div>
-
-</div>
 </div>

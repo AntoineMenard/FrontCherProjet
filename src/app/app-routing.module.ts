@@ -19,6 +19,7 @@ import { ModifProfilParticulierComponent } from './modif-profil-particulier/modi
 import { GestionComponent } from './gestion/gestion.component';
 import { MessagerieEntrepriseComponent } from './messagerie-entreprise/messagerie-entreprise.component';
 import { GestionProjetComponent } from './gestion-projet/gestion-projet.component';
+import { UploadFichierComponent } from './upload-fichier/upload-fichier.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'gestion', component: GestionComponent},
   {path: 'messagerie-entreprise', component: MessagerieEntrepriseComponent},
   {path: 'gestion-projet', component: GestionProjetComponent},
+  {path: 'upload-fichier', component: UploadFichierComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];

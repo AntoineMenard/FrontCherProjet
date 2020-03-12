@@ -1,0 +1,20 @@
+<div>
+    <form #form (ngSubmit)="onUpload(commentaire.value)">
+
+            <div class="text-center">
+                    <img [src]="imgURL" height="80" *ngIf="imgURL">
+                </div>
+                <br>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control text-center" placeholder="Insérer un commentaire" #commentaire>
+            <div class="input-group-append">
+                <button type="submit" class = "btn btn-block btn-primary">
+                    Envoyer
+                </button>
+            </div>
+        </div>
+        <input type="file" name="fichier" (change)="onFileChanged($event)" #file>
+        
+    </form>
+</div>

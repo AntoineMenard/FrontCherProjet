@@ -22,6 +22,10 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
   entreprise;
   particulier;
   Domaine: Domaine = new Domaine();
+  Domaine1: Domaine = new Domaine();
+  Domaine2: Domaine = new Domaine();
+  Domaine3: Domaine = new Domaine();
+  Domaine4: Domaine = new Domaine();
   Entre: Entreprise = new Entreprise();
   DomainePro: DomaineProjetPropose = new DomaineProjetPropose();
 
@@ -30,6 +34,12 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
     private http: HttpClient,
     private dialog: MatDialog,
     public myService: CherserviceService) { }
+
+    visible1 = false;
+    visible2 = false;
+    visible3 = false;
+    visible4 = false;
+    visible5 = true;
 
   ngOnInit(): void {
     this.http.get(this.myService.lienHttp + 'domaine').subscribe(data => {
@@ -90,4 +100,23 @@ export class ProposerProjetUtilisateurComponent implements OnInit {
     this.router.navigate(['/recherche-projet']);
     }, err => { console.log(err);
     });
-}}
+}
+
+rendreNextVisible() {
+  if (!this.visible1) { this.visible1 = true; } else {
+    if (!this.visible2) { this.visible2 = true; } else {
+      if (!this.visible3) { this.visible3 = true; } else {
+        if (!this.visible4) {
+          this.visible4 = true;
+          this.visible5 = false;
+        } else { }
+      }
+    }
+  }
+}
+
+gérerlessecteurs(){
+  
+}
+
+}
