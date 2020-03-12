@@ -21,6 +21,7 @@ import { MessagerieEntrepriseComponent } from './messagerie-entreprise/messageri
 import { GestionProjetComponent } from './gestion-projet/gestion-projet.component';
 import { UploadFichierComponent } from './upload-fichier/upload-fichier.component';
 import { MessagerieProjetComponent } from './messagerie-projet/messagerie-projet.component';
+import { PartageFichierComponent } from './partage-fichier/partage-fichier.component';
 
 const routes: Routes = [
   {path: 'login', component: ConnexionComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'gestion-projet', component: GestionProjetComponent},
   {path: 'messagerie-projet', component: MessagerieProjetComponent},
   {path: 'upload-fichier', component: UploadFichierComponent},
+  {path: 'partage-fichier', component: PartageFichierComponent},
 
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }
 ];

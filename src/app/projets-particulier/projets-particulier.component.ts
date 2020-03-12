@@ -19,7 +19,7 @@ export class ProjetsParticulierComponent implements OnInit {
   ngOnInit(): void {
 
     this.http.get(this.myService.lienHttp + 'participation/particulier/' + sessionStorage.getItem('idUtilisateur')
-      + '/1').subscribe(data => {
+      + '/2').subscribe(data => {
         console.log(data);
         this.projetencours = data;
       }, err => {
@@ -27,7 +27,7 @@ export class ProjetsParticulierComponent implements OnInit {
       });
 
     this.http.get(this.myService.lienHttp + 'participation/particulier/' + sessionStorage.getItem('idUtilisateur')
-      + '/2').subscribe(data => {
+      + '/1').subscribe(data => {
         console.log(data);
         this.projetpasse = data;
       }, err => {
@@ -45,7 +45,7 @@ export class ProjetsParticulierComponent implements OnInit {
   }
   goToProjet(p) {
     sessionStorage.setItem('idProjetFocus', p.idProjet);
-    this.router.navigate(['gestion']);
+    this.router.navigate(['gestion-projet']);
 
   }
 

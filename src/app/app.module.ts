@@ -49,6 +49,7 @@ import { EnvoiMessageEntrepriseComponent } from './envoi-message-entreprise/envo
 import { GestionProjetComponent } from './gestion-projet/gestion-projet.component';
 import { MessagerieProjetComponent } from './messagerie-projet/messagerie-projet.component';
 import { UploadFichierComponent } from './upload-fichier/upload-fichier.component';
+import { PartageFichierComponent } from './partage-fichier/partage-fichier.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { UploadFichierComponent } from './upload-fichier/upload-fichier.componen
     EnvoiMessageEntrepriseComponent,
     GestionProjetComponent,
     MessagerieProjetComponent,
-    UploadFichierComponent
+    UploadFichierComponent,
+    PartageFichierComponent
   ],
   imports: [
     BrowserModule,
