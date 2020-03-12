@@ -11,24 +11,30 @@
         </div>            
         </div>
     </form>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-9">
+                <table class="table table-borderless">
+            
     
-    <table class="table table-borderless">
+                    <tr *ngFor="let message of messages">
+                      <td class="datemsgprojet">
+                          {{message.date}}
+                        </td>     
+                        <td class="datemsgprojet">
+                            {{message.auteurP.nom}} {{message.auteurP.prenom}}
+                        </td>       
+                        <td>
+                            {{message.contenu}}
+                            
+                        </td>
+            
+                    </tr>
+            
+                  </table>
+            </div>
+        </div>
+
         
-
-        <tr *ngFor="let message of messages">
-          <td class="datemsgprojet">
-              {{message.date}}
-            </td>     
-            <td class="datemsgprojet">
-                {{message.auteurP.nom}} {{message.auteurP.prenom}}
-            </td>       
-            <td>
-                {{message.contenu}}
-                
-            </td>
-
-        </tr>
-
-      </table>
       <br><br><br><br><br>
 </div>

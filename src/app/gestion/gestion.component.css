@@ -19,3 +19,7 @@ label {
 .ng-invalid:not(form){
     border-left: 3px solid tomato;
 }
+.txtgray{
+    color: #999999 ;
+    font-size: 12px;
+  }

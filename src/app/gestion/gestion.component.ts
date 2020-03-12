@@ -144,8 +144,8 @@ export class GestionComponent implements OnInit {
       ...this.events,
       {
         title: etape.nom,
-        start: parseISO(etape.dateDebut),
-        end: parseISO(etape.dateFin),
+        start: parseISO(etape.dateDebut.toLocaleString()),
+        end: parseISO(etape.dateFin.toLocaleString()),
         color: colors.red,
         draggable: true,
         resizable: {
@@ -175,7 +175,7 @@ export class GestionComponent implements OnInit {
     this.events = this.events.filter(event => event !== eventToDelete);
   }
 
-  addEtapeNouveau(etape) {
+  addEtapeNouveau() {
     if (this.etapeNouveau.dateFin >= this.etapeNouveau.dateDebut) {
 
     this.http.post(this.myService.lienHttp + 'etapeProjet/', this.etapeNouveau)

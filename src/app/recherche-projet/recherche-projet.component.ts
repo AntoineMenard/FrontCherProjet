@@ -42,10 +42,11 @@ export class RechercheProjetComponent implements OnInit {
       console.log(err);
     });
 
-    console.log(typeof(this.datetest));
+
 
 
   }
+ 
   engagement(p) {
 
     this.demandeParti.particulier = this.particulier;

@@ -62,27 +62,29 @@
 
         <h3>
           Ajoutez une étape à votre projet :
-
         </h3>
+        <hr>
         <form class="form" (ngSubmit)="addEtapeNouveau()" name="formajout" #forme=ngForm>
           <div class="row">
             <div class="col-sm-3">
-              <p>&nbsp;</p>
+              <p class="txtgray">Type d'étape :</p>
               <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout" required="true">
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
-              <p>Du :</p>
+              <p class="txtgray">Date de début :</p>
               <input type="date" min="{{projet.dateDebut}}" max="{{projet.dateFin}}" class="form-control"
                 [(ngModel)]="etapeNouveau.dateDebut" name="debajout" required="true">
             </div>
             <div class="col-sm-3 form-group">
-              <p>Au :</p>
+              <p class="txtgray">Date de fin :</p>
               <input type="date" class="form-control" min="{{etapeNouveau.dateDebut}}" max="{{projet.dateFin}}"
                 [(ngModel)]="etapeNouveau.dateFin" name="finajout" required="true">
             </div>
             <div class="col-sm-2 form-group">
-              <button class="btn btn-primary btn-block" type="submit" name="submitajout" [disabled]="!forme.form.valid">Ajout</button>
+              <p class="txtgray">&nbsp;</p>
+              <button class="btn btn-primary btn-block" type="submit" name="submitajout"
+                [disabled]="!forme.form.valid">Ajout</button>
             </div>
 
           </div>
@@ -91,74 +93,66 @@
 
           </div>
         </form>
-
-      </div>
-
-      <br>
-      <br>
+        <br>
+        <hr>
 
 
+        <br>
+        <h3>
+          Ajoutez une étape à votre projet :
+
+        </h3>
+        <br>
 
 
 
-      <div class="table">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Titre</th>
-              <th>Début le :</th>
-              <th>Fin le </th>
-              <th>Supprimer</th>
+
+
+        <div class="table">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Début le :</th>
+                <th>Fin le </th>
+                <th>Supprimer</th>
+              </tr>
+            </thead>
+
+
+            <tr *ngFor="let etape of etapesAjout">
+
+              <td>
+                <p>{{etape.nom}}</p>
+              </td>
+
+              <td>
+                {{etape.dateDebut}}
+
+              </td>
+              <td>
+                {{etape.dateFin}}
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteEtape(etape)">
+                  Delete
+                </button>
+                &nbsp;
+                <button class="btn btn-success" (click)="editEtape(etape)">
+                  Edit
+                </button>
+              </td>
             </tr>
-          </thead>
 
-
-          <tr *ngFor="let etape of etapesAjout">
-
-            <td>
-              <p>{{etape.nom}}</p>
-            </td>
-
-            <td>
-              {{etape.dateDebut}}
-
-            </td>
-            <td>
-              {{etape.dateFin}}
-            </td>
-            <td>
-              <button class="btn btn-danger" (click)="deleteEtape(etape)">
-                Delete
-              </button>
-              &nbsp;
-              <button class="btn btn-success" (click)="editEtape(etape)">
-                Edit
-              </button>
-            </td>
-          </tr>
-
-        </table>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 
-  
 
-<!--
-  <form method="post" enctype="multipart/form-data">
-    <div style="color: skyblue;">
-      <label for="image_uploads">Sélectionner des images à uploader (PNG, JPG)</label>
-      <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
-    </div>
-    <div class="preview">
-      <p>Aucun fichier sélectionné pour le moment</p>
-    </div>
-    <div>
-      <button>Envoye</button>
-    </div>
-  </form>
 
-  -->
+
 
 
 </div>
