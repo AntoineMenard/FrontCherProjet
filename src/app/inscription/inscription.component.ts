@@ -18,7 +18,7 @@ import { Domaine } from '../model/domaine';
 })
 export class InscriptionComponent implements OnInit {
   domaines;
-  particulier = false;
+  particulier = true;
   entreprise = false;
   verifmailpart;
   verifmailentreprise;

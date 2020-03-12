@@ -19,8 +19,8 @@ export class ConnexionComponent implements OnInit {
   e;
   Particulier: Particulier = new Particulier();
   Entreprise: Entreprise = new Entreprise();
-  particulier = false;
-  entreprise = true;
+  particulier = true;
+  entreprise = false;
   visible = false;
 
   constructor(

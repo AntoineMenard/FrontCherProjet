@@ -6,31 +6,39 @@
 
     <div class="container bgWhite">
         <div class="row">
-            <div class="sm-col-2"></div>
+            <div class="col-sm-2"></div>
 
 
+            <div>
+    
+                <img  [src]="changeForm(e.photo)" *ngIf="photoExist(e.photo)"  width="100px" class="rounded">
+    
+            </div>
+            <div class="col-sm-9">
+                {{e.nom}}
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-primary pull-right" id="right-panel-link" (click) = "callModifProfilEntreprise()" > Modifier</button>
+
+            </div>
+            
         </div>
 
-        <div>
 
-            <img  [src]="changeForm(e.photo)" *ngIf="photoExist(e.photo)"  width="100px" class="rounded">
-
-        </div>
-
-        <div class="nom-entreprise">
-            {{e.nom}}
-            <button class="btn btn-primary pull-right" id="right-panel-link" (click) = "callModifProfilEntreprise()" > Modifier</button>
-        </div>
-        
         <br>
         <hr>
-        <p class="titremoy">Présentation de l'entreprise :</p>
+        <p class= " font-weight-bold">Présentation de l'entreprise :</p>
 
         <p placeholder="Décrivez votre entreprise dans ce cadre, vos projets et vos valeurs">{{e.description}}
         </p>
         <br>
+        <hr>
+        <br>
         <div class="row">
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <p class= " font-weight-bold">Détails :</p>
+
+            </div>
 
             <div class="col-sm-8">
                 <table class="table table-borderless borderless">
