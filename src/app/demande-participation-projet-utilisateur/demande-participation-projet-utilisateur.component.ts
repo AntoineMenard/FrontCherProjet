@@ -34,11 +34,12 @@ export class DemandeParticipationProjetUtilisateurComponent implements OnInit {
 
 }
 
-supprimerCandidature(){
+supprimerCandidature(p){
   this.http.delete(this.myService.lienHttp
-    + 'demandeParticipation/' + sessionStorage.getItem('validerProjet')).subscribe(data => {
-  this.del = data;
-  console.log(data);
+    + 'demandeParticipation/' + p.idParticipation).subscribe(data => {
+      window.location.reload();
+      p.del = data;
+      console.log(data);
 }, err => {
   console.log(err);
 
@@ -56,6 +57,7 @@ accepterCandidature(p){
     this.participation.particulier = p.particulier;  
     this.http.post(this.myService.lienHttp + 'participation/', this.participation).subscribe(data => {
     console.log(data);
+    this.supprimerCandidature(p);
   }, err => {
     console.log(err);
   });
@@ -65,12 +67,15 @@ accepterCandidature(p){
   }, err => {
     console.log(err);
   });
-  this.supprimerCandidature();
+  
 }
 
 
 
-
+changeForm(img) {
+  console.log(window.atob(img));
+  return window.atob(img);
+}
 
 
 }
