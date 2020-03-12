@@ -5,12 +5,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .active {
 
-    background-color: rgba(155, 228, 235, 0.87) !important;
+    background-color: rgba(214, 214, 214, 0.87) !important;
 }
 
 
 .body {
-  background: #000203;
+  background: rgb(34, 34, 34);
   -webkit-font-smoothing: antialiased;
   font-family: 'Varela Round', sans-serif;
   height: 100%;
@@ -39,11 +39,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   
   a:hover {
-    color: #fc3565;
+    color: rgba(209, 227, 230, 0.863);
   }
   
   h1 {
-    color: #fc3565;
+    color: rgba(209, 227, 230, 0.863);
     padding-bottom: 0px;
     margin-bottom: 1%;
   }
