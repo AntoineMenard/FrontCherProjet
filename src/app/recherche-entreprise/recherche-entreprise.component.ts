@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./recherche-entreprise.component.css']
 })
 export class RechercheEntrepriseComponent implements OnInit {
-
+  domainesEntreprise;
   entreprise;
   filtreNom;
 
@@ -17,6 +17,15 @@ export class RechercheEntrepriseComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
+
+
+    this.http.get(this.myService.lienHttp + 'domaineEntreprise').subscribe(data => {
+      this.domainesEntreprise = data;
+    }, err => {
+      console.log(err);
+    });
+
+
     this.http.get(this.myService.lienHttp + 'entreprise').subscribe(data => {
       this.entreprise = data;
     }, err => {
@@ -24,6 +33,9 @@ export class RechercheEntrepriseComponent implements OnInit {
     });
   }
 
+
+
+  
   changeForm(img) {
     console.log(window.atob(img));
     return window.atob(img);
