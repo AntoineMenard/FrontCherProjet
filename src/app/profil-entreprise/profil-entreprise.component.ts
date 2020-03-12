@@ -19,7 +19,7 @@ export class ProfilEntrepriseComponent implements OnInit {
     private http: HttpClient,
     public myService: CherserviceService,
     private dialog: MatDialog) { }
-
+  domainesEntreprise;
   entreprise;
   e: Entreprise = new Entreprise();
   id = sessionStorage.getItem('idUtilisateur');
@@ -27,6 +27,14 @@ export class ProfilEntrepriseComponent implements OnInit {
 
 
   ngOnInit(): void {
+    
+    this.http.get(this.myService.lienHttp + 'domaineEntreprise/' + this.id).subscribe(data => {
+      this.domainesEntreprise = data;
+    }, err => {
+      console.log(err);
+    });
+
+
     this.http.get(this.myService.lienHttp + 'entreprise/' + this.id, this.entreprise)
       .subscribe(data => {
         this.entreprise = data;

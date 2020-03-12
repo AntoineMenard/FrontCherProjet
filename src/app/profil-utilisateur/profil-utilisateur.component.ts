@@ -12,7 +12,7 @@ import { Particulier } from '../model/Particulier';
   styleUrls: ['./profil-utilisateur.component.css']
 })
 export class ProfilUtilisateurComponent implements OnInit {
-
+  domainesParticulier;
   particulier;
   p: Particulier = new Particulier();
 
@@ -27,6 +27,12 @@ export class ProfilUtilisateurComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.http.get(this.myService.lienHttp + 'domaineParticulier/' + sessionStorage.getItem('idUtilisateur')).subscribe(data => {
+      this.domainesParticulier = data;
+    }, err => {
+      console.log(err);
+    });
 
     this.http.get(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur'))
       .subscribe(data => {

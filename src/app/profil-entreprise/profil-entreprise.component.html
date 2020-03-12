@@ -53,7 +53,7 @@
                         </tr>
                         <tr class="my-auto">
                             <td class="font-weight-bold ombre align-middle"> Secteur </td>
-                            <td class="petittexte"></td>
+                            <td class="petittexte" *ngFor="let p of domainesEntreprise " ><div *ngIf="p.domaine.idDomaine != '1'" >{{p.domaine.domaine}}</div></td>
                         </tr>
                         <tr>
                             <td class="font-weight-bold ombre align-middle"> Taille de l'entreprise &nbsp; &nbsp; &nbsp;
