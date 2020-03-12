@@ -1,0 +1,14 @@
+.bgWhite{
+    background-color: white;
+}
+.card-style{
+    background-color: #F2F2F2 !important;
+}
+.container-ombre{
+    box-shadow: 0px 0px 2px 1px #3838383d ;
+}
+
+.txtgray{
+    color: #999999 ;
+    font-size: 14px;
+  }

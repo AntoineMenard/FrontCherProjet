@@ -47,7 +47,11 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   telentreprise;
   id = sessionStorage.getItem('idUtilisateur');
   entrepmodif;
- 
+  visible1 = false;
+  visible2 = false;
+  visible3 = false;
+  visible4 = false;
+  visible5 = true;
   photo: any;
   img: any = null;
   selectedFile: File = null;
@@ -62,6 +66,13 @@ export class ModifProfilEntrepriseComponent implements OnInit {
       this.DomaineEnt2 = this.domainesEntreprise[2];
       this.DomaineEnt3 = this.domainesEntreprise[3];
       this.DomaineEnt4 = this.domainesEntreprise[4];
+      
+      if (this.DomaineEnt1.domaine.idDomaine !== 1) { this.visible1 = true; }
+      if (this.DomaineEnt2.domaine.idDomaine !== 1) { this.visible2 = true; }
+      if (this.DomaineEnt3.domaine.idDomaine !== 1) { this.visible3 = true; }
+      if (this.DomaineEnt4.domaine.idDomaine !== 1) { this.visible4 = true; }
+      console.log(this.DomaineEnt4.domaine.idDomaine);
+
 
     }, err => {
       console.log(err);
@@ -135,6 +146,18 @@ export class ModifProfilEntrepriseComponent implements OnInit {
 
   }
 
+  rendreNextVisible() {
+    if (!this.visible1) { this.visible1 = true; } else {
+      if (!this.visible2) { this.visible2 = true; } else {
+        if (!this.visible3) { this.visible3 = true; } else {
+          if (!this.visible4) {
+          this.visible4 = true;
+            this.visible5 = false;
+          } else { this.visible5 = false; }
+        }
+      }
+    }
+  }
 
 
   gérerlessecteurs() {
