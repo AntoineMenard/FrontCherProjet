@@ -62,7 +62,7 @@ export class ModifProjetEntrepriseComponent implements OnInit {
       if (this.DomainePro1.domaine.idDomaine !== 1) { this.visible1 = true; }
       if (this.DomainePro2.domaine.idDomaine !== 1) { this.visible2 = true; }
       if (this.DomainePro3.domaine.idDomaine !== 1) { this.visible3 = true; }
-      if (this.DomainePro4.domaine.idDomaine !== 1) { this.visible4 = true; }
+      if (this.DomainePro4.domaine.idDomaine !== 1) { this.visible4 = true;  this.visible5 = false; }
       
 
 
