@@ -34,6 +34,7 @@
                                     <b>Intéressement : </b> {{p.projet.interessement}}
                                 </p>
                             </mat-card-content>
+                            <mat-card-subtitle *ngFor="let n of domainesProjet "><div *ngIf="n.domaine.idDomaine != '1' && n.projet.idProjet== p.projet.idProjet" >{{n.domaine.domaine}}</div></mat-card-subtitle>
                         </mat-card>
                         <br>
                     </div>

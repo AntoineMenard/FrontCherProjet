@@ -13,10 +13,18 @@ export class ProjetsParticulierComponent implements OnInit {
   projetencours;
   projetpasse;
   projetattente;
-
+  domainesProjet;
+  domainesProjetPropose;
   constructor(public myService: CherserviceService, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.http.get(this.myService.lienHttp + 'domaineProjet').subscribe(data => {
+      this.domainesProjet = data;
+      console.log(this.domainesProjet);
+    }, err => {
+      console.log(err);
+    });
+   
 
     this.http.get(this.myService.lienHttp + 'participation/particulier/' + sessionStorage.getItem('idUtilisateur')
       + '/2').subscribe(data => {
