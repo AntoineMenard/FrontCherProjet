@@ -22,8 +22,8 @@
 
 
                 <div class="form-group">
-                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine" required="true">
-                        <option ng-selected="selected" [value]="DomaineEnt.domaine.idDomaine">{{DomaineEnt.domaine.domaine}}</option>
+                    <select class=form-control  name="domainepart" [(ngModel)]="Domaine.idDomaine" required="true">
+                        <option  [value]="DomaineEnt.domaine.idDomaine">{{DomaineEnt.domaine.domaine}}</option>
                         <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
                     </select>
                 </div>
