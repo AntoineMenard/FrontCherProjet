@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PartageFichier } from '../model/PartageFichier';
 import { Projet } from '../model/projet';
+import { Particulier } from '../model/Particulier';
 
 @Component({
   selector: 'app-upload-fichier',
@@ -19,6 +20,8 @@ export class UploadFichierComponent implements OnInit {
   fich;
   pf: PartageFichier = new PartageFichier();
   p: Projet= new Projet();
+  parti;
+  par: Particulier = new Particulier();
 
   constructor(
     private dialogRef: MatDialogRef<UploadFichierComponent>,
@@ -28,6 +31,15 @@ export class UploadFichierComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('statut') === '1') {
+      this.http.get(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur')).subscribe (data => {
+        this.parti = data;
+        this.par = this.parti;
+        this.pf.particulier = this.par;
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 
   onFileChanged(event) {

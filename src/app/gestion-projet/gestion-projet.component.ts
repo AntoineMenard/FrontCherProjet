@@ -27,6 +27,7 @@ export class GestionProjetComponent implements OnInit {
     this.http.get(this.myService.lienHttp + 'projet/' + this.idProjet)
     .subscribe(data => {
       this.projet = data;
+      console.log(this.projet);
     }, err => {
       console.log(err);
     });
