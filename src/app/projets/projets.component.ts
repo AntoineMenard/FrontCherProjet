@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ModifProjetEntrepriseComponent } from '../modif-projet-entreprise/modif-projet-entreprise.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Projet } from '../model/projet';
 
 @Component({
   selector: 'app-projets',
@@ -15,6 +16,8 @@ export class ProjetsComponent implements OnInit {
   projetpasse;
   projetencours;
   projetavenir;
+  projet;
+  Projet: Projet = new Projet();
 
   constructor(public myService: CherserviceService, private http: HttpClient, private dialog: MatDialog, private router: Router) { }
 
@@ -22,7 +25,7 @@ export class ProjetsComponent implements OnInit {
 
     this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/0').subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.projetattente = data;
       }, err => {
         console.log(err);
@@ -30,7 +33,7 @@ export class ProjetsComponent implements OnInit {
 
     this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/1').subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.projetpasse = data;
       }, err => {
         console.log(err);
@@ -38,7 +41,7 @@ export class ProjetsComponent implements OnInit {
 
     this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/2').subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.projetencours = data;
       }, err => {
         console.log(err);
@@ -46,7 +49,7 @@ export class ProjetsComponent implements OnInit {
 
     this.http.get('http://localhost:8088/projet/entreprise/' + sessionStorage.getItem('idUtilisateur')
       + '/3').subscribe(data => {
-        console.log(data);
+       //console.log(data);
         this.projetavenir = data;
       }, err => {
         console.log(err);
@@ -76,9 +79,21 @@ export class ProjetsComponent implements OnInit {
     this.router.navigate(['gestion-projet']);
 
   }
+ 
+  lancerProjet(p) {
+    p.statut = 2;
+    //console.log(p.idProjet);
+    this.http.put<Projet>(this.myService.lienHttp + 'projet/' + p.idProjet, p).subscribe(data => {
+      console.log(p.statut);
+      window.location.reload();
+    }, err => {
+      console.log(err);
+    });
+
+  }
 
   changeForm(img) {
-    console.log(window.atob(img));
+    //console.log(window.atob(img));
     return window.atob(img);
   }
 }
