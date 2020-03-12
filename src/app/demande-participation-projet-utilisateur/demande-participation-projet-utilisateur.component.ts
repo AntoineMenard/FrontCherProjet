@@ -27,7 +27,7 @@ export class DemandeParticipationProjetUtilisateurComponent implements OnInit {
     this.http.get(this.myService.lienHttp + 'demandeParticipation/entreprise/' + sessionStorage.getItem('idUtilisateur')
     + '/' + sessionStorage.getItem('validerProjet') ).subscribe(data => {
     this.part = data;
-    console.log(data);
+    //console.log(data);
   }, err => {
     console.log(err);
   });
@@ -54,9 +54,11 @@ accepterCandidature(p){
     this.http.get(this.myService.lienHttp + 'projet/' + sessionStorage.getItem('validerProjet')).subscribe(data => {
     p.projet = data;
     this.participation.projet = p.projet;
-    this.participation.particulier = p.particulier;  
+    this.participation.projet.nbrParticipantsReel = this.participation.projet.nbrParticipantsReel+1;
+    this.participation.particulier = p.particulier; 
+    this.http.put(this.myService.lienHttp + 'projet/'+this.participation.projet.idProjet, this.participation.projet)
+    .subscribe(data => {console.log(this.participation.projet);
     this.http.post(this.myService.lienHttp + 'participation/', this.participation).subscribe(data => {
-    console.log(data);
     this.supprimerCandidature(p);
   }, err => {
     console.log(err);
@@ -67,7 +69,10 @@ accepterCandidature(p){
   }, err => {
     console.log(err);
   });
-  
+}, err => {
+  console.log(err);
+});
+
 }
 
 
