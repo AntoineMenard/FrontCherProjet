@@ -16,7 +16,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PartageFichierComponent implements OnInit {
 
-  
+
   partagefichier;
   particulier: Particulier = new Particulier();
   nom;
@@ -34,40 +34,49 @@ export class PartageFichierComponent implements OnInit {
     this.http.get(this.myService.lienHttp + 'partageFichier/projet/' + sessionStorage.getItem('idProjetFocus')).subscribe(data => {
       this.partagefichier = data;
       this.partagefichier.forEach(element => {
-        if (element.particulier === null){
+        if (element.particulier === null) {
           element.particulier = new Particulier();
           element.particulier.nom = element.projet.entreprise.nom;
           element.particulier.prenom = '';
 
         }
-        
+
       });
 
     }, err => {
       console.log(err);
     });
 
-    }
+  }
 
 
 
-openUploadFichier() {
+  openUploadFichier() {
     const mydial = this.dialog.open(UploadFichierComponent);
     mydial.afterClosed().subscribe(result => {
       this.ngOnInit();
 
-});
+    });
 
-}
+  }
 
-changeForm(fichier) {
-  //console.log(window.atob(img));
-  this.url = window.atob(fichier);
-  return this.sanitizer.bypassSecurityTrustResourceUrl(this.url) ;
-}
+  changeForm(fichier) {
+    //console.log(window.atob(img));
+    this.url = window.atob(fichier);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+  }
 
-openPdf(fichier) {
-  
-}
+  openPdf(fichier) {
+    this.url = window.atob(fichier);
+    this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+
+    const linkSource = this.url;
+    const downloadLink = document.createElement("a");
+    const fileName = "fichier";
+
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
+  }
 
 }
