@@ -5,7 +5,7 @@ export class DomaineProjetPropose {
 
     id: number;
     domaine: Domaine;
-    projetpropose: ProjetPropose;
+    projetPropose: ProjetPropose;
     constructor() {
 
     }
