@@ -6,25 +6,23 @@
         <div class="col-sm-6">
             <div class="card ">
                 <div class="card-header formhead ">
-                    <h1 class="text-center"> Proposez VOTRE projet en seulement quelques clics !!! <br>
-                        <span class="font-weight-bold">Parce que c'est VOTRE projet!</span></h1>
+                    <h1 class="text-center"> <span class="font-weight-bold">Proposez vos idées aux entreprises,</span> <br>
+                        parce que c'est aussi VOTRE projet!</h1>
                 </div>
                 <div class="card_body ">
                     <br>
                     <div class="container">
-                        <br>
-
                         <div>
                             <form (ngSubmit)="SoumettreProjet()" #forme=ngForm>
      
                                 <div class="form-group">
-                                    <p>Date début</p>
+                                    <h5>Date début</h5>
                                     <input  class="form-control" placeholder="date debut" type = "date" [(ngModel)] = "projetpropose.dateDebut"
                                         name="date-debut" required="true">
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <p>Date fin</p>
+                                    <h5>Date fin</h5>
                                     <input type="text" class="form-control" placeholder="date fin" type="date" [(ngModel)] = "projetpropose.dateFin"
                                         name="date-fin" required="true">
                                 </div>
@@ -60,7 +58,7 @@
                                             {{p.domaine}}</option>
                                     </select>
                                 </div>
-                                <button type="button" class="btn btn-outline-info" *ngIf="visible5"
+                                <button type="button" class="btn btn-outline-info btn-block" *ngIf="visible5"
                                     (click)="rendreNextVisible()">
                                     ajouter un secteur +</button>
                                 <br>
