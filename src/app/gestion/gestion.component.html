@@ -64,21 +64,21 @@
           Edit events
 
         </h3>
-        <form class="form" (ngSubmit)="addEtapeNouveau()" name="formajout">
+        <form class="form" (ngSubmit)="addEtapeNouveau()" name="formajout" #forme=ngForm>
           <div class="row">
             <div class="col-sm-3">
-              <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout">
+              <input type="text" placeholder="Titre" [(ngModel)]="etapeNouveau.nom" name="nomajout" required="true">
             </div>
             <div class="col-sm-3">
               <input type="date" min="{{projet.dateDebut}}" max="{{projet.dateFin}}" class="form-control"
-                [(ngModel)]="etapeNouveau.dateDebut" name="debajout">
+                [(ngModel)]="etapeNouveau.dateDebut" name="debajout" required="true">
             </div>
             <div class="col-sm-3 form-group">
               <input type="date" class="form-control" min="{{etapeNouveau.dateDebut}}" max="{{projet.dateFin}}"
-                [(ngModel)]="etapeNouveau.dateFin" name="finajout">
+                [(ngModel)]="etapeNouveau.dateFin" name="finajout" required="true">
             </div>
             <div class="col-sm-3 form-group">
-              <button class="btn btn-primary btn-block" type="submit" name="submitajout">Ajout</button>
+              <button class="btn btn-primary btn-block" type="submit" name="submitajout" [disabled]="!forme.form.valid">Ajout</button>
             </div>
 
           </div>
