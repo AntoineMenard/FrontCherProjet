@@ -24,6 +24,7 @@ export class GestionProjetComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.idProjet);
     this.http.get(this.myService.lienHttp + 'projet/' + this.idProjet)
     .subscribe(data => {
       this.projet = data;

@@ -20,7 +20,6 @@ export class ProjetsParticulierComponent implements OnInit {
 
     this.http.get(this.myService.lienHttp + 'participation/particulier/' + sessionStorage.getItem('idUtilisateur')
       + '/2').subscribe(data => {
-        console.log(data);
         this.projetencours = data;
       }, err => {
         console.log(err);
@@ -28,7 +27,6 @@ export class ProjetsParticulierComponent implements OnInit {
 
     this.http.get(this.myService.lienHttp + 'participation/particulier/' + sessionStorage.getItem('idUtilisateur')
       + '/1').subscribe(data => {
-        console.log(data);
         this.projetpasse = data;
       }, err => {
         console.log(err);
@@ -36,15 +34,16 @@ export class ProjetsParticulierComponent implements OnInit {
 
     this.http.get(this.myService.lienHttp + 'demandeParticipation/particulier/' + sessionStorage.getItem('idUtilisateur')
       + '/0').subscribe(data => {
-        console.log(data);
         this.projetattente = data;
       }, err => {
         console.log(err);
       });
 
+    
+
   }
   goToProjet(p) {
-    sessionStorage.setItem('idProjetFocus', p.idProjet);
+    sessionStorage.setItem('idProjetFocus', p.projet.idProjet);
     this.router.navigate(['gestion-projet']);
 
   }
