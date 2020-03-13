@@ -71,7 +71,7 @@
                     [value]='mdp' [(ngModel)]="partmodif.mdp">
             </div>
 
-            <p style="font-size: small;">Photo de profil :</p>
+            <p class="txtgray">Photo de profil</p>
 
             <input type="file" name="photo" [value] = 'photo' [(ngModel)]="partmodif.photo" (change)="onFileChanged($event)" #file>
 

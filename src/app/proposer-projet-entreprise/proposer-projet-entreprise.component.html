@@ -18,17 +18,18 @@
                                 <form (ngSubmit)="SoumettreProjet()" #forme=ngForm>
 
                                     <div class="form-group">
-                                        <h5>Date début</h5>
+                                        <p class="txtgray">Date début</p>
                                         <input class="form-control" placeholder="date debut" type="date"
                                             [(ngModel)]="Projet.dateDebut" name="date-debut" required="true">
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <h5>Date fin</h5>
+                                        <p class="txtgray">Date fin</p>
                                         <input type="text" class="form-control" placeholder="date fin" type="date"
                                             [(ngModel)]="Projet.dateFin" name="date-fin" required="true">
                                     </div>
                                     <br>
+                                    <p class="txtgray">Secteur(s) d'intérêt</p>
                                     <div class="form-group">
 
                                         <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine"
