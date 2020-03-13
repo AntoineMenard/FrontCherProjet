@@ -39,7 +39,7 @@ export class ModifProjetEntrepriseComponent implements OnInit {
   visible2 = false;
   visible3 = false;
   visible4 = false;
-  visible5 = true;
+  visible5 = false;
 
   constructor(
     private router: Router,
