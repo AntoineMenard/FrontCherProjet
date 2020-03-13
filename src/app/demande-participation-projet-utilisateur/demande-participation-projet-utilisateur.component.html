@@ -1,16 +1,19 @@
 <div *ngIf="myService.SessionEntreprise()">
-<br>
-<div class="row">
-    
-    <div *ngFor="let p of part" style="color: white;">
-    
-    <br>
-        <div class="col-sm-12">
-            <div class="container">
-                <mat-card style ="">
+    <div class="container bgWhite container-ombre">
+
+
+        <br>
+        <h2>Consultez les demandes d'engagement des utilisateurs</h2>
+        <hr>
+
+        <div class="row">
+
+            <br>
+            <div class="col-sm-6" *ngFor="let p of part">
+                <mat-card class="card-style">
                     <mat-card-header>
-                        <div mat-card-avatar> 
-                            <img  [src]="changeForm(p.particulier.photo)"  width="50px" style = "background-size: cover;"> 
+                        <div mat-card-avatar>
+                            <img [src]="changeForm(p.particulier.photo)" width="50px" style="background-size: cover;">
                         </div>
                         <mat-card-title>{{p.particulier.prenom}} {{p.particulier.nom}}</mat-card-title>
                         <mat-card-subtitle>Projet : {{p.projet.nom}}</mat-card-subtitle>
@@ -21,13 +24,24 @@
                         <br>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button class="form-control" (click) = "accepterCandidature(p)">VALIDER</button>
-                        <button mat-button class="form-control" (click) = "supprimerCandidature(p)">REFUSER</button>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button mat-button class="btn btn-block btn-primary"
+                                    (click)="accepterCandidature(p)">VALIDER</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button mat-button class="btn btn-block btn-primary"
+                                    (click)="supprimerCandidature(p)">REFUSER</button>
+                            </div>
+                        </div>
+
+
                     </mat-card-actions>
                 </mat-card>
                 <br>
             </div>
         </div>
+
     </div>
-</div>
+
 </div>

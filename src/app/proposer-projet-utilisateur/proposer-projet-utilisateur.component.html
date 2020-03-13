@@ -1,109 +1,116 @@
 <div *ngIf="myService.SessionParticulier()">
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <div class="card ">
-                <div class="card-header formhead ">
-                    <h1 class="text-center"> <span class="font-weight-bold">Proposez vos idées aux entreprises,</span> <br>
-                        parce que c'est aussi VOTRE projet!</h1>
-                </div>
-                <div class="card_body ">
-                    <br>
-                    <div class="container">
-                        <div>
-                            <form (ngSubmit)="SoumettreProjet()" #forme=ngForm>
-     
-                                <div class="form-group">
-                                    <h5>Date début</h5>
-                                    <input  class="form-control" placeholder="date debut" type = "date" [(ngModel)] = "projetpropose.dateDebut"
-                                        name="date-debut" required="true">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <h5>Date fin</h5>
-                                    <input type="text" class="form-control" placeholder="date fin" type="date" [(ngModel)] = "projetpropose.dateFin"
-                                        name="date-fin" required="true">
-                                </div>
-                                <br>
-                                <div class="form-group">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="card ">
+                    <div class="card-header formhead ">
+                        <h1 class="text-center"> <span class="font-weight-bold">Proposez vos idées aux
+                                entreprises,</span> <br>
+                            parce que c'est aussi VOTRE projet!</h1>
+                    </div>
+                    <div class="card_body ">
+                        <br>
+                        <div class="container">
+                            <div>
+                                <form (ngSubmit)="SoumettreProjet()" #forme=ngForm>
 
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine"
-                                        required="true">
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" *ngIf="visible1">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
-                                            {{p.domaine}}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" *ngIf="visible2">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
-                                            {{p.domaine}}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" *ngIf="visible3">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
-                                            {{p.domaine}}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" *ngIf="visible4">
-                                    <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
-                                        <option *ngFor="let p of domaines" [value]="p.idDomaine" >
-                                            {{p.domaine}}</option>
-                                    </select>
-                                </div>
-                                <button type="button" class="btn btn-outline-info btn-block" *ngIf="visible5"
-                                    (click)="rendreNextVisible()">
-                                    ajouter un secteur +</button>
-                                <br>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="descriptif" [(ngModel)] = "projetpropose.descriptif"
-                                        name="descriptif" required="true">
-                                </div>
-                                <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="nombre de participants souhaité" [(ngModel)] = "projetpropose.nbrParticipants"
-                                        name="nombre" required="true">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="nom du projet" [(ngModel)] = "projetpropose.nom"
-                                        name="nom" required="true">
-                                </div>
-                                <!--div class="form-group" >
+                                    <div class="form-group">
+                                        <h5>Date début</h5>
+                                        <input class="form-control" placeholder="date debut" type="date"
+                                            [(ngModel)]="projetpropose.dateDebut" name="date-debut" required="true">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <h5>Date fin</h5>
+                                        <input type="text" class="form-control" placeholder="date fin" type="date"
+                                            [(ngModel)]="projetpropose.dateFin" name="date-fin" required="true">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+
+                                        <select class=form-control name="domainepart" [(ngModel)]="Domaine.idDomaine"
+                                            required="true">
+                                            <option *ngFor="let p of domaines" [value]="p.idDomaine">{{p.domaine}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" *ngIf="visible1">
+                                        <select class=form-control name="domainepart" [(ngModel)]="Domaine1.idDomaine">
+                                            <option *ngFor="let p of domaines" [value]="p.idDomaine">
+                                                {{p.domaine}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" *ngIf="visible2">
+                                        <select class=form-control name="domainepart" [(ngModel)]="Domaine2.idDomaine">
+                                            <option *ngFor="let p of domaines" [value]="p.idDomaine">
+                                                {{p.domaine}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" *ngIf="visible3">
+                                        <select class=form-control name="domainepart" [(ngModel)]="Domaine3.idDomaine">
+                                            <option *ngFor="let p of domaines" [value]="p.idDomaine">
+                                                {{p.domaine}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" *ngIf="visible4">
+                                        <select class=form-control name="domainepart" [(ngModel)]="Domaine4.idDomaine">
+                                            <option *ngFor="let p of domaines" [value]="p.idDomaine">
+                                                {{p.domaine}}</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block" *ngIf="visible5"
+                                        (click)="rendreNextVisible()">
+                                        ajouter un secteur +</button>
+                                    <br>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="descriptif"
+                                            [(ngModel)]="projetpropose.descriptif" name="descriptif" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control"
+                                            placeholder="nombre de participants souhaité"
+                                            [(ngModel)]="projetpropose.nbrParticipants" name="nombre" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="nom du projet"
+                                            [(ngModel)]="projetpropose.nom" name="nom" required="true">
+                                    </div>
+                                    <!--div class="form-group" >
                                     <input type="text" class="form-control" placeholder="entreprise à contacter" [(ngModel)]="filtreNom"
                                         name="nom" required="true">
                                 </div-->
-                                <div class="form-group">
-                                    <select class=form-control name="domainepart" required="true" [(ngModel)]="Entre.nom" >
-                                        <option *ngFor="let p of entreprise" [value]="p.nom">{{p.nom}} </option> 
-                                      </select >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Commentaires" [(ngModel)] = "projetpropose.commentaire"
-                                        name="nom" required="true">
-                                </div>
-                                <nav>
-                                    <button [disabled]="!forme.form.valid" class="btn btn-primary btn-block" type="submit"> Soumettre le projet </button>
-                                </nav>
+                                    <div class="form-group">
+                                        <select class=form-control name="domainepart" required="true"
+                                            [(ngModel)]="Entre.nom">
+                                            <option *ngFor="let p of entreprise" [value]="p.nom">{{p.nom}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Commentaires"
+                                            [(ngModel)]="projetpropose.commentaire" name="nom" required="true">
+                                    </div>
+                                    <nav>
+                                        <button [disabled]="!forme.form.valid" class="btn btn-primary btn-block"
+                                            type="submit"
+                                            style="color:darkcyan; background-color : white; border-color:lightgrey;">
+                                            Soumettre le projet </button>
+                                    </nav>
 
 
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-3"></div>
+
+
+
+
         </div>
-        <div class="col-sm-3"></div>
-
-
-
 
     </div>
-
-</div>
 </div>

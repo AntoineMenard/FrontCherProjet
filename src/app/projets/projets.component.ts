@@ -87,6 +87,29 @@ export class ProjetsComponent implements OnInit {
   }
  
   lancerProjet(p) {
+    p.statut = 3;
+    //console.log(p.idProjet);
+    this.http.put<Projet>(this.myService.lienHttp + 'projet/' + p.idProjet, p).subscribe(data => {
+      console.log(p.statut);
+      window.location.reload();
+    }, err => {
+      console.log(err);
+    });
+
+  }
+  terminerProjet(p) {
+    p.statut = 1;
+    //console.log(p.idProjet);
+    this.http.put<Projet>(this.myService.lienHttp + 'projet/' + p.idProjet, p).subscribe(data => {
+      console.log(p.statut);
+      window.location.reload();
+    }, err => {
+      console.log(err);
+    });
+
+  }
+
+  commencerProjet(p) {
     p.statut = 2;
     //console.log(p.idProjet);
     this.http.put<Projet>(this.myService.lienHttp + 'projet/' + p.idProjet, p).subscribe(data => {
