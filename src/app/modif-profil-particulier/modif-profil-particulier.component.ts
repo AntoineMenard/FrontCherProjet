@@ -125,19 +125,14 @@ export class ModifProfilParticulierComponent implements OnInit {
   }
 
   modifParticulier() {
-    this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
-      .subscribe(data => {
-        this.DomainePar.domaine = data;
         this.http.put<Particulier>(this.myService.lienHttp + 'particulier/' + sessionStorage.getItem('idUtilisateur'), this.partmodif)
           .subscribe(data => {
             this.DomainePar.particulier = data;
-            this.gérerlessecteurs();
+
             this.dialogRefr.close();
             window.location.reload();
 
-          }, err => {
-            console.log(err);
-          });
+        
       }, err => {
         console.log(err);
       });

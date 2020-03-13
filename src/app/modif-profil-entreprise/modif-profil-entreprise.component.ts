@@ -128,21 +128,18 @@ export class ModifProfilEntrepriseComponent implements OnInit {
   }
 
   modifEntreprise() {
-    this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
-      .subscribe(data => {
-        this.DomaineEnt.domaine = data;
-        console.log(this.DomaineEnt.domaine);
+
         this.http.put<Entreprise>(this.myService.lienHttp + 'entreprise/' + this.id, this.entrepmodif)
           .subscribe(data => {
             this.DomaineEnt.entreprise = data;
             console.log(this.DomaineEnt);
-            this.gérerlessecteurs();
+
             this.dialogRefr.close();
             window.location.reload();
           }, err => {
             console.log(err);
           });
-      }, err => { console.log(err); });
+
 
   }
 

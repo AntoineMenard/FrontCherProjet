@@ -108,10 +108,7 @@ export class ModifProjetEntrepriseComponent implements OnInit {
 
   modifProjet() {
 
-    this.http.get<Domaine>(this.myService.lienHttp + 'domaine/' + this.Domaine.idDomaine)
-      .subscribe(data => {
-        this.DomainePro.domaine = data;
-        console.log(this.DomainePro.domaine);
+
 
         this.http.put<Projet>(this.myService.lienHttp + 'projet/' + this.idProjet, this.projetmodif)
           .subscribe(data => {
@@ -120,13 +117,13 @@ export class ModifProjetEntrepriseComponent implements OnInit {
             console.log(this.DomainePro);
             console.log(this.projetmodif.idProjet);
 
-            this.gérerlessecteurs();
+
             this.dialogRefr.close();
             window.location.reload();
 
           }, err => { console.log(err); });
 
-      }, err => { console.log(err); });
+
 
 
 
