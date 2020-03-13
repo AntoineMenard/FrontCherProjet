@@ -19,7 +19,7 @@ export class ConnexionComponent implements OnInit {
   e;
   Particulier: Particulier = new Particulier();
   Entreprise: Entreprise = new Entreprise();
-  particulier = true;
+  particulier = false;
   entreprise = false;
   visible = false;
 
@@ -79,6 +79,7 @@ export class ConnexionComponent implements OnInit {
     visibleParticulier() {
       if (this.particulier) {
         this.particulier = false;
+
       } else {
         this.particulier = true;
         this.entreprise = true;
