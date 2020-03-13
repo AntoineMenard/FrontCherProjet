@@ -102,6 +102,8 @@
                         name="mdpentreprise" required="true" [value]='mdpentreprise' [(ngModel)]="entrepmodif.mdp">
                 </div>
 
+                <p style="font-size: small;">Logo entreprise :</p>
+
                 <input type="file" name="photo" [value]='photo' [(ngModel)]="entrepmodif.photo"
                     (change)="onFileChanged($event)" #file>
 
