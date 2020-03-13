@@ -83,7 +83,7 @@
             </div>
             <div class="col-sm-2 form-group">
               <p class="txtgray">&nbsp;</p>
-              <button class="btn btn-primary btn-block" type="submit" name="submitajout"
+              <button class="btn btn-primary btn-block" type="submit" style="color:darkcyan; background-color : white; border-color:lightgrey;" name="submitajout"
                 [disabled]="!forme.form.valid">Ajout</button>
             </div>
 
@@ -115,7 +115,7 @@
                 <th>Titre</th>
                 <th>Début le :</th>
                 <th>Fin le </th>
-                <th>Supprimer</th>
+                <th>Modifications</th>
               </tr>
             </thead>
 
@@ -135,11 +135,11 @@
               </td>
               <td>
                 <button class="btn btn-danger" (click)="deleteEtape(etape)">
-                  Delete
+                  Supprimer
                 </button>
                 &nbsp;
                 <button class="btn btn-success" (click)="editEtape(etape)">
-                  Edit
+                  Modifier
                 </button>
               </td>
             </tr>
